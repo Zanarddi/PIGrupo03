@@ -90,8 +90,8 @@ public class TelaLogin extends TelaLoginPadrao {
 			public void actionPerformed(ActionEvent e) {
 
 				if (validarCampos()) {
-					controle.Main.iniciarFramePrincipal(tfUsuario.getText(), tfSenha.getText());
 					//aqui deve-se adicionar uma condição para a senha (CRUD)
+					controle.Main.iniciarFramePrincipal(tfUsuario.getText(), tfSenha.getText());
 				} else {
 					lbvalidaLogin.setForeground(Color.RED);
 					lbvalidaLogin.setText("Campos inválidos");

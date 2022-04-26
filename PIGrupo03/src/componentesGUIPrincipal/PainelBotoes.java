@@ -43,11 +43,6 @@ public class PainelBotoes extends JPanel {
 			add(btConfiguracao);
 
 			// adiciona os botões ao buttongroup
-			bgPainel.add(btEstudar);
-			bgPainel.add(btRevisar);
-			bgPainel.add(btJogar);
-			bgPainel.add(btProgresso);
-			bgPainel.add(btConfiguracao);
 			adicionarBtGroup(bgPainel, btEstudar, btRevisar, btJogar, btProgresso, btConfiguracao);
 		}
 	}
