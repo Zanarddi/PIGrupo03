@@ -1,4 +1,4 @@
-package componentesGUI;
+package componentesGUILogin;
 
 import java.awt.Color;
 import java.awt.Dimension;

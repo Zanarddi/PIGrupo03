@@ -1,4 +1,4 @@
-package componentesGUI;
+package componentesGUILogin;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;

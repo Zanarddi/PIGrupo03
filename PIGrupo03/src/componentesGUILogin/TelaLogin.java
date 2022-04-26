@@ -1,4 +1,4 @@
-package componentesGUI;
+package componentesGUILogin;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -14,8 +14,9 @@ public class TelaLogin extends TelaLoginPadrao {
 
 	JTextField tfUsuario = new JTextField();
 
-	JPasswordField jpfSenha = new JPasswordField();
+	JTextField tfSenha = new JTextField();
 
+	JLabel lbvalidaLogin = new JLabel("");
 	JLabel lbLogin = new JLabel("Login");
 	JLabel lbUsuario = new JLabel("Usuário");
 	JLabel lbSenha = new JLabel("Senha");
@@ -78,10 +79,43 @@ public class TelaLogin extends TelaLoginPadrao {
 			public void mouseExited(MouseEvent e) {
 			}
 		});
+
+		btLogin.addActionListener(new ActionListener() {
+
+			/**
+			 * ao clicar no botão de logar, verifica se os campos estão preenchidos, caso
+			 * não estejam, emite um aviso em forma de label para o usuario
+			 */
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				if (validarCampos()) {
+					controle.Main.iniciarFramePrincipal(tfUsuario.getText(), tfSenha.getText());
+					//aqui deve-se adicionar uma condição para a senha (CRUD)
+				} else {
+					lbvalidaLogin.setForeground(Color.RED);
+					lbvalidaLogin.setText("Campos inválidos");
+				}
+			}
+		});
 	}
 
 	/**
-	 * metodo que adiciona e organiza os componentes no painel de componentes
+	 * verifica se os campos da tela de login foram preenchidos
+	 * 
+	 * @return - true para preenchimento correto e false para preenchimento
+	 *         incorreto
+	 */
+	private boolean validarCampos() {
+		if (!(tfUsuario.getText().isBlank()) && !(tfSenha.getText().isBlank())) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	/**
+	 * método que adiciona e organiza os componentes no painel de componentes
 	 */
 	private void setComponents() {
 		painelComponentes.setLayout(new BoxLayout(painelComponentes, BoxLayout.Y_AXIS));
@@ -107,13 +141,13 @@ public class TelaLogin extends TelaLoginPadrao {
 		painelComponentes.add(lbSenha);
 		lbSenha.setFont(new Font(Config.FONTE, 0, 12));
 
-		painelComponentes.add(jpfSenha);
-		jpfSenha.setAlignmentX(Component.LEFT_ALIGNMENT); // corrige o alinhamento da caixa de texto
-		jpfSenha.setMinimumSize(new Dimension(195, 22));
-		jpfSenha.setMaximumSize(new Dimension(195, 22));
-		jpfSenha.setPreferredSize(new Dimension(195, 22));
-		jpfSenha.setBackground(Config.COR_BACKGROUND);
-		jpfSenha.setBorder(javax.swing.BorderFactory.createEmptyBorder()); // retira a borda do text field
+		painelComponentes.add(tfSenha);
+		tfSenha.setAlignmentX(Component.LEFT_ALIGNMENT); // corrige o alinhamento da caixa de texto
+		tfSenha.setMinimumSize(new Dimension(195, 22));
+		tfSenha.setMaximumSize(new Dimension(195, 22));
+		tfSenha.setPreferredSize(new Dimension(195, 22));
+		tfSenha.setBackground(Config.COR_BACKGROUND);
+		tfSenha.setBorder(javax.swing.BorderFactory.createEmptyBorder()); // retira a borda do text field
 
 		painelComponentes.add(Box.createVerticalGlue());
 
@@ -123,8 +157,11 @@ public class TelaLogin extends TelaLoginPadrao {
 		btLogin.setPreferredSize(new Dimension(195, 25));
 		btLogin.setFocusPainted(false);
 
+		painelComponentes.add(lbvalidaLogin);
+		lbSenha.setFont(new Font(Config.FONTE, 0, 12));
+
 		painelComponentes.add(Box.createVerticalGlue());
-		
+
 		painelComponentes.add(lbRecSenha);
 		lbRecSenha.setFont(new Font(Config.FONTE, 0, 12));
 		lbRecSenha.setForeground(Config.COR_FONTE_BOTAO_LABEL);

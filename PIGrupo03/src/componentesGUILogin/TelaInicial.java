@@ -1,4 +1,4 @@
-package componentesGUI;
+package componentesGUILogin;
 
 import java.awt.CardLayout;
 
@@ -20,7 +20,7 @@ public class TelaInicial extends JFrame {
 		setBounds(0, 0, 1016, 639); 	// valores não "fechados" pois a frame nao acomoda todo o painel
 		setLocationRelativeTo(null); 	// faz a frame inicar no centro da tela
 		setResizable(false);
-		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 
 		painelPai = new JPanel();
 		painelPai.setLayout(new CardLayout());
@@ -33,13 +33,5 @@ public class TelaInicial extends JFrame {
 		painelPai.add(telaLogin, "Login");
 		painelPai.add(telaRegistrar, "Registrar");
 		painelPai.add(telaRecSenha, "Recuperar");
-		
-
-	}
-
-	public static void main(String[] args) {
-
-		TelaInicial telaInicial = new TelaInicial();
-		telaInicial.setVisible(true);
 	}
 }
