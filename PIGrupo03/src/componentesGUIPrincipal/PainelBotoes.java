@@ -7,6 +7,8 @@ import javax.swing.ButtonGroup;
 import javax.swing.JPanel;
 
 import controle.Controles;
+import controle.Main;
+import crud.ValidaAdm;
 
 public class PainelBotoes extends JPanel {
 
@@ -28,7 +30,7 @@ public class PainelBotoes extends JPanel {
 	}
 
 	private void setBotoes() {
-		if (Controles.validaAdministrador(TelaPrincipal.getUsuario(), TelaPrincipal.getSenha())) {
+		if (crud.ValidaAdm.validaAdministrador(Main.login)) {
 
 		} else {
 			add(Box.createVerticalStrut(5));
@@ -49,7 +51,8 @@ public class PainelBotoes extends JPanel {
 
 	/**
 	 * Método que adiciona uma quantidade variavel de botoes a um button group
-	 * @param bg - button group
+	 * 
+	 * @param bg     - button group
 	 * @param botoes - botoes a serem adicionados
 	 */
 	public static void adicionarBtGroup(ButtonGroup bg, BotaoPadraoPainel... botoes) {

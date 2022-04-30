@@ -8,6 +8,8 @@ import java.awt.event.MouseListener;
 
 import javax.swing.*;
 
+import modelo.Login;
+
 public class TelaLogin extends TelaLoginPadrao {
 
 	BotaoPadrao btLogin = new BotaoPadrao("Login", 18);
@@ -90,8 +92,14 @@ public class TelaLogin extends TelaLoginPadrao {
 			public void actionPerformed(ActionEvent e) {
 
 				if (validarCampos()) {
-					//aqui deve-se adicionar uma condição para a senha (CRUD)
-					controle.Main.iniciarFramePrincipal(tfUsuario.getText(), tfSenha.getText());
+					// aqui deve-se adicionar uma condição para a senha (CRUD)
+					if (crud.UsaLogin.validarLogin(tfUsuario.getText(), tfSenha.getText())) {
+
+						Login login = new Login(tfUsuario.getText(), tfSenha.getText());
+						controle.Main.login = login;
+						controle.Main.iniciarFramePrincipal();
+
+					}
 				} else {
 					lbvalidaLogin.setForeground(Color.RED);
 					lbvalidaLogin.setText("Campos inválidos");

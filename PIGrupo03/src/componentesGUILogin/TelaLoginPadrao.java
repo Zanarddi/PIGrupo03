@@ -60,4 +60,5 @@ public class TelaLoginPadrao extends JPanel {
 		painelEscuro.add(painelBranco);
 		painelEscuro.add(Box.createVerticalGlue());
 	}
+	
 }

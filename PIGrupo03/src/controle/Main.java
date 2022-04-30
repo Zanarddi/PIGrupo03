@@ -2,12 +2,15 @@ package controle;
 
 import componentesGUILogin.TelaInicial;
 import componentesGUIPrincipal.TelaPrincipal;
+import modelo.Login;
 
 public class Main {
 
 	// duas principais frames do projeto
 	static TelaInicial telaInicial;
 	static TelaPrincipal telaPrincipal;
+	
+	public static Login login;
 
 	public static void main(String[] args) {
 		iniciarFrameLogin();
@@ -32,8 +35,8 @@ public class Main {
 	 * @param usuario - usuario validado
 	 * @param senha - senha validada
 	 */
-	public static void iniciarFramePrincipal(String usuario, String senha) {
-		telaPrincipal = new TelaPrincipal(usuario, senha);
+	public static void iniciarFramePrincipal() {
+		telaPrincipal = new TelaPrincipal(login);
 		telaPrincipal.setVisible(true);
 		if (telaInicial != null)
 			telaInicial.dispose();

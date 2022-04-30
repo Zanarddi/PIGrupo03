@@ -1,9 +1,9 @@
-package controle;
+package crud;
 
 import modelo.Login;
 
-public class Controles {
-	
+public class ValidaAdm {
+
 	/**
 	 * método que verifica se o usuário é um administrador
 	 * @param usuario - nome do usuario
@@ -13,5 +13,4 @@ public class Controles {
 	public static boolean validaAdministrador(Login l) {
 		return false;
 	}
-
 }

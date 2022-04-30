@@ -5,17 +5,13 @@ import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
-public class TelaPrincipal extends JFrame {
+import modelo.Login;
 
-	private static String usuario;
-	private static String senha;
+public class TelaPrincipal extends JFrame {
 	
 	PainelBotoes painelBotoes = new PainelBotoes();
 	
-	public TelaPrincipal(String usuario, String senha) {
-		
-		setUsuario(usuario);
-		setSenha(senha);
+	public TelaPrincipal(Login l) {
 		
 		//configurações da JFrame
 		setTitle("PI Grupo 03");
@@ -29,21 +25,5 @@ public class TelaPrincipal extends JFrame {
 		add(painelBotoes, BorderLayout.WEST);
 		painelBotoes.setVisible(true);
 		
-	}
-
-	public static String getSenha() {
-		return senha;
-	}
-
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
-
-	public static String getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(String usuario) {
-		this.usuario = usuario;
 	}
 }
