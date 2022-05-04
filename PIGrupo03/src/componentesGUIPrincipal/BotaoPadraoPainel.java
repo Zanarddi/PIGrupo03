@@ -3,6 +3,7 @@ package componentesGUIPrincipal;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Insets;
 
 import javax.swing.JToggleButton;
 
@@ -11,6 +12,9 @@ import componentesGUILogin.Config;
 
 public class BotaoPadraoPainel extends JToggleButton {
 
+	// Inset para mudar margem dos botões, usado para ajustar tamanho dos textos
+	static final Insets MARGEM_BOTAO = new Insets(2, 0, 2, 0);
+	
 	String texto;
 	int tamFonte;
 	
@@ -32,6 +36,8 @@ public class BotaoPadraoPainel extends JToggleButton {
 		setForeground(Color.WHITE);
 		setAlignmentX(CENTER_ALIGNMENT);
 		setFocusPainted(false);
+		setMargin(MARGEM_BOTAO);
+		System.out.println(this.getMargin());
 	}
 	
 	//sobrescreve clase que altera a cor do botão quando pressionado

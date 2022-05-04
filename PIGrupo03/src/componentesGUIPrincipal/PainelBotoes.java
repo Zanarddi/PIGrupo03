@@ -14,11 +14,11 @@ public class PainelBotoes extends JPanel {
 
 	ButtonGroup bgPainel = new ButtonGroup();
 
-	BotaoPadraoPainel btEstudar = new BotaoPadraoPainel("Estudar", 24);
-	BotaoPadraoPainel btRevisar = new BotaoPadraoPainel("Revisar", 24);
-	BotaoPadraoPainel btJogar = new BotaoPadraoPainel("Jogar", 24);
+	BotaoPadraoPainel btEstudar = new BotaoPadraoPainel("Estudar", 22);
+	BotaoPadraoPainel btRevisar = new BotaoPadraoPainel("Revisar", 22);
+	BotaoPadraoPainel btJogar = new BotaoPadraoPainel("Jogar", 22);
 	BotaoPadraoPainel btProgresso = new BotaoPadraoPainel("Progresso", 22);
-	BotaoPadraoPainel btConfiguracao = new BotaoPadraoPainel("Configuração", 18);
+	BotaoPadraoPainel btConfiguracao = new BotaoPadraoPainel("Configuração", 22);
 
 	PainelBotoes() {
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
