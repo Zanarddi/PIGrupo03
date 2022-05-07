@@ -11,6 +11,7 @@ public class Main {
 	static TelaPrincipal telaPrincipal;
 	
 	public static Login login;
+	public static int limiteTopicosEstudo;
 
 	public static void main(String[] args) {
 		iniciarFrameLogin();

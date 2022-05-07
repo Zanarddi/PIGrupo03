@@ -96,7 +96,10 @@ public class TelaLogin extends TelaLoginPadrao {
 					if (crud.UsaLogin.validarLogin(tfUsuario.getText(), tfSenha.getText())) {
 
 						Login login = new Login(tfUsuario.getText(), tfSenha.getText());
+						//atribui um objeto Login para a variavel login em main
 						controle.Main.login = login;
+						//atribui um valor consultado de limite de estudo a variavel de limite no programa
+						controle.Main.limiteTopicosEstudo = crud.UsaLogin.buscaLimiteEstudo(login);
 						controle.Main.iniciarFramePrincipal();
 
 					}
