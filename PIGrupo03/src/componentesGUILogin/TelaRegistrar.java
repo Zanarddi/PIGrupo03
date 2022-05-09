@@ -6,6 +6,12 @@ import java.awt.event.MouseListener;
 
 import javax.swing.*;
 
+/**
+ * Tela utilizada para o registro de novos usuários.
+ * 
+ * @author Gustavo Zanardi
+ *
+ */
 public class TelaRegistrar extends TelaLoginPadrao {
 
 	BotaoPadrao btRegistrar = new BotaoPadrao("Registrar", 18);
@@ -26,22 +32,26 @@ public class TelaRegistrar extends TelaLoginPadrao {
 	public TelaRegistrar() {
 		super(Config.DIMENSAO_REGISTRAR);
 		setComponents();
-		
+
 		lbLogin2.addMouseListener(new MouseListener() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				CardLayout cardLayout = (CardLayout) TelaInicial.painelPai.getLayout();
 				cardLayout.show(TelaInicial.painelPai, "Login");
 			}
+
 			@Override
-			public void mouseReleased(MouseEvent e) {	
+			public void mouseReleased(MouseEvent e) {
 			}
+
 			@Override
-			public void mousePressed(MouseEvent e) {	
+			public void mousePressed(MouseEvent e) {
 			}
+
 			@Override
-			public void mouseExited(MouseEvent e) {	
+			public void mouseExited(MouseEvent e) {
 			}
+
 			@Override
 			public void mouseEntered(MouseEvent e) {
 			}
@@ -50,24 +60,24 @@ public class TelaRegistrar extends TelaLoginPadrao {
 
 	private void setComponents() {
 		painelComponentes.setLayout(new BoxLayout(painelComponentes, BoxLayout.Y_AXIS));
-		
+
 		painelComponentes.add(Box.createVerticalGlue());
-		
+
 		painelComponentes.add(lbRegistrar);
 		lbRegistrar.setFont(new Font(Config.FONTE, 0, 24));
-		
+
 		painelComponentes.add(Box.createVerticalGlue());
-		
+
 		painelComponentes.add(lbEmail);
 		lbEmail.setFont(new Font(Config.FONTE, 0, 12));
-		
+
 		painelComponentes.add(tfEmail);
 		tfEmail.setAlignmentX(Component.LEFT_ALIGNMENT); // corrige o alinhamento da caixa de texto
 		tfEmail.setMinimumSize(new Dimension(195, 22));
 		tfEmail.setMaximumSize(new Dimension(195, 22));
 		tfEmail.setPreferredSize(new Dimension(195, 22));
 		tfEmail.setBackground(Config.COR_BACKGROUND);
-		tfEmail.setBorder(javax.swing.BorderFactory.createEmptyBorder());	//retira a borda do text field
+		tfEmail.setBorder(javax.swing.BorderFactory.createEmptyBorder()); // retira a borda do text field
 
 		painelComponentes.add(lbUsuario);
 		lbUsuario.setFont(new Font(Config.FONTE, 0, 12));
@@ -78,7 +88,7 @@ public class TelaRegistrar extends TelaLoginPadrao {
 		tfUsuario.setMaximumSize(new Dimension(195, 22));
 		tfUsuario.setPreferredSize(new Dimension(195, 22));
 		tfUsuario.setBackground(Config.COR_BACKGROUND);
-		tfUsuario.setBorder(javax.swing.BorderFactory.createEmptyBorder());	//retira a borda do text field
+		tfUsuario.setBorder(javax.swing.BorderFactory.createEmptyBorder()); // retira a borda do text field
 
 		painelComponentes.add(lbSenha);
 		lbSenha.setFont(new Font(Config.FONTE, 0, 12));
@@ -89,7 +99,7 @@ public class TelaRegistrar extends TelaLoginPadrao {
 		tfSenha.setMaximumSize(new Dimension(195, 22));
 		tfSenha.setPreferredSize(new Dimension(195, 22));
 		tfSenha.setBackground(Config.COR_BACKGROUND);
-		tfSenha.setBorder(javax.swing.BorderFactory.createEmptyBorder());	//retira a borda do text field
+		tfSenha.setBorder(javax.swing.BorderFactory.createEmptyBorder()); // retira a borda do text field
 
 		painelComponentes.add(lbRepSenha);
 		lbRepSenha.setFont(new Font(Config.FONTE, 0, 12));
@@ -100,18 +110,18 @@ public class TelaRegistrar extends TelaLoginPadrao {
 		tfRepSenha.setMaximumSize(new Dimension(195, 22));
 		tfRepSenha.setPreferredSize(new Dimension(195, 22));
 		tfRepSenha.setBackground(Config.COR_BACKGROUND);
-		tfRepSenha.setBorder(javax.swing.BorderFactory.createEmptyBorder());	//retira a borda do text field
-		
+		tfRepSenha.setBorder(javax.swing.BorderFactory.createEmptyBorder()); // retira a borda do text field
+
 		painelComponentes.add(Box.createVerticalGlue());
-		
+
 		painelComponentes.add(btRegistrar);
 		btRegistrar.setMinimumSize(new Dimension(195, 25));
 		btRegistrar.setMaximumSize(new Dimension(195, 25));
 		btRegistrar.setPreferredSize(new Dimension(195, 25));
 		btRegistrar.setFocusPainted(false);
-		
+
 		painelComponentes.add(Box.createVerticalGlue());
-		
+
 		painelComponentes.add(lbLogin1);
 		lbLogin1.setFont(new Font(Config.FONTE, 0, 12));
 
@@ -119,7 +129,7 @@ public class TelaRegistrar extends TelaLoginPadrao {
 		lbLogin2.setFont(new Font(Config.FONTE, 0, 12));
 		lbLogin2.setForeground(Config.COR_FONTE_BOTAO_LABEL);
 		lbLogin2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		
+
 		painelComponentes.add(Box.createVerticalGlue());
 	}
 

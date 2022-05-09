@@ -9,17 +9,24 @@ import javax.swing.JToggleButton;
 
 import componentesGUILogin.Config;
 
-
+/**
+ * Botão padrão utilizado para popular o painel lateral de navegação entre telas
+ * do programa principal
+ * 
+ * @author Gustavo Zanardi
+ *
+ */
 public class BotaoPadraoPainel extends JToggleButton {
 
 	// Inset para mudar margem dos botões, usado para ajustar tamanho dos textos
 	static final Insets MARGEM_BOTAO = new Insets(2, 0, 2, 0);
-	
+
 	String texto;
 	int tamFonte;
-	
+
 	/**
 	 * Cria um botão para ser adicionado no painel da tela principal
+	 * 
 	 * @param texto
 	 * @param tamFonte
 	 */
@@ -39,19 +46,20 @@ public class BotaoPadraoPainel extends JToggleButton {
 		setMargin(MARGEM_BOTAO);
 		System.out.println(this.getMargin());
 	}
-	
-	//sobrescreve clase que altera a cor do botão quando pressionado
+
+	// sobrescreve clase que altera a cor do botão quando pressionado
 	@Override
 	public void paintComponent(Graphics g) {
-	    super.paintComponent(g);
-	    if (this.isSelected()) {
-		    int w = getWidth();
-		    int h = getHeight();
-		    g.setFont(new Font(Config.FONTE, Font.BOLD, tamFonte));
-		    g.setColor(Config.COR_BOTAO_PRESSIONADO); // selected color
-		    g.fillRect(0, 0, w, h);
-		    g.setColor(Color.WHITE); // selected foreground color
-		    g.drawString(texto, (w - g.getFontMetrics().stringWidth(texto))/2 + 1, (h + g.getFontMetrics().getAscent())/2 - 1);
+		super.paintComponent(g);
+		if (this.isSelected()) {
+			int w = getWidth();
+			int h = getHeight();
+			g.setFont(new Font(Config.FONTE, Font.BOLD, tamFonte));
+			g.setColor(Config.COR_BOTAO_PRESSIONADO); // selected color
+			g.fillRect(0, 0, w, h);
+			g.setColor(Color.WHITE); // selected foreground color
+			g.drawString(texto, (w - g.getFontMetrics().stringWidth(texto)) / 2 + 1,
+					(h + g.getFontMetrics().getAscent()) / 2 - 1);
 		}
 	}
 }

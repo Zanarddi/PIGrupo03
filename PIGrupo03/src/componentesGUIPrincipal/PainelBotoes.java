@@ -6,10 +6,14 @@ import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.JPanel;
 
-import controle.Controles;
 import controle.Main;
-import crud.ValidaAdm;
 
+/**
+ * Painel de navegação entre telas que utiliza de botões do tipo ToggleButton
+ * 
+ * @author Gustavo Zanardi
+ *
+ */
 public class PainelBotoes extends JPanel {
 
 	ButtonGroup bgPainel = new ButtonGroup();
@@ -30,7 +34,7 @@ public class PainelBotoes extends JPanel {
 	}
 
 	private void setBotoes() {
-		if (crud.ValidaAdm.validaAdministrador(Main.login)) {
+		if (crud.LoginDAO.validaAdministrador(Main.login)) {
 
 		} else {
 			add(Box.createVerticalStrut(5));
