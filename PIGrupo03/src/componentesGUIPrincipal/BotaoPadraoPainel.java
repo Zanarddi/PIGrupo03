@@ -44,7 +44,6 @@ public class BotaoPadraoPainel extends JToggleButton {
 		setAlignmentX(CENTER_ALIGNMENT);
 		setFocusPainted(false);
 		setMargin(MARGEM_BOTAO);
-		System.out.println(this.getMargin());
 	}
 
 	// sobrescreve clase que altera a cor do botão quando pressionado
