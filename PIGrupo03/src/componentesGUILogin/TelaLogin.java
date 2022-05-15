@@ -10,6 +10,13 @@ import javax.swing.*;
 
 import modelo.Login;
 
+/**
+ * Tela de login, com campos para a realização do login. Permite a navegação
+ * entre as telas de registro e recuperação de senha
+ * 
+ * @author Gustavo Zanardi
+ *
+ */
 public class TelaLogin extends TelaLoginPadrao {
 
 	BotaoPadrao btLogin = new BotaoPadrao("Login", 18);
@@ -93,13 +100,14 @@ public class TelaLogin extends TelaLoginPadrao {
 
 				if (validarCampos()) {
 					// aqui deve-se adicionar uma condição para a senha (CRUD)
-					if (crud.UsaLogin.validarLogin(tfUsuario.getText(), tfSenha.getText())) {
+					if (crud.LoginDAO.validarLogin(tfUsuario.getText(), tfSenha.getText())) {
 
 						Login login = new Login(tfUsuario.getText(), tfSenha.getText());
-						//atribui um objeto Login para a variavel login em main
+						// atribui um objeto Login para a variavel login em main
 						controle.Main.login = login;
-						//atribui um valor consultado de limite de estudo a variavel de limite no programa
-						controle.Main.limiteTopicosEstudo = crud.UsaLogin.buscaLimiteEstudo(login);
+						// atribui um valor consultado de limite de estudo a variavel de limite no
+						// programa
+						controle.Main.limiteTopicosEstudo = crud.LoginDAO.buscaLimiteEstudo(login);
 						controle.Main.iniciarFramePrincipal();
 
 					}

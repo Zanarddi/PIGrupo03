@@ -19,6 +19,7 @@ public class Main {
 
 	
 	
+	
 	/**
 	 * Método que inicia a frame de login (inicial), e fecha a tela principal caso
 	 * ela esteja aberta

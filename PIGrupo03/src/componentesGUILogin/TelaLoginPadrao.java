@@ -8,6 +8,12 @@ import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
+/**
+ * Tela usada como base para a criação das relacionadas ao login
+ * 
+ * @author Gustavo Zanardi
+ *
+ */
 public class TelaLoginPadrao extends JPanel {
 
 	int largura, altura;
@@ -26,7 +32,7 @@ public class TelaLoginPadrao extends JPanel {
 	public TelaLoginPadrao(Dimension dimPainelBranco) {
 		setBounds(0, 0, 1000, 600);
 		setLayout(new GridLayout(1, 2));
-		
+
 		// "prepara os paineis antes de adiciona-los à frame
 		setPanels(dimPainelBranco);
 
@@ -48,17 +54,17 @@ public class TelaLoginPadrao extends JPanel {
 		painelBranco.setMaximumSize(dim);
 		painelBranco.setMinimumSize(dim);
 		painelBranco.setPreferredSize(dim);
-		
+
 		// organiza o painel branco, colocando o painel com os componentes ao centro
 		painelBranco.setLayout(new BoxLayout(painelBranco, BoxLayout.X_AXIS));
 		painelBranco.add(Box.createHorizontalGlue());
 		painelBranco.add(painelComponentes);
 		painelComponentes.setBackground(Color.WHITE);
 		painelBranco.add(Box.createHorizontalGlue());
-		
+
 		painelEscuro.add(Box.createVerticalGlue());
 		painelEscuro.add(painelBranco);
 		painelEscuro.add(Box.createVerticalGlue());
 	}
-	
+
 }
