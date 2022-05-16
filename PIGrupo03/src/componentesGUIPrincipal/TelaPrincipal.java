@@ -1,8 +1,10 @@
 package componentesGUIPrincipal;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
 import modelo.Login;
@@ -16,7 +18,9 @@ import modelo.Login;
  */
 public class TelaPrincipal extends JFrame {
 
-	PainelBotoes painelBotoes = new PainelBotoes();
+	PainelBotoes painelBotoes;
+	static TelaBemVindo telaBemVindo;
+	JPanel painelPrincipal;
 
 	public TelaPrincipal(Login l) {
 
@@ -29,8 +33,18 @@ public class TelaPrincipal extends JFrame {
 
 		setLayout(new BorderLayout());
 
+		painelBotoes = new PainelBotoes();
 		add(painelBotoes, BorderLayout.WEST);
 		painelBotoes.setVisible(true);
-
+		
+		painelPrincipal = new JPanel();
+		painelPrincipal.setLayout(new BorderLayout());
+		add(painelPrincipal);
+		
+		telaBemVindo = new TelaBemVindo();
+		painelPrincipal.add(telaBemVindo, BorderLayout.CENTER);
+		
+		add(painelBotoes.btEstudar.painel);
+		
 	}
 }

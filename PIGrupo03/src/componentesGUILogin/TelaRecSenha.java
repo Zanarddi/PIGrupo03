@@ -16,8 +16,8 @@ import javax.swing.*;
  */
 public class TelaRecSenha extends TelaLoginPadrao {
 
-	BotaoPadrao btEnvEmail = new BotaoPadrao("Enviar Email", 18);
-	BotaoPadrao btVoltar = new BotaoPadrao("Voltar", 18);
+	BotaoPadraoLogin btEnvEmail = new BotaoPadraoLogin("Enviar Email", 18);
+	BotaoPadraoLogin btVoltar = new BotaoPadraoLogin("Voltar", 18);
 
 	JLabel lbRecSenha = new JLabel("Recuperar Senha");
 	JLabel lbEmail = new JLabel("Email");

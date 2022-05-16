@@ -14,7 +14,7 @@ import javax.swing.*;
  */
 public class TelaRegistrar extends TelaLoginPadrao {
 
-	BotaoPadrao btRegistrar = new BotaoPadrao("Registrar", 18);
+	BotaoPadraoLogin btRegistrar = new BotaoPadraoLogin("Registrar", 18);
 
 	JLabel lbRegistrar = new JLabel("Registrar");
 	JLabel lbEmail = new JLabel("Email");

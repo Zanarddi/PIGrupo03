@@ -8,7 +8,7 @@ public class Main {
 
 	// duas principais frames do projeto
 	static TelaInicial telaInicial;
-	static TelaPrincipal telaPrincipal;
+	public static TelaPrincipal telaPrincipal;
 	
 	public static Login login;
 	public static int limiteTopicosEstudo;
@@ -16,9 +16,6 @@ public class Main {
 	public static void main(String[] args) {
 		iniciarFrameLogin();
 	}
-
-	
-	
 	
 	/**
 	 * Método que inicia a frame de login (inicial), e fecha a tela principal caso
@@ -40,6 +37,7 @@ public class Main {
 	public static void iniciarFramePrincipal() {
 		telaPrincipal = new TelaPrincipal(login);
 		telaPrincipal.setVisible(true);
+		System.out.println(telaPrincipal.getComponentCount());
 		if (telaInicial != null)
 			telaInicial.dispose();
 	}
