@@ -102,9 +102,7 @@ public class TelaLogin extends TelaLoginPadrao {
 					// aqui deve-se adicionar uma condição para a senha (CRUD)
 					if (crud.LoginDAO.validarLogin(tfUsuario.getText(), tfSenha.getText())) {
 
-						Login login = new Login(tfUsuario.getText(), tfSenha.getText());
-						// atribui um objeto Login para a variavel login em main
-						controle.Main.login = login;
+						controle.Main.login = new Login(tfUsuario.getText(), tfSenha.getText());
 						controle.Main.iniciarFramePrincipal();
 
 					}

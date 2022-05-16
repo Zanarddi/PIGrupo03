@@ -18,12 +18,13 @@ import modelo.Login;
  */
 public class TelaPrincipal extends JFrame {
 
-	PainelBotoes painelBotoes;
+	public static PainelBotoes painelBotoes;
 	static TelaBemVindo telaBemVindo;
 	JPanel painelPrincipal;
 
 	public TelaPrincipal(Login l) {
 
+		
 		// configurações da JFrame
 		setTitle("PI Grupo 03");
 		setBounds(0, 0, 1016, 639); // valores não "fechados" pois a frame nao acomoda todo o painel
@@ -44,7 +45,8 @@ public class TelaPrincipal extends JFrame {
 		telaBemVindo = new TelaBemVindo();
 		painelPrincipal.add(telaBemVindo, BorderLayout.CENTER);
 		
-		add(painelBotoes.btEstudar.painel);
+
+		System.out.println(controle.Main.telaPrincipal);
 		
 	}
 }

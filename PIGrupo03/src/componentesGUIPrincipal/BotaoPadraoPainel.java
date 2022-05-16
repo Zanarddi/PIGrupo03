@@ -25,7 +25,7 @@ public class BotaoPadraoPainel extends JToggleButton {
 	String texto;
 	int tamFonte;
 	
-	JPanel painel;
+	public JPanel painel;
 
 	/**
 	 * Cria um botão para ser adicionado no painel da tela principal

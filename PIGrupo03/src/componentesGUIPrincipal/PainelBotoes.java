@@ -25,7 +25,7 @@ public class PainelBotoes extends JPanel {
 
 	ButtonGroup bgPainel = new ButtonGroup();
 
-	BotaoPadraoPainel btEstudar;
+	public BotaoPadraoPainel btEstudar;
 	BotaoPadraoPainel btRevisar;
 	BotaoPadraoPainel btJogar;
 	BotaoPadraoPainel btProgresso;
@@ -46,18 +46,6 @@ public class PainelBotoes extends JPanel {
 
 		botoesPainel = new ArrayList<BotaoPadraoPainel>();
 		setBotoes();
-		
-		for(BotaoPadraoPainel botao : botoesPainel) {
-			botao.addActionListener(new ActionListener() {
-				
-				@Override
-				public void actionPerformed (ActionEvent e) {
-					System.out.println(botao.getText());
-					controle.Main.telaPrincipal.painelPrincipal.add(botao.painel);
-					System.out.println(controle.Main.telaPrincipal.getContentPane().getComponentCount());
-				}
-			});
-		}
 	}
 
 	private void setBotoes() {
