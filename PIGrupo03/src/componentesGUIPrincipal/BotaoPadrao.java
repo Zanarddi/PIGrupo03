@@ -18,7 +18,5 @@ public class BotaoPadrao extends JButton {
 		setMinimumSize(new Dimension(largura, altura));
 		setMaximumSize(new Dimension(largura, altura));
 		setPreferredSize(new Dimension(largura, altura));
-
 	}
-
 }

@@ -1,6 +1,7 @@
 package componentesGUIPrincipal;
 
 import java.awt.BorderLayout;
+import java.awt.CardLayout;
 import java.awt.Color;
 
 import javax.swing.JFrame;
@@ -19,12 +20,11 @@ import modelo.Login;
 public class TelaPrincipal extends JFrame {
 
 	public static PainelBotoes painelBotoes;
-	static TelaBemVindo telaBemVindo;
-	JPanel painelPrincipal;
+	public static TelaBemVindo telaBemVindo;
+	public static JPanel painelPrincipal;
 
 	public TelaPrincipal(Login l) {
 
-		
 		// configurações da JFrame
 		setTitle("PI Grupo 03");
 		setBounds(0, 0, 1016, 639); // valores não "fechados" pois a frame nao acomoda todo o painel
@@ -37,16 +37,17 @@ public class TelaPrincipal extends JFrame {
 		painelBotoes = new PainelBotoes();
 		add(painelBotoes, BorderLayout.WEST);
 		painelBotoes.setVisible(true);
-		
-		painelPrincipal = new JPanel();
-		painelPrincipal.setLayout(new BorderLayout());
-		add(painelPrincipal);
-		
-		telaBemVindo = new TelaBemVindo();
-		painelPrincipal.add(telaBemVindo, BorderLayout.CENTER);
-		
 
-		System.out.println(controle.Main.telaPrincipal);
+		painelPrincipal = new JPanel();
+		painelPrincipal.setLayout(new CardLayout());
+		add(painelPrincipal);
+
+		telaBemVindo = new TelaBemVindo();
+		painelPrincipal.add(telaBemVindo, "telaBemVindo");
 		
+		// adiciona os paineis correspondentes dos botoes ao cardlayout
+		for (BotaoPadraoPainel botao : painelBotoes.botoesPainel) {
+			painelPrincipal.add(botao.painel, botao.texto);
+		}
 	}
 }

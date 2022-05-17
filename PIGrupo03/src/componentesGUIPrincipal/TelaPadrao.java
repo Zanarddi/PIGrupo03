@@ -7,7 +7,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-abstract class TelaPadrao extends JPanel {
+public class TelaPadrao extends JPanel {
 
 	JPanel buttonPanel;		//painel inferior com botões de navegação
 	JPanel painelCentro;	//painel principal das telas
@@ -24,7 +24,7 @@ abstract class TelaPadrao extends JPanel {
 		add(buttonPanel,BorderLayout.SOUTH);
 		
 		//painel onde serão colocados os componentes principais das telas
-		painelCentro = new JPanel();
+		painelCentro = new PainelPadrao();
 		painelCentro.setLayout(new BoxLayout(painelCentro, BoxLayout.Y_AXIS));
 		painelCentro.setBackground(this.getBackground());
 		painelCentro.setBorder(new EmptyBorder(0, 50, 0, 0));

@@ -1,8 +1,11 @@
 package componentesGUIPrincipal;
 
+import java.awt.CardLayout;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,6 +14,7 @@ import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.JPanel;
 
+import componentesGUILogin.TelaInicial;
 import controle.Main;
 
 /**
@@ -25,7 +29,7 @@ public class PainelBotoes extends JPanel {
 
 	ButtonGroup bgPainel = new ButtonGroup();
 
-	public BotaoPadraoPainel btEstudar;
+	BotaoPadraoPainel btEstudar;
 	BotaoPadraoPainel btRevisar;
 	BotaoPadraoPainel btJogar;
 	BotaoPadraoPainel btProgresso;
@@ -46,9 +50,24 @@ public class PainelBotoes extends JPanel {
 
 		botoesPainel = new ArrayList<BotaoPadraoPainel>();
 		setBotoes();
+
+		for (BotaoPadraoPainel botao : botoesPainel) {
+			botao.addItemListener(new ItemListener() {
+				@Override
+				public void itemStateChanged(ItemEvent e) {
+					if (e.getStateChange() == ItemEvent.SELECTED) {
+						CardLayout cardLayout = (CardLayout) TelaPrincipal.painelPrincipal.getLayout();
+						cardLayout.show(TelaPrincipal.painelPrincipal, botao.texto);
+					} else if (e.getStateChange() == ItemEvent.DESELECTED) {
+					}
+
+				}
+			});
+		}
 	}
 
 	private void setBotoes() {
+		//verifica se o usuario é adm ou não
 		if (crud.LoginDAO.validaAdministrador(Main.login)) {
 
 		} else {
