@@ -2,6 +2,7 @@ package componentesGUILogin;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 
 /**
  * Classe com constantes utilizadas nas interfaces relacionadas ao login

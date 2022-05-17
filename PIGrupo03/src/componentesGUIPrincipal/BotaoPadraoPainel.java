@@ -5,6 +5,7 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Insets;
 
+import javax.swing.JPanel;
 import javax.swing.JToggleButton;
 
 import componentesGUILogin.Config;
@@ -23,6 +24,8 @@ public class BotaoPadraoPainel extends JToggleButton {
 
 	String texto;
 	int tamFonte;
+	
+	public JPanel painel;
 
 	/**
 	 * Cria um botão para ser adicionado no painel da tela principal
@@ -30,7 +33,8 @@ public class BotaoPadraoPainel extends JToggleButton {
 	 * @param texto
 	 * @param tamFonte
 	 */
-	BotaoPadraoPainel(String texto, int tamFonte) {
+	BotaoPadraoPainel(String texto, int tamFonte, JPanel painel) {
+		this.painel = painel;
 		this.texto = texto;
 		this.tamFonte = tamFonte;
 		setBounds(0, 0, 150, 100);

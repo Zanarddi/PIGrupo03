@@ -19,7 +19,7 @@ public class TelaInicial extends JFrame {
 	static JPanel painelPai;
 
 	// declaração das telas
-	private TelaLogin telaLogin;
+	public static TelaLogin telaLogin;
 	private TelaRegistrar telaRegistrar;
 	private TelaRecSenha telaRecSenha;
 

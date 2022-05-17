@@ -19,7 +19,7 @@ import modelo.Login;
  */
 public class TelaLogin extends TelaLoginPadrao {
 
-	BotaoPadrao btLogin = new BotaoPadrao("Login", 18);
+	BotaoPadraoLogin btLogin = new BotaoPadraoLogin("Login", 18);
 
 	JTextField tfUsuario = new JTextField();
 
@@ -102,12 +102,7 @@ public class TelaLogin extends TelaLoginPadrao {
 					// aqui deve-se adicionar uma condição para a senha (CRUD)
 					if (crud.LoginDAO.validarLogin(tfUsuario.getText(), tfSenha.getText())) {
 
-						Login login = new Login(tfUsuario.getText(), tfSenha.getText());
-						// atribui um objeto Login para a variavel login em main
-						controle.Main.login = login;
-						// atribui um valor consultado de limite de estudo a variavel de limite no
-						// programa
-						controle.Main.limiteTopicosEstudo = crud.LoginDAO.buscaLimiteEstudo(login);
+						controle.Main.login = new Login(tfUsuario.getText(), tfSenha.getText());
 						controle.Main.iniciarFramePrincipal();
 
 					}
