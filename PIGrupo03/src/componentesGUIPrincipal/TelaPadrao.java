@@ -24,7 +24,7 @@ public class TelaPadrao extends JPanel {
 		add(buttonPanel,BorderLayout.SOUTH);
 		
 		//painel onde serão colocados os componentes principais das telas
-		painelCentro = new PainelPadrao();
+		painelCentro = new JPanel();
 		painelCentro.setLayout(new BoxLayout(painelCentro, BoxLayout.Y_AXIS));
 		painelCentro.setBackground(this.getBackground());
 		painelCentro.setBorder(new EmptyBorder(0, 50, 0, 0));

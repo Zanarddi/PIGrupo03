@@ -36,82 +36,90 @@ public class TelaLogin extends TelaLoginPadrao {
 	public TelaLogin() {
 		super(Config.DIMENSAO_LOGIN);
 		setComponents();
+		setListeners();
+		
+	}
 
+	/**
+	 * método que adiciona os "escutadores" em seus respectivos componentes
+	 */
+	private void setListeners() {
 		// adiciona um mouseListener para a label de recuperação de senha
-		lbRecSenha.addMouseListener(new MouseListener() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				CardLayout cardLayout = (CardLayout) FrameInicial.painelPai.getLayout();
-				cardLayout.show(FrameInicial.painelPai, "Recuperar");
-			}
-
-			// por se tratar de uma interface, todos os metodos devem ser implementados
-			@Override
-			public void mousePressed(MouseEvent e) {
-			}
-
-			@Override
-			public void mouseReleased(MouseEvent e) {
-			}
-
-			@Override
-			public void mouseEntered(MouseEvent e) {
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-			}
-		});
-
-		// adiciona um mouseListener para a label de cadastro
-		lbCadastrar2.addMouseListener(new MouseListener() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				CardLayout cardLayout = (CardLayout) FrameInicial.painelPai.getLayout();
-				cardLayout.show(FrameInicial.painelPai, "Registrar");
-			}
-
-			// por se tratar de uma interface, todos os metodos devem ser implementados
-			@Override
-			public void mousePressed(MouseEvent e) {
-			}
-
-			@Override
-			public void mouseReleased(MouseEvent e) {
-			}
-
-			@Override
-			public void mouseEntered(MouseEvent e) {
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-			}
-		});
-
-		btLogin.addActionListener(new ActionListener() {
-
-			/**
-			 * ao clicar no botão de logar, verifica se os campos estão preenchidos, caso
-			 * não estejam, emite um aviso em forma de label para o usuario
-			 */
-			@Override
-			public void actionPerformed(ActionEvent e) {
-
-				if (validarCampos()) {
-					// aqui deve-se adicionar uma condição para a senha (CRUD)
-					if (crud.LoginDAO.validarLogin(tfUsuario.getText(), tfSenha.getText())) {
-
-						controle.Main.login = new Login(tfUsuario.getText(), tfSenha.getText());
-						controle.Main.iniciarFramePrincipal();
-
+				lbRecSenha.addMouseListener(new MouseListener() {
+					@Override
+					public void mouseClicked(MouseEvent e) {
+						CardLayout cardLayout = (CardLayout) FrameInicial.painelPai.getLayout();
+						cardLayout.show(FrameInicial.painelPai, "Recuperar");
 					}
-				} else {
-					lbvalidaLogin.setForeground(Color.RED);
-					lbvalidaLogin.setText("Campos inválidos");
-				}
-			}
-		});
+
+					// por se tratar de uma interface, todos os metodos devem ser implementados
+					@Override
+					public void mousePressed(MouseEvent e) {
+					}
+
+					@Override
+					public void mouseReleased(MouseEvent e) {
+					}
+
+					@Override
+					public void mouseEntered(MouseEvent e) {
+					}
+
+					@Override
+					public void mouseExited(MouseEvent e) {
+					}
+				});
+
+				// adiciona um mouseListener para a label de cadastro
+				lbCadastrar2.addMouseListener(new MouseListener() {
+					@Override
+					public void mouseClicked(MouseEvent e) {
+						CardLayout cardLayout = (CardLayout) FrameInicial.painelPai.getLayout();
+						cardLayout.show(FrameInicial.painelPai, "Registrar");
+					}
+
+					// por se tratar de uma interface, todos os metodos devem ser implementados
+					@Override
+					public void mousePressed(MouseEvent e) {
+					}
+
+					@Override
+					public void mouseReleased(MouseEvent e) {
+					}
+
+					@Override
+					public void mouseEntered(MouseEvent e) {
+					}
+
+					@Override
+					public void mouseExited(MouseEvent e) {
+					}
+				});
+
+				btLogin.addActionListener(new ActionListener() {
+
+					/**
+					 * ao clicar no botão de logar, verifica se os campos estão preenchidos, caso
+					 * não estejam, emite um aviso em forma de label para o usuario
+					 */
+					@Override
+					public void actionPerformed(ActionEvent e) {
+
+						if (validarCampos()) {
+							// aqui deve-se adicionar uma condição para a senha (CRUD)
+							if (crud.LoginDAO.validarLogin(tfUsuario.getText(), tfSenha.getText())) {
+
+								controle.Main.login = new Login(tfUsuario.getText(), tfSenha.getText());
+								controle.Main.iniciarFramePrincipal();
+
+							}
+						} else {
+							lbvalidaLogin.setForeground(Color.RED);
+							lbvalidaLogin.setText("Campos inválidos");
+						}
+					}
+				});
+		
 	}
 
 	/**
