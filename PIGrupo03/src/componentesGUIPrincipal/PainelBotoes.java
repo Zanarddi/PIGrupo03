@@ -36,9 +36,9 @@ public class PainelBotoes extends JPanel {
 	BotaoPadraoPainel btConfiguracao;
 
 	PainelBotoes() {
-		btEstudar = new BotaoPadraoPainel("Estudar", 22, new TelaEstudar());
-		btRevisar = new BotaoPadraoPainel("Revisar", 22, new TelaRevisar());
-		btJogar = new BotaoPadraoPainel("Jogar", 22, new TelaJogar());
+		btEstudar = new BotaoPadraoPainel("Estudar", 22, new TelaEstudo());
+		btRevisar = new BotaoPadraoPainel("Revisar", 22, new TelaRevisao());
+		btJogar = new BotaoPadraoPainel("Jogar", 22, new TelaJogo());
 		btProgresso = new BotaoPadraoPainel("Progresso", 22, new TelaProgresso());
 		btConfiguracao = new BotaoPadraoPainel("Configuração", 22, new TelaConfiguracao());
 

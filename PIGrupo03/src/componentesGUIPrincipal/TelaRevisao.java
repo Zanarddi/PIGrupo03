@@ -1,8 +1,8 @@
 package componentesGUIPrincipal;
 
-public class TelaRevisar extends TelaPadrao {
+public class TelaRevisao extends TelaPadrao {
 
-	public TelaRevisar(){
+	public TelaRevisao(){
 	painelCentro.add(new LabelPadrao("Revisar", 48));
 	}
 }

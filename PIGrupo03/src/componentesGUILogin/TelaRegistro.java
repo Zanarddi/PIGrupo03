@@ -12,7 +12,7 @@ import javax.swing.*;
  * @author Gustavo Zanardi
  *
  */
-public class TelaRegistrar extends TelaLoginPadrao {
+public class TelaRegistro extends TelaLoginPadrao {
 
 	BotaoPadraoLogin btRegistrar = new BotaoPadraoLogin("Registrar", 18);
 
@@ -29,7 +29,7 @@ public class TelaRegistrar extends TelaLoginPadrao {
 	JTextField tfSenha = new JTextField();
 	JTextField tfRepSenha = new JTextField();
 
-	public TelaRegistrar() {
+	public TelaRegistro() {
 		super(Config.DIMENSAO_REGISTRAR);
 		setComponents();
 

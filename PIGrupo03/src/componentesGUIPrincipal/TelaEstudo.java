@@ -12,7 +12,7 @@ import javax.swing.border.EmptyBorder;
 import modelo.Estudo;
 import modelo.Topico;
 
-public class TelaEstudar extends TelaPadrao {
+public class TelaEstudo extends TelaPadrao {
 
 	Estudo estudo;
 
@@ -25,7 +25,7 @@ public class TelaEstudar extends TelaPadrao {
 	BotaoPadrao btProximo;
 	BotaoPadrao btVoltar;
 
-	public TelaEstudar() {
+	public TelaEstudo() {
 		
 		telaEstudar1 = new TelaPadrao();
 		
@@ -34,7 +34,7 @@ public class TelaEstudar extends TelaPadrao {
 		painelCentro.setBorder(new EmptyBorder(0, 0, 0, 0));
 		
 
-		// o painel de bootes nao sera utilizado neste sub painel
+		// o painel de botoes nao sera utilizado neste sub painel
 		telaEstudar1.buttonPanel.setVisible(false);
 
 		setComponents();

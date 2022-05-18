@@ -20,7 +20,7 @@ public class FrameInicial extends JFrame {
 
 	// declaração das telas
 	public static TelaLogin telaLogin;
-	private TelaRegistrar telaRegistrar;
+	private TelaRegistro telaRegistrar;
 	private TelaRecSenha telaRecSenha;
 
 	public FrameInicial() {
@@ -35,7 +35,7 @@ public class FrameInicial extends JFrame {
 		getContentPane().add(painelPai);
 
 		telaLogin = new TelaLogin();
-		telaRegistrar = new TelaRegistrar();
+		telaRegistrar = new TelaRegistro();
 		telaRecSenha = new TelaRecSenha();
 
 		painelPai.add(telaLogin, "Login");

@@ -1,8 +1,8 @@
 package componentesGUIPrincipal;
 
-public class TelaJogar extends TelaPadrao{
+public class TelaJogo extends TelaPadrao{
 
-	public TelaJogar() {
+	public TelaJogo() {
 		add(new LabelPadrao("Jogar", 48));
 	}
 }
