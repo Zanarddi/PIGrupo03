@@ -36,8 +36,8 @@ public class TelaRegistrar extends TelaLoginPadrao {
 		lbLogin2.addMouseListener(new MouseListener() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				CardLayout cardLayout = (CardLayout) TelaInicial.painelPai.getLayout();
-				cardLayout.show(TelaInicial.painelPai, "Login");
+				CardLayout cardLayout = (CardLayout) FrameInicial.painelPai.getLayout();
+				cardLayout.show(FrameInicial.painelPai, "Login");
 			}
 
 			@Override

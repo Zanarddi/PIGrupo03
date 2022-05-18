@@ -36,8 +36,8 @@ public class TelaRecSenha extends TelaLoginPadrao {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				CardLayout cardLayout = (CardLayout) TelaInicial.painelPai.getLayout();
-				cardLayout.show(TelaInicial.painelPai, "Login");
+				CardLayout cardLayout = (CardLayout) FrameInicial.painelPai.getLayout();
+				cardLayout.show(FrameInicial.painelPai, "Login");
 			}
 		});
 	}

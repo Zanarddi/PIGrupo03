@@ -15,9 +15,9 @@ public class Topico {
 		this.codigo = codigo;
 	}
 	
-	public Topico(int cod, int prof, int pos, String tit, String exp, Pergunta p){
+	public Topico(int cod, int proficiencia, int pos, String tit, String exp, Pergunta p){
 		this.codigo = cod;
-		this.proficiencia = prof;
+		this.proficiencia = proficiencia;
 		this.posicao = pos;
 		this.titulo = tit;
 		this.explicacao = exp;

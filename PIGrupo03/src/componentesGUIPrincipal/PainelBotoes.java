@@ -14,7 +14,7 @@ import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.JPanel;
 
-import componentesGUILogin.TelaInicial;
+import componentesGUILogin.FrameInicial;
 import controle.Main;
 
 /**
@@ -56,8 +56,8 @@ public class PainelBotoes extends JPanel {
 				@Override
 				public void itemStateChanged(ItemEvent e) {
 					if (e.getStateChange() == ItemEvent.SELECTED) {
-						CardLayout cardLayout = (CardLayout) TelaPrincipal.painelPrincipal.getLayout();
-						cardLayout.show(TelaPrincipal.painelPrincipal, botao.texto);
+						CardLayout cardLayout = (CardLayout) FramePrincipal.painelPrincipal.getLayout();
+						cardLayout.show(FramePrincipal.painelPrincipal, botao.texto);
 					} else if (e.getStateChange() == ItemEvent.DESELECTED) {
 					}
 

@@ -17,13 +17,13 @@ import modelo.Login;
  * @author Gustavo Zanardi
  *
  */
-public class TelaPrincipal extends JFrame {
+public class FramePrincipal extends JFrame {
 
 	public static PainelBotoes painelBotoes;
 	public static TelaBemVindo telaBemVindo;
 	public static JPanel painelPrincipal;
 
-	public TelaPrincipal(Login l) {
+	public FramePrincipal(Login l) {
 
 		// configurações da JFrame
 		setTitle("PI Grupo 03");

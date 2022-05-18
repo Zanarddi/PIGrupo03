@@ -1,14 +1,14 @@
 package controle;
 
-import componentesGUILogin.TelaInicial;
-import componentesGUIPrincipal.TelaPrincipal;
+import componentesGUILogin.FrameInicial;
+import componentesGUIPrincipal.FramePrincipal;
 import modelo.Login;
 
 public class Main {
 
 	// duas principais frames do projeto
-	public static TelaInicial telaInicial;
-	public static TelaPrincipal telaPrincipal;
+	public static FrameInicial frameInicial;
+	public static FramePrincipal framePrincipal;
 	
 	public static Login login;
 	public static int limiteTopicosEstudo;
@@ -22,10 +22,10 @@ public class Main {
 	 * ela esteja aberta
 	 */
 	public static void iniciarFrameLogin() {
-		telaInicial = new TelaInicial();
-		telaInicial.setVisible(true);
-		if (telaPrincipal != null)
-			telaPrincipal.dispose();
+		frameInicial = new FrameInicial();
+		frameInicial.setVisible(true);
+		if (framePrincipal != null)
+			framePrincipal.dispose();
 	}
 
 	/**
@@ -35,9 +35,9 @@ public class Main {
 	 * @param senha - senha validada
 	 */
 	public static void iniciarFramePrincipal() {
-		telaPrincipal = new TelaPrincipal(login);
-		telaPrincipal.setVisible(true);
-		if (telaInicial != null)
-			telaInicial.dispose();
+		framePrincipal = new FramePrincipal(login);
+		framePrincipal.setVisible(true);
+		if (frameInicial != null)
+			frameInicial.dispose();
 	}
 }

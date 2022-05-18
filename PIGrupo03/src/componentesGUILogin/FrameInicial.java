@@ -14,7 +14,7 @@ import javax.swing.WindowConstants;
  * @author Gustavo Zanardi
  *
  */
-public class TelaInicial extends JFrame {
+public class FrameInicial extends JFrame {
 
 	static JPanel painelPai;
 
@@ -23,7 +23,7 @@ public class TelaInicial extends JFrame {
 	private TelaRegistrar telaRegistrar;
 	private TelaRecSenha telaRecSenha;
 
-	public TelaInicial() {
+	public FrameInicial() {
 		setTitle("PI Grupo 03");
 		setBounds(0, 0, 1016, 639); // valores não "fechados" pois a frame nao acomoda todo o painel
 		setLocationRelativeTo(null); // faz a frame inicar no centro da tela

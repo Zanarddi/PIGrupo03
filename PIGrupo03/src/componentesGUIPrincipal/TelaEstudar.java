@@ -1,6 +1,7 @@
 package componentesGUIPrincipal;
 
 import java.awt.CardLayout;
+import java.awt.Color;
 
 import javax.swing.Box;
 import javax.swing.border.EmptyBorder;
@@ -17,6 +18,9 @@ public class TelaEstudar extends TelaPadrao {
 
 		painelCentro.setBorder(new EmptyBorder(0, 0, 0, 0));
 		telaEstudar1 = new TelaPadrao();
+		
+		//o painel de bootes nao sera utilizado neste sub painel
+		telaEstudar1.buttonPanel.setVisible(false);
 
 		lbBemVindo = new LabelPadrao("Bem vindo de volta", 36);
 		lbNovoTopico1 = new LabelPadrao(

@@ -41,8 +41,8 @@ public class TelaLogin extends TelaLoginPadrao {
 		lbRecSenha.addMouseListener(new MouseListener() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				CardLayout cardLayout = (CardLayout) TelaInicial.painelPai.getLayout();
-				cardLayout.show(TelaInicial.painelPai, "Recuperar");
+				CardLayout cardLayout = (CardLayout) FrameInicial.painelPai.getLayout();
+				cardLayout.show(FrameInicial.painelPai, "Recuperar");
 			}
 
 			// por se tratar de uma interface, todos os metodos devem ser implementados
@@ -67,8 +67,8 @@ public class TelaLogin extends TelaLoginPadrao {
 		lbCadastrar2.addMouseListener(new MouseListener() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				CardLayout cardLayout = (CardLayout) TelaInicial.painelPai.getLayout();
-				cardLayout.show(TelaInicial.painelPai, "Registrar");
+				CardLayout cardLayout = (CardLayout) FrameInicial.painelPai.getLayout();
+				cardLayout.show(FrameInicial.painelPai, "Registrar");
 			}
 
 			// por se tratar de uma interface, todos os metodos devem ser implementados
