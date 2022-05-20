@@ -46,7 +46,7 @@ public class FramePrincipal extends JFrame {
 		painelPrincipal.add(telaBemVindo, "telaBemVindo");
 		
 		// adiciona os paineis correspondentes dos botoes ao cardlayout
-		for (BotaoPadraoPainel botao : painelBotoes.botoesPainel) {
+		for (BotaoPadraoPainel botao : painelBotoes.botoes) {
 			painelPrincipal.add(botao.painel, botao.texto);
 		}
 	}
