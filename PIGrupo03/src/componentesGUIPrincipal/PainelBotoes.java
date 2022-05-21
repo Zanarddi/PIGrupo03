@@ -22,7 +22,7 @@ import controle.Main;
  */
 public class PainelBotoes extends JPanel {
 
-	List<BotaoPadraoPainel> botoesPainel;
+	List<BotaoPadraoPainel> botoes;
 
 	ButtonGroup bgPainel = new ButtonGroup();
 
@@ -45,10 +45,10 @@ public class PainelBotoes extends JPanel {
 		setMaximumSize(new Dimension(160, 600));
 		setMinimumSize(new Dimension(160, 600));
 
-		botoesPainel = new ArrayList<BotaoPadraoPainel>();
+		botoes = new ArrayList<BotaoPadraoPainel>();
 		setBotoes();
 
-		for (BotaoPadraoPainel botao : botoesPainel) {
+		for (BotaoPadraoPainel botao : botoes) {
 			botao.addItemListener(new ItemListener() {
 				@Override
 				public void itemStateChanged(ItemEvent e) {
@@ -69,11 +69,11 @@ public class PainelBotoes extends JPanel {
 
 		} else {
 			// adiciona os botões no buttongroup e no array de botoes
-			adicionarBotoesBG(bgPainel, botoesPainel, btEstudar, btRevisar, btJogar, btProgresso, btConfiguracao);
+			adicionarBotoesBG(bgPainel, botoes, btEstudar, btRevisar, btJogar, btProgresso, btConfiguracao);
 		}
 
 		// adiciona os botoes no painel
-		for (BotaoPadraoPainel botao : botoesPainel) {
+		for (BotaoPadraoPainel botao : botoes) {
 			add(Box.createVerticalStrut(5));
 			add(botao);
 		}
