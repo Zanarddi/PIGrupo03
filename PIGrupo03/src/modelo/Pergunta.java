@@ -3,13 +3,10 @@ package modelo;
 public class Pergunta {
 
 	private int codigo;
-	
 	private String descricao;
-	
 	private int codigoTopico;
 
 	public Pergunta(int codigo, String descricao, int codigoTopico) {
-		super();
 		this.codigo = codigo;
 		this.descricao = descricao;
 		this.codigoTopico = codigoTopico;
