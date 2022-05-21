@@ -5,16 +5,6 @@ import componentesGUIPrincipal.TelaTopico;
 public class Topico {
 	
 	private TelaTopico tela;
-	
-	
-
-	public Pergunta getPergunta() {
-		return pergunta;
-	}
-
-	public void setPergunta(Pergunta pergunta) {
-		this.pergunta = pergunta;
-	}
 
 	private int codigo;
 	private int proficiencia;
@@ -50,6 +40,14 @@ public class Topico {
 		this.tela = tela;
 	}
 
+	public Pergunta getPergunta() {
+		return pergunta;
+	}
+
+	public void setPergunta(Pergunta pergunta) {
+		this.pergunta = pergunta;
+	}
+	
 	public int getCodigo() {
 		return codigo;
 	}
