@@ -1,21 +1,35 @@
 package modelo;
 
-import crud.LoginDAO;
-
 public class Login {
-	private String usuario;
-	private String senha;
+	private String usuario, senha, email;
 	private int limiteTopicosEstudo;
 	private int limiteTopicosRevisao;
-	
-	
-	public Login(String usuario, String senha){
-		this.setUsuario(usuario);
-		this.setSenha(senha);
-		setLimiteTopicosEstudo(LoginDAO.buscaLimiteEstudo(usuario));
-		setLimiteTopicosRevisao(LoginDAO.buscaLimiteRevisao(usuario));
+	private int highscore;
+	private int tipo;
+	private int codigo;
+
+	public Login(String usuario, String senha) {
+		this.usuario = usuario;
+		this.senha = senha;
 	}
 	
+	public Login(int codigo, String usuario, String senha, String email, int limiteTopicosEstudo, int limiteTopicosRevisao,
+			int highscore, int tipo) {
+		this.usuario = usuario;
+		this.senha = senha;
+		this.setEmail(email);
+		this.limiteTopicosEstudo = limiteTopicosEstudo;
+		this.limiteTopicosRevisao = limiteTopicosRevisao;
+		this.setHighscore(highscore);
+		this.setTipo(tipo);
+		this.setCodigo(codigo);
+	}
+
+	public String toString() {
+		return ("[" + this.codigo + ", " + this.usuario + ", " + this.senha+ ", " + this.email+ ", " + this.limiteTopicosEstudo + ", " + this.limiteTopicosRevisao + ", " + this.highscore + ", " + this.tipo + ", ");
+	}
+
+
 	public String getUsuario() {
 		return usuario;
 	}
@@ -46,5 +60,37 @@ public class Login {
 
 	public void setLimiteTopicosRevisao(int limiteTopicosRevisao) {
 		this.limiteTopicosRevisao = limiteTopicosRevisao;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public int getHighscore() {
+		return highscore;
+	}
+
+	public void setHighscore(int highscore) {
+		this.highscore = highscore;
+	}
+
+	public int getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(int tipo) {
+		this.tipo = tipo;
+	}
+
+	public int getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
 	}
 }
