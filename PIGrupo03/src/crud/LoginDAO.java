@@ -1,6 +1,8 @@
 package crud;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import modelo.Login;
 import services.BD;
@@ -79,6 +81,35 @@ public class LoginDAO {
 			bd.close();
 		}
 		return men;
+	}
+	
+	public List<Login> get(String sql){
+		List<Login> lista = new ArrayList<Login>();
+		bd.getConnection();
+		try {
+			bd.st = bd.con.prepareStatement(sql);
+			bd.rs = bd.st.executeQuery();
+			while(bd.rs.next()) {
+				lista.add(new Login(
+						bd.rs.getInt(1),
+						bd.rs.getString(2),
+						bd.rs.getString(3),
+						bd.rs.getString(4),
+						bd.rs.getInt(5),
+						bd.rs.getInt(6),
+						bd.rs.getInt(7),
+						bd.rs.getInt(8))
+				);
+			}
+		}
+		catch(SQLException erro) {
+			lista = null;
+			System.out.println(erro);
+		}
+		finally {
+			bd.close();
+		}
+		return lista;
 	}
 	
 	/**

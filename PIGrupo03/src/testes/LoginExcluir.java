@@ -1,6 +1,6 @@
 package testes;
 
-import model.LoginDAO;
+import crud.LoginDAO;
 
 public class LoginExcluir {
 

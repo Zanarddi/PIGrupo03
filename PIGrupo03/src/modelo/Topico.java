@@ -7,18 +7,23 @@ public class Topico {
 	private TelaTopico tela;
 
 	private int codigo;
-	private int proficiencia;
 	private int posicao;
+	private int proficiencia;
+	
+	private int codigoTema;
 	
 	private String titulo;
 	private String explicacao;
+	private String tema;
+	
 	
 	Pergunta pergunta;
 	
 	public Topico(int codigo){
 		this.codigo = codigo;
 	}
-	
+
+
 	public Topico(int cod, int proficiencia, int pos, String tit, String exp, Pergunta p){
 		this.codigo = cod;
 		this.proficiencia = proficiencia;
@@ -86,6 +91,24 @@ public class Topico {
 
 	public void setExplicacao(String explicacao) {
 		this.explicacao = explicacao;
+	}
+
+	public String getTema() {
+		return tema;
+	}
+
+	public void setTema(String tema) {
+		this.tema = tema;
+	}
+
+
+	public int getCodigoTema() {
+		return codigoTema;
+	}
+
+
+	public void setCodigoTema(int codigoTema) {
+		this.codigoTema = codigoTema;
 	}
 	
 }

@@ -2,8 +2,8 @@ package testes;
 
 import java.util.List;
 
-import model.Login;
-import model.LoginDAO;
+import modelo.Login;
+import crud.LoginDAO;
 
 public class LoginListar {
 

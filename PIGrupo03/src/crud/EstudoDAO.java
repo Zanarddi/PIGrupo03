@@ -14,7 +14,7 @@ public class EstudoDAO {
 	 */
 	public static ArrayList<Topico> pesquisaEstudo() {
 		ArrayList<Topico> listaEstudo = null;
-		int limite = controle.Main.limiteTopicosEstudo;
+		int limite = controle.Main.login.getLimiteTopicosEstudo();
 		/*
 		 * PRECISA IMPLEMENTAR!!!
 		 *
