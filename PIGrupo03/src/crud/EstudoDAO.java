@@ -13,8 +13,8 @@ public class EstudoDAO {
 	 * @return Array de tópicos a serem estudados
 	 */
 	public static ArrayList<Topico> pesquisaEstudo() {
-		ArrayList<Topico> listaEstudo = null;
-		int limite = controle.Main.login.getLimiteTopicosEstudo();
+		
+		String querySQL = null;
 		/*
 		 * PRECISA IMPLEMENTAR!!!
 		 *
@@ -23,19 +23,20 @@ public class EstudoDAO {
 		 * inferior a data atual, importante lembrar que a ordem seja essa subtração, de
 		 * forma decrescente -retornar um resultset com os topicos já criados
 		 * 
-		 */
-		
-		/*
-		 * Converter o resultset para arraylist. para isso preciso implementar a conexão com o banco
+		 * deve retornar, em ordem: int codigo, int posicao, int proficiencia, String titulo, String explicacao, String tema
 		 * 
 		 */
 		
-		/*
-		for (int i = 0; i < listaEstudo.size(); i++) {
-			listaEstudo.set(i, new Topico(1, 2, 100, "teste", "apenas um teste", new Pergunta(1,
-					"Esta é uma pergunta teste", "Correto", "erro1", "erro2", "erro3", "erro4", "erro5")));
-		}
-		*/
+		
+		TopicoDAO topicoDAO = new TopicoDAO();
+		
+		//está apagado por enquanto
+		//ArrayList<Topico> listaEstudo = topicoDAO.get(querySQL);
+		
+		ArrayList<Topico> listaEstudo = new ArrayList<Topico>();
+		Topico testeTopico = new Topico(1, 1, 1, "Isso é um título", "Isso é uma explicação", "Isso é um tema");
+		listaEstudo.add(testeTopico);
+		
 		return listaEstudo;
 	}
 

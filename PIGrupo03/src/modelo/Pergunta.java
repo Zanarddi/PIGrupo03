@@ -12,6 +12,11 @@ public class Pergunta {
 		this.codigoTopico = codigoTopico;
 	}
 
+	public Pergunta(int i, String string, String string2, String string3, String string4, String string5,
+			String string6, String string7) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getCodigo() {
 		return codigo;
 	}

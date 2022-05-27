@@ -23,18 +23,23 @@ public class Topico {
 		this.codigo = codigo;
 	}
 
-
-	public Topico(int cod, int proficiencia, int pos, String tit, String exp, Pergunta p){
-		this.codigo = cod;
-		this.proficiencia = proficiencia;
-		this.posicao = pos;
-		this.titulo = tit;
-		this.explicacao = exp;
-		this.pergunta = p;
-	}
 	
+	public Topico(int codigo, int posicao, int proficiencia, String titulo, String explicacao, String tema) {
+		this.codigo = codigo;
+		this.posicao = posicao;
+		this.proficiencia = proficiencia;
+		this.titulo = titulo;
+		this.explicacao = explicacao;
+		this.tema = tema;
+	}
+
+
+	/**
+	 * Método que cria uma nova tela do tipo tópico.
+	 * Este processo não é realizado no construtor pois podem existirem situações em que ele não precisa ser iniciado
+	 */
 	public void criarTela() {
-		this.setTela(new TelaTopico());
+		this.setTela(new TelaTopico(this.titulo, this.tema, this.explicacao));
 	}
 
 	public TelaTopico getTela() {
