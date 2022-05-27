@@ -36,6 +36,10 @@ public class EstudoDAO {
 		ArrayList<Topico> listaEstudo = new ArrayList<Topico>();
 		Topico testeTopico = new Topico(1, 1, 1, "Isso é um título", "Isso é uma explicação", "Isso é um tema");
 		listaEstudo.add(testeTopico);
+		testeTopico = new Topico(2, 1, 1, "Isso é um título2", "Isso é uma explicação", "Isso é um tema");
+		listaEstudo.add(testeTopico);
+		testeTopico = new Topico(3, 1, 1, "Isso é um título3", "Isso é uma explicação", "Isso é um tema");
+		listaEstudo.add(testeTopico);
 		
 		return listaEstudo;
 	}

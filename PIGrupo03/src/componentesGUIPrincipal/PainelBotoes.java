@@ -2,6 +2,7 @@ package componentesGUIPrincipal;
 
 import java.awt.CardLayout;
 import java.awt.Dimension;
+import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.util.ArrayList;
@@ -22,15 +23,15 @@ import controle.Main;
  */
 public class PainelBotoes extends JPanel {
 
-	List<BotaoPadraoPainel> botoes;
+	public static List<BotaoPadraoPainel> botoes;
 
-	ButtonGroup bgPainel = new ButtonGroup();
+	static ButtonGroup bgPainel = new ButtonGroup();
 
-	BotaoPadraoPainel btEstudar;
-	BotaoPadraoPainel btRevisar;
-	BotaoPadraoPainel btJogar;
-	BotaoPadraoPainel btProgresso;
-	BotaoPadraoPainel btConfiguracao;
+	static BotaoPadraoPainel btEstudar;
+	static BotaoPadraoPainel btRevisar;
+	static BotaoPadraoPainel btJogar;
+	static BotaoPadraoPainel btProgresso;
+	static BotaoPadraoPainel btConfiguracao;
 
 	PainelBotoes() {
 		btEstudar = new BotaoPadraoPainel("Estudar", 22, new TelaEstudo());
@@ -61,6 +62,8 @@ public class PainelBotoes extends JPanel {
 				}
 			});
 		}
+		ItemListener[] a = btRevisar.getItemListeners();
+		System.out.println("quantia" + a.length);
 	}
 
 	private void setBotoes() {
