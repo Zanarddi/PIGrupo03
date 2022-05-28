@@ -1,5 +1,6 @@
 package componentesGUIPrincipal;
 
+import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -21,11 +22,11 @@ public class BotaoPadraoPainel extends JToggleButton {
 
 	// Inset para mudar margem dos botões, usado para ajustar tamanho dos textos
 	static final Insets MARGEM_BOTAO = new Insets(2, 0, 2, 0);
-
+	
 	String texto;
 	int tamFonte;
 	
-	public JPanel painel;
+	public TelaPadrao painel;
 
 	/**
 	 * Cria um botão para ser adicionado no painel da tela principal
@@ -33,7 +34,7 @@ public class BotaoPadraoPainel extends JToggleButton {
 	 * @param texto
 	 * @param tamFonte
 	 */
-	BotaoPadraoPainel(String texto, int tamFonte, JPanel painel) {
+	BotaoPadraoPainel(String texto, int tamFonte, TelaPadrao painel) {
 		this.painel = painel;
 		this.texto = texto;
 		this.tamFonte = tamFonte;
@@ -65,4 +66,20 @@ public class BotaoPadraoPainel extends JToggleButton {
 					(h + g.getFontMetrics().getAscent()) / 2 - 1);
 		}
 	}
+	
+	//função que reseta uma tela dependendo do tipo do seu layout.
+	public static void resetaTela(BotaoPadraoPainel bt) {
+		if(bt.painel.painelCentro.getLayout() instanceof CardLayout) {
+			CardLayout cardLayout = (CardLayout) bt.painel.painelCentro.getLayout();
+			cardLayout.first(bt.painel.painelCentro);
+			if(bt.equals(PainelBotoes.btEstudar)) {
+				TelaEstudo.indiceTopicoMostrado = 0;	
+				PainelBotoes.btEstudar.painel.buttonPanel.repaint();
+				bt.painel.buttonPanel.removeAll();
+				bt.painel.buttonPanel.add(TelaEstudo.btComecar);
+			}
+		}
+	}
+	
+	
 }

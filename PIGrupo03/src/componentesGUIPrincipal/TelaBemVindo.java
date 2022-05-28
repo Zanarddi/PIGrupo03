@@ -1,7 +1,5 @@
 package componentesGUIPrincipal;
 
-import java.awt.BorderLayout;
-import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -20,8 +18,25 @@ public class TelaBemVindo extends TelaPadrao {
 	public TelaBemVindo() {
 		super();
 		setComponents();
+		setListeners();
 	}
 
+	private void setListeners() {
+		btEstudar.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				PainelBotoes.btEstudar.setSelected(true);
+			}
+		});
+		btRevisar.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				PainelBotoes.btRevisar.setSelected(true);
+			}
+		});
+	}
 	private void setComponents() {
 
 		painelCentro.add(Box.createVerticalStrut(40));

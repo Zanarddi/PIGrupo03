@@ -2,6 +2,7 @@ package componentesGUIPrincipal;
 
 import java.awt.CardLayout;
 import java.awt.Dimension;
+import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.util.ArrayList;
@@ -22,18 +23,18 @@ import controle.Main;
  */
 public class PainelBotoes extends JPanel {
 
-	List<BotaoPadraoPainel> botoes;
+	public static List<BotaoPadraoPainel> botoes;
 
-	ButtonGroup bgPainel = new ButtonGroup();
+	static ButtonGroup bgPainel = new ButtonGroup();
 
-	BotaoPadraoPainel btEstudar;
-	BotaoPadraoPainel btRevisar;
-	BotaoPadraoPainel btJogar;
-	BotaoPadraoPainel btProgresso;
-	BotaoPadraoPainel btConfiguracao;
+	static BotaoPadraoPainel btEstudar = new BotaoPadraoPainel("Estudar", 22, new TelaEstudo());
+	static BotaoPadraoPainel btRevisar;
+	static BotaoPadraoPainel btJogar;
+	static BotaoPadraoPainel btProgresso;
+	static BotaoPadraoPainel btConfiguracao;
 
 	PainelBotoes() {
-		btEstudar = new BotaoPadraoPainel("Estudar", 22, new TelaEstudo());
+		//btEstudar = new BotaoPadraoPainel("Estudar", 22, new TelaEstudo());
 		btRevisar = new BotaoPadraoPainel("Revisar", 22, new TelaRevisao());
 		btJogar = new BotaoPadraoPainel("Jogar", 22, new TelaJogo());
 		btProgresso = new BotaoPadraoPainel("Progresso", 22, new TelaProgresso());
@@ -53,9 +54,14 @@ public class PainelBotoes extends JPanel {
 				@Override
 				public void itemStateChanged(ItemEvent e) {
 					if (e.getStateChange() == ItemEvent.SELECTED) {
+						BotaoPadraoPainel.resetaTela(botao);
 						CardLayout cardLayout = (CardLayout) FramePrincipal.painelPrincipal.getLayout();
 						cardLayout.show(FramePrincipal.painelPrincipal, botao.texto);
+						
+						
+
 					} else if (e.getStateChange() == ItemEvent.DESELECTED) {
+						BotaoPadraoPainel.resetaTela(botao);
 					}
 
 				}
@@ -64,7 +70,7 @@ public class PainelBotoes extends JPanel {
 	}
 
 	private void setBotoes() {
-		//verifica se o usuario é adm ou não
+		// verifica se o usuario é adm ou não
 		if (crud.LoginDAO.validaAdministrador(Main.login)) {
 
 		} else {

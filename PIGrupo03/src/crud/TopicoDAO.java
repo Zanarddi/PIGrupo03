@@ -78,15 +78,21 @@ AND t.cod_tema = te.cod_tema
 AND p.proficiencia = 0
 ORDER BY ordem_topico
 	 */
-	public List<Topico> get(String sql){
-		List<Topico> lista = new ArrayList<Topico>();
+	public ArrayList<Topico> get(String sql){
+		ArrayList<Topico> lista = new ArrayList<Topico>();
 		bd.getConnection();
 		try {
 			bd.st = bd.con.prepareStatement(sql);
 			bd.rs = bd.st.executeQuery();
 			while(bd.rs.next()) {
 				//implementar, colocando os campos corretos.
-				lista.add(new Topico(0)
+				lista.add(new Topico(
+						bd.rs.getInt(1),
+						bd.rs.getInt(2),
+						bd.rs.getInt(3),
+						bd.rs.getString(4),
+						bd.rs.getString(5),
+						bd.rs.getString(6))
 				);
 			}
 		}
