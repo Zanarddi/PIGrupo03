@@ -92,7 +92,8 @@ ORDER BY ordem_topico
 						bd.rs.getInt(3),
 						bd.rs.getString(4),
 						bd.rs.getString(5),
-						bd.rs.getString(6))
+						bd.rs.getString(6),
+						bd.rs.getInt(7))
 				);
 			}
 		}
@@ -104,5 +105,26 @@ ORDER BY ordem_topico
 			bd.close();
 		}
 		return lista;
+	}
+	
+	/**
+	 * Atualiza a proficiencia de um topico no banco de dados
+	 * @param topico
+	 */
+	public void salvarProficiencia(Topico topico) {
+		bd.getConnection();
+		sql = "update proficiencia set proficiencia = ?, where cod_proficiencia = ?";
+		try {
+			bd.st = bd.con.prepareStatement(sql);
+			
+			bd.st.setInt(2, topico.getCodigoProficiencia());
+			bd.st.setInt(1, topico.getProficiencia());
+
+			bd.st.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println(e);
+		}
 	}
 }

@@ -9,6 +9,7 @@ public class Topico {
 	private int codigo;
 	private int posicao;
 	private int proficiencia;
+	private int codigoProficiencia;
 	
 	private int codigoTema;
 	
@@ -24,7 +25,7 @@ public class Topico {
 	}
 
 	
-	public Topico(int codigo, int posicao, int proficiencia, String titulo, String explicacao, String tema) {
+	public Topico(int codigo, int posicao, int proficiencia, String titulo, String explicacao, String tema, int codigoProficiencia) {
 		this.codigo = codigo;
 		this.posicao = posicao;
 		this.proficiencia = proficiencia;
@@ -114,6 +115,16 @@ public class Topico {
 
 	public void setCodigoTema(int codigoTema) {
 		this.codigoTema = codigoTema;
+	}
+
+
+	public int getCodigoProficiencia() {
+		return codigoProficiencia;
+	}
+
+
+	public void setCodigoProficiencia(int codigoProficiencia) {
+		this.codigoProficiencia = codigoProficiencia;
 	}
 	
 }

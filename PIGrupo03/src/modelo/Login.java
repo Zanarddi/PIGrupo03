@@ -1,12 +1,17 @@
 package modelo;
 
 public class Login {
+	
 	private String usuario, senha, email;
-	private int limiteTopicosEstudo;
+	
+	private int limiteTopicosEstudo = 3;
 	private int limiteTopicosRevisao;
 	private int highscore;
 	private int tipo;
 	private int codigo;
+	
+	private int topicosEstudados = 0;
+	private int topicosRevisados = 0;
 
 	public Login(String usuario, String senha) {
 		this.usuario = usuario;
@@ -92,5 +97,21 @@ public class Login {
 
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
+	}
+
+	public int getTopicosEstudados() {
+		return topicosEstudados;
+	}
+
+	public void setTopicosEstudados(int topicosEstudados) {
+		this.topicosEstudados = topicosEstudados;
+	}
+
+	public int getTopicosRevisados() {
+		return topicosRevisados;
+	}
+
+	public void setTopicosRevisados(int topicosRevisados) {
+		this.topicosRevisados = topicosRevisados;
 	}
 }
