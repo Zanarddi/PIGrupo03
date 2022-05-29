@@ -6,7 +6,6 @@ import java.awt.Font;
 import javax.swing.JButton;
 
 /**
- * Classe que herda de JButton.
  * Trata-se de um botão configurável, com um padrão
  * estabelecido para as telas relacionadas ao login
  * 

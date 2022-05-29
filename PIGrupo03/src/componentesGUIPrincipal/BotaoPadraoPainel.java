@@ -22,10 +22,10 @@ public class BotaoPadraoPainel extends JToggleButton {
 
 	// Inset para mudar margem dos botões, usado para ajustar tamanho dos textos
 	static final Insets MARGEM_BOTAO = new Insets(2, 0, 2, 0);
-	
+
 	String texto;
 	int tamFonte;
-	
+
 	public TelaPadrao painel;
 
 	/**
@@ -66,20 +66,24 @@ public class BotaoPadraoPainel extends JToggleButton {
 					(h + g.getFontMetrics().getAscent()) / 2 - 1);
 		}
 	}
-	
-	//função que reseta uma tela dependendo do tipo do seu layout.
+
+	/**
+	 * reseta uma tela dependendo do tipo do seu layout e o tipo da tela
+	 * 
+	 * @param bt - botão presente no painel de botões da lateral esquerda
+	 */
+	//
 	public static void resetaTela(BotaoPadraoPainel bt) {
-		if(bt.painel.painelCentro.getLayout() instanceof CardLayout) {
+		if (bt.painel.painelCentro.getLayout() instanceof CardLayout) {
 			CardLayout cardLayout = (CardLayout) bt.painel.painelCentro.getLayout();
 			cardLayout.first(bt.painel.painelCentro);
-			if(bt.equals(PainelBotoes.btEstudar)) {
-				TelaEstudo.indiceTopicoMostrado = 0;	
+			if (bt.equals(PainelBotoes.btEstudar)) {
+				TelaEstudo.indiceTopicoMostrado = 0;
 				PainelBotoes.btEstudar.painel.buttonPanel.repaint();
 				bt.painel.buttonPanel.removeAll();
 				bt.painel.buttonPanel.add(TelaEstudo.btComecar);
 			}
 		}
 	}
-	
-	
+
 }

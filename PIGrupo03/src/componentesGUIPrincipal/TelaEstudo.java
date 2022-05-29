@@ -17,6 +17,15 @@ import crud.TopicoDAO;
 import modelo.Estudo;
 import modelo.Topico;
 
+/**
+ * GUI por onde o usuário consegue estudar novos topicos
+ * 
+ * Conta com botões de navegação inferiores para alternar entre telas.
+ * Essa tela faz o uso de CardLayout para mostrar os tópicos.
+ * 
+ * @author Gustavo Zanardi
+ *
+ */
 public class TelaEstudo extends TelaPadrao {
 
 	Estudo estudo = new Estudo();;
@@ -212,6 +221,11 @@ public class TelaEstudo extends TelaPadrao {
 		painelCentro.add(telaEstudar3, telaEstudar3.getName());
 	}
 
+	/**
+	 * altera os botões de navegação entre telas.
+	 * 
+	 * @param tela - tela que vai ser mostrada, 1 para telaEstudar1 e assim e diante
+	 */
 	public void atualizarBotoes(int tela) {
 		buttonPanel.removeAll();
 		if (tela == 1) {

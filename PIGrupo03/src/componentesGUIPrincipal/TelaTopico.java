@@ -11,6 +11,13 @@ import javax.swing.border.EmptyBorder;
 
 import componentesGUILogin.Config;
 
+/**
+ * GUI onde são mostrados os tópicos a serem estudados.
+ * Essa tela nunca é utilizada sozinha, mas sim em um cardlayout da tela de estudos.
+ * 
+ * @author Gustavo Zanardi
+ *
+ */
 public class TelaTopico extends TelaPadrao {
 
 	static BotaoPadrao btProximo = new BotaoPadrao("Próximo", 0, 0, 150, 50, 24);

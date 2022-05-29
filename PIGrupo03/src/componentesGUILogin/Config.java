@@ -5,7 +5,8 @@ import java.awt.Dimension;
 import java.awt.Font;
 
 /**
- * Classe com constantes utilizadas nas interfaces relacionadas ao login
+ * Classe com constantes utilizadas nas interfaces.
+ * Essas constantes não se limitam apenas às telas de login
  * 
  * @author Gustavo Zanardi
  *

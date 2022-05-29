@@ -7,6 +7,12 @@ import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
+/**
+ * GUI mostrada ao usuário quando ele faz o login, é como uma página home
+ * 
+ * @author Gustavo Zanardi
+ *
+ */
 public class TelaBemVindo extends TelaPadrao {
 
 	JLabel lbBemVindo;
@@ -21,6 +27,9 @@ public class TelaBemVindo extends TelaPadrao {
 		setListeners();
 	}
 
+	/**
+	 * adiciona os listeners para os botões da tela
+	 */
 	private void setListeners() {
 		btEstudar.addActionListener(new ActionListener() {
 			
@@ -37,6 +46,10 @@ public class TelaBemVindo extends TelaPadrao {
 			}
 		});
 	}
+	
+	/**
+	 * adiciona componestes na tela e muda seu design
+	 */
 	private void setComponents() {
 
 		painelCentro.add(Box.createVerticalStrut(40));

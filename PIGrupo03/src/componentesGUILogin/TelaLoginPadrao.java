@@ -9,7 +9,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
 /**
- * Tela usada como base para a criação das relacionadas ao login
+ * Tela usada como base para a criação das telas relacionadas ao login
  * 
  * @author Gustavo Zanardi
  *

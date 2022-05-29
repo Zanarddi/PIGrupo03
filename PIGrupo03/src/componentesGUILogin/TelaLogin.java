@@ -11,8 +11,8 @@ import javax.swing.*;
 import modelo.Login;
 
 /**
- * Tela de login, com campos para a realização do login. Permite a navegação
- * entre as telas de registro e recuperação de senha
+ * Tela de login, com campos para a realização do login.
+ * Permite a navegação entre as telas de registro e recuperação de senha
  * 
  * @author Gustavo Zanardi
  *
@@ -40,9 +40,6 @@ public class TelaLogin extends TelaLoginPadrao {
 		
 	}
 
-	/**
-	 * método que adiciona os "escutadores" em seus respectivos componentes
-	 */
 	private void setListeners() {
 		// adiciona um mouseListener para a label de recuperação de senha
 				lbRecSenha.addMouseListener(new MouseListener() {
@@ -109,9 +106,9 @@ public class TelaLogin extends TelaLoginPadrao {
 							// aqui deve-se adicionar uma condição para a senha (CRUD)
 							if (crud.LoginDAO.validarLogin(tfUsuario.getText(), tfSenha.getText())) {
 
+								//Implementar o construtor completo, mas apenas quando for possivel a utilizacao do banco
 								controle.Main.login = new Login(tfUsuario.getText(), tfSenha.getText());
 								controle.Main.iniciarFramePrincipal();
-
 							}
 						} else {
 							lbvalidaLogin.setForeground(Color.RED);

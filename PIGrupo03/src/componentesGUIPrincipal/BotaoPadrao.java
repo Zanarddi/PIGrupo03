@@ -7,6 +7,12 @@ import javax.swing.JButton;
 
 import componentesGUILogin.Config;
 
+/**
+ * Botão padrão para utilização geral nas telas da aplicação principal
+ * 
+ * @author Gustavo Zanardi
+ *
+ */
 public class BotaoPadrao extends JButton {
 
 	public BotaoPadrao(String texto, int x, int y, int largura, int altura, int tamFonte) {

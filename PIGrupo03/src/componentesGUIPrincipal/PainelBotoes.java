@@ -69,6 +69,10 @@ public class PainelBotoes extends JPanel {
 		}
 	}
 
+	/**
+	 * popula o painel com os botões
+	 * os botões são diferentes para diferentes tipos de usuários
+	 */
 	private void setBotoes() {
 		// verifica se o usuario é adm ou não
 		if (crud.LoginDAO.validaAdministrador(Main.login)) {
@@ -86,7 +90,7 @@ public class PainelBotoes extends JPanel {
 	}
 
 	/**
-	 * Método que adiciona uma quantidade variavel de botoes em um butto group e a
+	 * Adiciona uma quantidade variavel de botoes em um button group e a
 	 * um array de botoes
 	 * 
 	 * @param bg           - button group
