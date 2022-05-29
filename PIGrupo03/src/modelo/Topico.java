@@ -2,6 +2,13 @@ package modelo;
 
 import componentesGUIPrincipal.TelaTopico;
 
+/**
+ * Classe são manipulados os tópicos do sistema.
+ * É amplamente utilizada em diversas funcionalidades no sistema
+ * 
+ * @author Gustavo Zanardi
+ *
+ */
 public class Topico {
 	
 	private TelaTopico tela;

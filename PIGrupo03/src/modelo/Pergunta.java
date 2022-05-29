@@ -1,5 +1,11 @@
 package modelo;
 
+/**
+ * Pergunta relacionada ao tópico.
+ * é utilizada apenas na tela de revisão, e um cardlayout
+ * @author Gustavo Zanardi
+ *
+ */
 public class Pergunta {
 
 	private int codigo;

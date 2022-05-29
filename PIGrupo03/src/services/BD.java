@@ -6,6 +6,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * Conecta e manipula o banco de dados
+ * 
+ * @author Gustavo Zanardi
+ *
+ */
 public class BD {
 
 	public Connection con = null; // realiza a conexão ao banco

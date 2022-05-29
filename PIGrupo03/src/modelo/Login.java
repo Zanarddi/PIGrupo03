@@ -1,15 +1,23 @@
 package modelo;
 
+/**
+ * Manipula e armazena informações de um usuário. Não se trata de um usuário em
+ * si pois não se restringe apenas a informações dele mas também sobre a
+ * navegação do usuário
+ * 
+ * @author Gustavo Zanardi
+ *
+ */
 public class Login {
-	
+
 	private String usuario, senha, email;
-	
+
 	private int limiteTopicosEstudo = 3;
 	private int limiteTopicosRevisao;
 	private int highscore;
 	private int tipo;
 	private int codigo;
-	
+
 	private int topicosEstudados = 0;
 	private int topicosRevisados = 0;
 
@@ -17,9 +25,9 @@ public class Login {
 		this.usuario = usuario;
 		this.senha = senha;
 	}
-	
-	public Login(int codigo, String usuario, String senha, String email, int limiteTopicosEstudo, int limiteTopicosRevisao,
-			int highscore, int tipo) {
+
+	public Login(int codigo, String usuario, String senha, String email, int limiteTopicosEstudo,
+			int limiteTopicosRevisao, int highscore, int tipo) {
 		this.usuario = usuario;
 		this.senha = senha;
 		this.setEmail(email);
@@ -31,9 +39,10 @@ public class Login {
 	}
 
 	public String toString() {
-		return ("[" + this.codigo + ", " + this.usuario + ", " + this.senha+ ", " + this.email+ ", " + this.limiteTopicosEstudo + ", " + this.limiteTopicosRevisao + ", " + this.highscore + ", " + this.tipo + ", ");
+		return ("[" + this.codigo + ", " + this.usuario + ", " + this.senha + ", " + this.email + ", "
+				+ this.limiteTopicosEstudo + ", " + this.limiteTopicosRevisao + ", " + this.highscore + ", " + this.tipo
+				+ "]");
 	}
-
 
 	public String getUsuario() {
 		return usuario;
