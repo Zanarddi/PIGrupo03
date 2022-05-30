@@ -14,7 +14,10 @@ import javax.swing.JLabel;
 public class LabelPadrao extends JLabel{
 	
 	public LabelPadrao (String texto, int tamanho, Color cor) {
-		setText(texto);
+		
+		//htm para quebrar o texto
+		setText("<html>"+ texto +"</html>");
+		
 		setFont(new Font(componentesGUILogin.Config.FONTE, 0, tamanho));
 		setForeground(cor);
 	}

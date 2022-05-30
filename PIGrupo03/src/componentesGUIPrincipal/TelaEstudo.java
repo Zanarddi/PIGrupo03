@@ -34,7 +34,6 @@ public class TelaEstudo extends TelaPadrao {
 
 	LabelPadrao lbBemVindo;
 	LabelPadrao lbNovoTopico1;
-	LabelPadrao lbNovoTopico2;
 	static BotaoPadrao btComecar = new BotaoPadrao("Começar", 0, 0, 150, 50, 24);;
 	BotaoPadrao btRevisar;
 	BotaoPadrao btVoltarInicio;
@@ -195,11 +194,9 @@ public class TelaEstudo extends TelaPadrao {
 		telaEstudar1.painelCentro.add(lbBemVindo);
 		telaEstudar1.painelCentro.add(Box.createVerticalStrut(100));
 		lbNovoTopico1 = new LabelPadrao(
-				"Preparamos " + controle.Main.login.getLimiteTopicosEstudo() + " novos tópicos para serem", 40,
+				"Preparamos " + controle.Main.login.getLimiteTopicosEstudo() + " novos tópicos para serem estudados hoje", 40,
 				componentesGUILogin.Config.COR_FONTE_BOTAO);
 		telaEstudar1.painelCentro.add(lbNovoTopico1);
-		lbNovoTopico2 = new LabelPadrao("estudados hoje", 40, componentesGUILogin.Config.COR_FONTE_BOTAO);
-		telaEstudar1.painelCentro.add(lbNovoTopico2);
 		
 		btRevisar = new BotaoPadrao("Revisar", 0, 0, 150, 50, 24);
 		btVoltarInicio = new BotaoPadrao("Voltar", 0, 0, 150, 50, 24);
