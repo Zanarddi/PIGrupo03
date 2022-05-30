@@ -46,16 +46,14 @@ public class TelaTopico extends TelaPadrao {
 		
 		painelExplicacao.setBackground(componentesGUILogin.Config.COR_FONTE_BOTAO);
 		
-		painelExplicacao.add(Box.createVerticalStrut(50));
+		painelExplicacao.add(Box.createVerticalStrut(30));
 		painelExplicacao.add(lbTitulo);
 		painelExplicacao.add(lbTema);
+		painelExplicacao.add(Box.createVerticalStrut(10));
 		painelExplicacao.add(lbExplicacao);
 		
 		this.add(Box.createVerticalStrut(50));
 		this.add(painelExplicacao);
-		
-		
-		//add(new JLabel(titulo));
 	}
 
 	private void setListeners() {
@@ -63,10 +61,7 @@ public class TelaTopico extends TelaPadrao {
 	}
 
 	private void setComponents() {
-		
-		this.buttonPanel.add(btProximo);
-		this.buttonPanel.add(btVoltar);
-		
+
 	}
 
 }
