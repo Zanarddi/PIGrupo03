@@ -12,10 +12,10 @@ public class Login {
 
 	private String usuario, senha, email;
 
-	private int limiteTopicosEstudo = 3;
-	private int limiteTopicosRevisao;
+	private int limiteTopicosEstudo = 10;
+	private int limiteTopicosRevisao = 10;
 	private int highscore;
-	private int tipo;
+	private int tipo = 0;
 	private int codigo;
 
 	private int topicosEstudados = 0;

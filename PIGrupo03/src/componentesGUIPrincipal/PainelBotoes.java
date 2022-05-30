@@ -75,9 +75,9 @@ public class PainelBotoes extends JPanel {
 	 */
 	private void setBotoes() {
 		// verifica se o usuario é adm ou não
-		if (crud.LoginDAO.validaAdministrador(Main.login)) {
+		if (Main.login.getTipo() == 1) {
 
-		} else {
+		} else if (Main.login.getTipo() == 0){
 			// adiciona os botões no buttongroup e no array de botoes
 			adicionarBotoesBG(bgPainel, botoes, btEstudar, btRevisar, btJogar, btProgresso, btConfiguracao);
 		}
