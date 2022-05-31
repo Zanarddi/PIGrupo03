@@ -55,7 +55,13 @@ public class TelaRevisao extends TelaPadrao {
 		telaRevisao2.buttonPanel.add(btVoltar);
 		btProximo = new BotaoPadrao("Próximo", 0, 0, 150, 50, 24);
 		telaRevisao2.buttonPanel.add(btProximo);
+		telaRevisao2.painelCentro.setBorder(new EmptyBorder(0, 0, 0, 0));
 		telaRevisao2.painelCentro.setLayout(new CardLayout());
+		telaRevisao2.painelCentro.add(new TelaPergunta(null));
+		
+		
+		
+		
 		
 		
 		//componentes da tela de revisão 3

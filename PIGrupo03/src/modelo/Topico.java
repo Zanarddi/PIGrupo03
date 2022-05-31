@@ -1,7 +1,9 @@
 package modelo;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
+import componentesGUIPrincipal.TelaPergunta;
 import componentesGUIPrincipal.TelaTopico;
 import crud.PerguntaDAO;
 import crud.RespostaDAO;
@@ -17,6 +19,8 @@ public class Topico {
 	
 	private TelaTopico tela;
 
+	private TelaPergunta telaPergunta;
+	
 	private int codigo;
 	private int posicao;
 	
@@ -63,6 +67,15 @@ public class Topico {
 	 */
 	public void criarTela() {
 		this.setTela(new TelaTopico(this.titulo, this.tema, this.explicacao));
+	}
+	
+	/**
+	 * Método que cria uma nova tela do tipo pergunta.
+	 * Este processo não é realizado no construtor pois podem existirem situações em que ele não precisa ser iniciado
+	 */
+	public void criarTelaPergunta() {
+		Collections.shuffle(perguntas);
+		this.setTelaPergunta(new TelaPergunta(perguntas.get(0)));
 	}
 	
 	public ArrayList<Pergunta> buscaPergunta() {
@@ -159,6 +172,14 @@ public class Topico {
 
 	public void setPerguntas(ArrayList<Pergunta> perguntas) {
 		this.perguntas = perguntas;
+	}
+
+	public TelaPergunta getTelaPergunta() {
+		return telaPergunta;
+	}
+
+	public void setTelaPergunta(TelaPergunta telaPergunta) {
+		this.telaPergunta = telaPergunta;
 	}
 	
 }

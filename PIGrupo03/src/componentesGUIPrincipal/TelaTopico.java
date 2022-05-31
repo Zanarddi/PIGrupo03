@@ -55,13 +55,4 @@ public class TelaTopico extends TelaPadrao {
 		this.add(Box.createVerticalStrut(50));
 		this.add(painelExplicacao);
 	}
-
-	private void setListeners() {
-
-	}
-
-	private void setComponents() {
-
-	}
-
 }
