@@ -32,9 +32,7 @@ public class TelaEstudo extends TelaPadrao {
 
 	static TelaPadrao telaEstudar1, telaEstudar2, telaEstudar3;
 
-	LabelPadrao lbBemVindo;
-	LabelPadrao lbNovoTopico1;
-	static BotaoPadrao btComecar = new BotaoPadrao("Começar", 0, 0, 150, 50, 24);;
+	static BotaoPadrao btComecar = new BotaoPadrao("Começar", 0, 0, 150, 50, 24);
 	BotaoPadrao btRevisar;
 	BotaoPadrao btVoltarInicio;
 
@@ -190,13 +188,11 @@ public class TelaEstudo extends TelaPadrao {
 	private void setComponents() {
 
 		telaEstudar1.painelCentro.add(Box.createVerticalStrut(28));
-		lbBemVindo = new LabelPadrao("Bem vindo de volta", 36);
-		telaEstudar1.painelCentro.add(lbBemVindo);
+		telaEstudar1.painelCentro.add(new LabelPadrao("Bem vindo de volta", 36));
 		telaEstudar1.painelCentro.add(Box.createVerticalStrut(100));
-		lbNovoTopico1 = new LabelPadrao(
-				"Preparamos " + controle.Main.login.getLimiteTopicosEstudo() + " novos tópicos para serem estudados hoje", 40,
-				componentesGUILogin.Config.COR_FONTE_BOTAO);
-		telaEstudar1.painelCentro.add(lbNovoTopico1);
+		telaEstudar1.painelCentro.add(new LabelPadrao(
+				"Preparamos " + (Main.login.getLimiteTopicosEstudo() - Main.login.getTopicosEstudados()) + " novos tópicos para serem estudados hoje", 40,
+				componentesGUILogin.Config.COR_FONTE_BOTAO));
 		
 		btRevisar = new BotaoPadrao("Revisar", 0, 0, 150, 50, 24);
 		btVoltarInicio = new BotaoPadrao("Voltar", 0, 0, 150, 50, 24);
@@ -208,8 +204,7 @@ public class TelaEstudo extends TelaPadrao {
 		telaEstudar3.painelCentro.add(Box.createVerticalStrut(30));
 		telaEstudar3.painelCentro.add(new LabelPadrao("Parabéns!!", 36));
 		telaEstudar3.painelCentro.add(Box.createVerticalStrut(100));
-		telaEstudar3.painelCentro.add(new LabelPadrao("Você atingiu o limite de novos tópicos", 40, componentesGUILogin.Config.COR_FONTE_BOTAO));
-		telaEstudar3.painelCentro.add(new LabelPadrao("estudados por hoje.", 40, componentesGUILogin.Config.COR_FONTE_BOTAO));
+		telaEstudar3.painelCentro.add(new LabelPadrao("Você atingiu o limite de novos tópicos estudados por hoje.", 40, componentesGUILogin.Config.COR_FONTE_BOTAO));
 		telaEstudar3.painelCentro.add(Box.createVerticalStrut(90));
 		telaEstudar3.painelCentro.add(new LabelPadrao("Não se esqueca de fazer sua revisão.", 40, componentesGUILogin.Config.COR_FONTE_BOTAO));
 

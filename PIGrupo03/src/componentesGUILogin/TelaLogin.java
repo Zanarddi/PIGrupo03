@@ -23,7 +23,7 @@ public class TelaLogin extends TelaLoginPadrao {
 
 	JTextField tfUsuario = new JTextField();
 
-	JTextField tfSenha = new JTextField();
+	JPasswordField tfSenha = new JPasswordField();
 
 	JLabel lbvalidaLogin = new JLabel("");
 	JLabel lbLogin = new JLabel("Login");

@@ -1,5 +1,9 @@
 package modelo;
 
+import java.util.ArrayList;
+
+import crud.RespostaDAO;
+
 /**
  * Pergunta relacionada ao tópico.
  * é utilizada apenas na tela de revisão, e um cardlayout
@@ -10,25 +14,25 @@ public class Pergunta {
 
 	private int codigo;
 	private String descricao;
-	private int codigoTopico;
-
-	public Pergunta(int codigo, String descricao, int codigoTopico) {
+	private ArrayList<Resposta> respostas;
+	
+	
+	public Pergunta(int codigo, String descricao) {
+		super();
 		this.codigo = codigo;
 		this.descricao = descricao;
-		this.codigoTopico = codigoTopico;
+		respostas = buscaResposta();
 	}
 
-	public Pergunta(int i, String string, String string2, String string3, String string4, String string5,
-			String string6, String string7) {
-		// TODO Auto-generated constructor stub
-	}
-
-	public int getCodigo() {
-		return codigo;
-	}
-
-	public void setCodigo(int codigo) {
-		this.codigo = codigo;
+	private ArrayList<Resposta> buscaResposta() {
+		
+		RespostaDAO respostaDAO = new RespostaDAO();
+		String sqlQuery = "Select r.cod_resposta, r.descricao_resposta, r.tipo_resposta \r\n"
+				+ "From resposta r, pergunta p u\r\n"
+				+ "Where p.cod_pergunta = r.cod_pergunta \r\n"
+				+ "Where p.cod_pergunta = " + this.codigo;
+		
+		return respostaDAO.get(sqlQuery);
 	}
 
 	public String getDescricao() {
@@ -39,12 +43,20 @@ public class Pergunta {
 		this.descricao = descricao;
 	}
 
-	public int getCodigoTopico() {
-		return codigoTopico;
+	public ArrayList<Resposta> getRespostas() {
+		return respostas;
 	}
 
-	public void setCodigoTopico(int codigoTopico) {
-		this.codigoTopico = codigoTopico;
+	public void setRespostas(ArrayList<Resposta> respostas) {
+		this.respostas = respostas;
+	}
+
+	public int getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
 	}
 
 	

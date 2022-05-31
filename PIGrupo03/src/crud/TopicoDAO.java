@@ -68,17 +68,14 @@ public class TopicoDAO {
 		return men;
 	}
 	
-	/*
-	 * string sql para busca de topico, tem q implementar:
-	 * SELECT TOP ? t.cod_topico, ordem_topico, titulo_topico, descricao_topico, proficiencia, nome_tema 
-FROM topico t, tema te, proficiencia p, usuario u
-WHERE u.cod_usuario = p.cod_usuario 
-AND p.cod_topico = t.cod_topico 
-AND t.cod_tema = te.cod_tema 
-AND p.proficiencia = 0
-ORDER BY ordem_topico
+	
+	/**
+	 * faz a busca de tópicos no banco com parâmetros específicos para uma fila de estudo
+	 * 
+	 * @param sql - query sql para busca
+	 * @return - array de tópicos
 	 */
-	public ArrayList<Topico> get(String sql){
+	public ArrayList<Topico> getEstudo(String sql){
 		ArrayList<Topico> lista = new ArrayList<Topico>();
 		bd.getConnection();
 		try {
@@ -94,6 +91,42 @@ ORDER BY ordem_topico
 						bd.rs.getString(5),
 						bd.rs.getString(6),
 						bd.rs.getInt(7))
+				);
+			}
+		}
+		catch(SQLException erro) {
+			lista = null;
+			System.out.println(erro);
+		}
+		finally {
+			bd.close();
+		}
+		return lista;
+	}
+	
+	/**
+	 * faz a busca de tópicos no banco com parâmetros específicos para uma fila de revisão
+	 * 
+	 * @param sql - query sql para busca
+	 * @return - array de tópicos
+	 */
+	public ArrayList<Topico> getRevisao(String sql){
+		ArrayList<Topico> lista = new ArrayList<Topico>();
+		bd.getConnection();
+		try {
+			bd.st = bd.con.prepareStatement(sql);
+			bd.rs = bd.st.executeQuery();
+			while(bd.rs.next()) {
+				//implementar, colocando os campos corretos.
+				
+				//int codigo, int proficiencia, String titulo, 
+				//String explicacao, int codigoProficiencia
+				lista.add(new Topico(
+						bd.rs.getInt(1),
+						bd.rs.getString(2),
+						bd.rs.getString(3),
+						bd.rs.getInt(4),
+						bd.rs.getInt(5))
 				);
 			}
 		}
