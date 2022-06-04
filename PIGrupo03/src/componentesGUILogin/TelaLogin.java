@@ -8,11 +8,12 @@ import java.awt.event.MouseListener;
 
 import javax.swing.*;
 
+import controle.Main;
 import modelo.Login;
 
 /**
- * Tela de login, com campos para a realização do login.
- * Permite a navegação entre as telas de registro e recuperação de senha
+ * Tela de login, com campos para a realização do login. Permite a navegação
+ * entre as telas de registro e recuperação de senha
  * 
  * @author Gustavo Zanardi
  *
@@ -37,86 +38,96 @@ public class TelaLogin extends TelaLoginPadrao {
 		super(Config.DIMENSAO_LOGIN);
 		setComponents();
 		setListeners();
-		
+
 	}
 
 	private void setListeners() {
 		// adiciona um mouseListener para a label de recuperação de senha
-				lbRecSenha.addMouseListener(new MouseListener() {
-					@Override
-					public void mouseClicked(MouseEvent e) {
-						CardLayout cardLayout = (CardLayout) FrameInicial.painelPai.getLayout();
-						cardLayout.show(FrameInicial.painelPai, "Recuperar");
+		lbRecSenha.addMouseListener(new MouseListener() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				CardLayout cardLayout = (CardLayout) FrameInicial.painelPai.getLayout();
+				cardLayout.show(FrameInicial.painelPai, "Recuperar");
+			}
+
+			// por se tratar de uma interface, todos os metodos devem ser implementados
+			@Override
+			public void mousePressed(MouseEvent e) {
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+			}
+		});
+
+		// adiciona um mouseListener para a label de cadastro
+		lbCadastrar2.addMouseListener(new MouseListener() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				CardLayout cardLayout = (CardLayout) FrameInicial.painelPai.getLayout();
+				cardLayout.show(FrameInicial.painelPai, "Registrar");
+			}
+
+			// por se tratar de uma interface, todos os metodos devem ser implementados
+			@Override
+			public void mousePressed(MouseEvent e) {
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+			}
+		});
+
+		btLogin.addActionListener(new ActionListener() {
+
+			/**
+			 * ao clicar no botão de logar, verifica se os campos estão preenchidos, caso
+			 * não estejam, emite um aviso em forma de label para o usuario
+			 */
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				//apenas para teste
+				Login l = crud.LoginDAO.validarLogin("zanardi", "1234");
+				if (l != null) {
+					controle.Main.login = l;
+					controle.Main.iniciarFramePrincipal();
+				}
+				
+				/*
+				if (validarCampos()) {
+					// aqui deve-se adicionar uma condição para a senha (CRUD)
+					Login l = crud.LoginDAO.validarLogin(tfUsuario.getText(), tfSenha.getText());
+					if (l != null) {
+						controle.Main.login = l;
+						controle.Main.iniciarFramePrincipal();
+					} else {
+						lbvalidaLogin.setForeground(Color.RED);
+						lbvalidaLogin.setText("Campos inválidos");
 					}
+				}
+				*/
+				
+				
+			}
+		});
 
-					// por se tratar de uma interface, todos os metodos devem ser implementados
-					@Override
-					public void mousePressed(MouseEvent e) {
-					}
-
-					@Override
-					public void mouseReleased(MouseEvent e) {
-					}
-
-					@Override
-					public void mouseEntered(MouseEvent e) {
-					}
-
-					@Override
-					public void mouseExited(MouseEvent e) {
-					}
-				});
-
-				// adiciona um mouseListener para a label de cadastro
-				lbCadastrar2.addMouseListener(new MouseListener() {
-					@Override
-					public void mouseClicked(MouseEvent e) {
-						CardLayout cardLayout = (CardLayout) FrameInicial.painelPai.getLayout();
-						cardLayout.show(FrameInicial.painelPai, "Registrar");
-					}
-
-					// por se tratar de uma interface, todos os metodos devem ser implementados
-					@Override
-					public void mousePressed(MouseEvent e) {
-					}
-
-					@Override
-					public void mouseReleased(MouseEvent e) {
-					}
-
-					@Override
-					public void mouseEntered(MouseEvent e) {
-					}
-
-					@Override
-					public void mouseExited(MouseEvent e) {
-					}
-				});
-
-				btLogin.addActionListener(new ActionListener() {
-
-					/**
-					 * ao clicar no botão de logar, verifica se os campos estão preenchidos, caso
-					 * não estejam, emite um aviso em forma de label para o usuario
-					 */
-					@Override
-					public void actionPerformed(ActionEvent e) {
-
-						if (validarCampos()) {
-							// aqui deve-se adicionar uma condição para a senha (CRUD)
-							if (crud.LoginDAO.validarLogin(tfUsuario.getText(), tfSenha.getText())) {
-
-								//Implementar o construtor completo, mas apenas quando for possivel a utilizacao do banco
-								controle.Main.login = new Login(tfUsuario.getText(), tfSenha.getText());
-								controle.Main.iniciarFramePrincipal();
-							}
-						} else {
-							lbvalidaLogin.setForeground(Color.RED);
-							lbvalidaLogin.setText("Campos inválidos");
-						}
-					}
-				});
-		
 	}
 
 	/**

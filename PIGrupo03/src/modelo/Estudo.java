@@ -48,6 +48,7 @@ public class Estudo {
 		//ArrayList<Topico> listaEstudo = topicoDAO.get(querySQL);
 		
 
+		
 		ArrayList<Topico> listaEstudo = new ArrayList<Topico>();
 		Topico testeTopico = new Topico(1, 1, 1, "Isso é um título", "Isso é uma explicação1", "Isso é um tema1", 0);
 		listaEstudo.add(testeTopico);

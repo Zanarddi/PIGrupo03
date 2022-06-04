@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import controle.Main;
 import modelo.Login;
 import services.BD;
 
@@ -113,14 +114,23 @@ public class LoginDAO {
 	}
 	
 	/**
-	 * método que valida o login do usuário
-	 * 
-	 * @param usuario - nome do usuario
-	 * @param senha   - senha do usuario
-	 * @return - true para login validado
+	 * método que valida o login, buscando valores no banco de dados.
+	 * @param usuario - string do username
+	 * @param senha - senha do usuário
+	 * @return - um objeto do tipo login. caso o retorno seja null, as credenciais não são válidas.
 	 */
-	public static boolean validarLogin(String usuario, String senha) {
-		// falta adicionar o metodo no crud que valida o login, usando duas strings
-		return true;
+	public static Login validarLogin(String usuario, String senha) {
+		List<Login> login;
+		String sql = "SELECT cod_usuario, nome_usuario, senha_usuario, email_usuario, limite_estudo, limite_revisao, highscore_usuario, tipo_usuario FROM usuario WHERE nome_usuario = '"
+				+ usuario + "' AND senha_usuario = '" + senha + "'";
+		LoginDAO lDAO = new LoginDAO();
+		login = lDAO.get(sql);
+		
+		if(login.isEmpty()) {
+			return null;
+		}
+		else {
+		}
+		return login.get(0);
 	}
 }
