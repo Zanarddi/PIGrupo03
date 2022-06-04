@@ -13,6 +13,12 @@ import javax.swing.JLabel;
  */
 public class LabelPadrao extends JLabel{
 	
+	/**
+	 * cria uma label com cor personalizada.
+	 * @param texto - String com o texto da label
+	 * @param tamanho - tamanho da fonte
+	 * @param cor - cor do texto
+	 */
 	public LabelPadrao (String texto, int tamanho, Color cor) {
 		
 		//htm para quebrar o texto
@@ -22,8 +28,13 @@ public class LabelPadrao extends JLabel{
 		setForeground(cor);
 	}
 	
+	/**
+	 * cria uma label com cor padrão (preto).
+	 * @param texto - string com o texto da label
+	 * @param tamanho - tamanho da fonte
+	 */
 	public LabelPadrao (String texto, int tamanho) {
-		setText(texto);
+		setText("<html>"+ texto +"</html>");
 		setFont(new Font(componentesGUILogin.Config.FONTE, 0, tamanho));
 	}
 
