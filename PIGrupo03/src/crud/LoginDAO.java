@@ -47,22 +47,21 @@ public class LoginDAO {
 	 * @return
 	 */
 	public String salvar(Login l) {
-		sql = "insert into usuario (cod_usuario, nome_usuario, senha_usuario, email_usuario, tipo_usuario, limite_estudo, limite_revisao, highscore_usuario) values (?,?,?,?,?,?,?,?)";
+		sql = "insert into usuario (nome_usuario, senha_usuario, email_usuario, tipo_usuario, limite_estudo, limite_revisao, highscore_usuario) values (?,?,?,?,?,?,?)";
 		bd.getConnection();
 		try {
 			bd.st = bd.con.prepareStatement(sql);
-			bd.st.setInt(1, l.getCodigo());
-			bd.st.setString(2, l.getUsuario());
-			bd.st.setString(3, l.getSenha());
-			bd.st.setString(4, l.getEmail());
-			bd.st.setInt(5, l.getTipo());
-			bd.st.setInt(6, l.getLimiteTopicosEstudo());
-			bd.st.setInt(7, l.getLimiteTopicosRevisao());
-			bd.st.setInt(8, l.getHighscore());
+			bd.st.setString(1, l.getUsuario());
+			bd.st.setString(2, l.getSenha());
+			bd.st.setString(3, l.getEmail());
+			bd.st.setInt(4, l.getTipo());
+			bd.st.setInt(5, l.getLimiteTopicosEstudo());
+			bd.st.setInt(6, l.getLimiteTopicosRevisao());
+			bd.st.setInt(7, l.getHighscore());
 			bd.st.executeUpdate();
 			men = "Usuário inserido com sucesso!";
 		} catch (SQLException erro) {
-			sql = "update usuario set nome_usuario = ?, set senha_usuario = ?, set email_usuario = ?, set tipo_usuario = ?, set limite_estudo = ?, set limite_revisao = ?, set highscore_usuario = ? where cod_usuario = ?";
+			sql = "update usuario set nome_usuario = ?, senha_usuario = ?, email_usuario = ?, tipo_usuario = ?, limite_estudo = ?, limite_revisao = ?, highscore_usuario = ? where cod_usuario = ?";
 			try {
 				bd.st = bd.con.prepareStatement(sql);
 				bd.st.setInt(8, l.getCodigo());

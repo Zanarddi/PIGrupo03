@@ -25,6 +25,9 @@ public class Estudo {
 	 */
 	public void atualizarFilaEstudo() {
 		filaEstudo = pesquisaEstudo();
+		for (Topico topico : filaEstudo) {
+			topico.criarTela();
+		}
 	}
 	
 	/**

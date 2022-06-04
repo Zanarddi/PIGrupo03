@@ -144,9 +144,14 @@ public class TopicoDAO {
 	 * Atualiza a proficiencia de um topico no banco de dados
 	 * @param topico
 	 */
-	public void salvarProficiencia(Topico topico) {
+	public void salvarProficiencia(ArrayList<Topico> topicos) {
 		bd.getConnection();
 		sql = "update proficiencia set proficiencia = ?, where cod_proficiencia = ?";
+		
+		
+		
+		//IMPLEMENTAR PRA O USO DO ARRAY
+		
 		try {
 			bd.st = bd.con.prepareStatement(sql);
 			

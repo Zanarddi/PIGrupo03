@@ -50,7 +50,7 @@ public class TelaRevisao extends TelaPadrao {
 		telaRevisao1.painelCentro.add(Box.createVerticalStrut(30));
 		telaRevisao1.painelCentro.add(new LabelPadrao("Hora de relembrar", 40, componentesGUILogin.Config.COR_FONTE_BOTAO));
 
-		
+		//componentes da tela de revisão 2
 		btVoltar = new BotaoPadrao("Voltar", 0, 0, 150, 50, 24);
 		telaRevisao2.buttonPanel.add(btVoltar);
 		btProximo = new BotaoPadrao("Próximo", 0, 0, 150, 50, 24);
@@ -58,11 +58,6 @@ public class TelaRevisao extends TelaPadrao {
 		telaRevisao2.painelCentro.setBorder(new EmptyBorder(0, 0, 0, 0));
 		telaRevisao2.painelCentro.setLayout(new CardLayout());
 		telaRevisao2.painelCentro.add(new TelaPergunta(null));
-		
-		
-		
-		
-		
 		
 		//componentes da tela de revisão 3
 		btJogar = new BotaoPadrao("Jogar", 0, 0, 150, 50, 24);
@@ -77,7 +72,6 @@ public class TelaRevisao extends TelaPadrao {
 		telaRevisao3.painelCentro.add(Box.createVerticalStrut(130));
 		telaRevisao3.painelCentro.add(new LabelPadrao("Que tal jogar um jogo?", 40, componentesGUILogin.Config.COR_FONTE_BOTAO));
 
-		
 		
 		painelCentro.add(telaRevisao1, telaRevisao1.getName());
 		painelCentro.add(telaRevisao2, telaRevisao2.getName());

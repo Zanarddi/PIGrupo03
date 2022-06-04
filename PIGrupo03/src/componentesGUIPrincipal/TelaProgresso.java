@@ -9,12 +9,10 @@ public class TelaProgresso extends TelaPadrao {
 	PainelTextField desconhecido, iniciante, medio, expert;
 	public TelaProgresso() {
 		
-		setBackground(Config.COR_BACKGROUND);
-		
-		desconhecido = new PainelTextField("Tópicos desconhecidos:");
-		iniciante = new PainelTextField("Tópicos lvl. iniciante:");
-		medio = new PainelTextField("Tópicos lvl. médio:");
-		expert = new PainelTextField("Tópicos lvl. expert:");
+		desconhecido = new PainelTextField("Tópicos desconhecidos:", 190);
+		iniciante = new PainelTextField("Tópicos lvl. iniciante:", 190);
+		medio = new PainelTextField("Tópicos lvl. médio:", 190);
+		expert = new PainelTextField("Tópicos lvl. expert:", 190);
 		
 		painelCentro.add(Box.createVerticalStrut(40));
 		painelCentro.add(new LabelPadrao("Veja seu progresso", 48));
