@@ -25,7 +25,6 @@ public class Topico {
 	private int posicao;
 	
 	private int proficiencia;
-	private int codigoProficiencia;
 	
 	private int codigoTema;
 	
@@ -40,7 +39,7 @@ public class Topico {
 	}
 
 	//criação de tópicos para estudo
-	public Topico(int codigo, int posicao, int proficiencia, String titulo, String explicacao, String tema, int codigoProficiencia) {
+	public Topico(int codigo, int posicao, int proficiencia, String titulo, String explicacao, String tema) {
 		this.codigo = codigo;
 		this.posicao = posicao;
 		this.proficiencia = proficiencia;
@@ -55,7 +54,6 @@ public class Topico {
 		this.proficiencia = proficiencia;
 		this.titulo = titulo;
 		this.explicacao = explicacao;
-		this.codigoProficiencia = codigoProficiencia;
 		
 		buscaPergunta();
 	}
@@ -154,16 +152,6 @@ public class Topico {
 
 	public void setCodigoTema(int codigoTema) {
 		this.codigoTema = codigoTema;
-	}
-
-
-	public int getCodigoProficiencia() {
-		return codigoProficiencia;
-	}
-
-
-	public void setCodigoProficiencia(int codigoProficiencia) {
-		this.codigoProficiencia = codigoProficiencia;
 	}
 
 	public ArrayList<Pergunta> getPerguntas() {

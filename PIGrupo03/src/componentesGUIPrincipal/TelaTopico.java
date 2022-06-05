@@ -20,9 +20,6 @@ import componentesGUILogin.Config;
  */
 public class TelaTopico extends TelaPadrao {
 
-	static BotaoPadrao btProximo = new BotaoPadrao("Próximo", 0, 0, 150, 50, 24);
-	static BotaoPadrao btVoltar = new BotaoPadrao("Voltar", 0, 0, 150, 50, 24);
-
 	JPanel painelExplicacao;
 	
 	LabelPadrao lbTitulo;

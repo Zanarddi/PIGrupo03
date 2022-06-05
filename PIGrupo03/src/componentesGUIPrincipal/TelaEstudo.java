@@ -117,8 +117,13 @@ public class TelaEstudo extends TelaPadrao {
 					// na fila de estudo, a sequencia que será mostrado é então ditada pela
 					// sequência do array fila estudo
 
+					if (estudo.filaEstudo.isEmpty()) {
+						clPrincipal.last(painelCentro);
+					}
+					else {
 					indiceTopicoMostrado = 0;
 					clPrincipal.next(painelCentro);	
+					}
 				}
 				if (Main.login.getLimiteTopicosEstudo() <= Main.login.getTopicosEstudados()) {
 					clPrincipal.last(painelCentro);
@@ -135,8 +140,13 @@ public class TelaEstudo extends TelaPadrao {
 				TopicoDAO topicoDAO = new TopicoDAO();
 
 				if (indiceTopicoMostrado == 0) {
-					indiceTopicoMostrado++;
-					clTopicos.show(telaEstudar2.painelCentro, "" + estudo.filaEstudo.get(indiceTopicoMostrado).getCodigo());
+					if (estudo.filaEstudo.isEmpty()) {
+						clPrincipal.next(painelCentro);
+					} else {
+						indiceTopicoMostrado++;
+						clTopicos.show(telaEstudar2.painelCentro,
+								"" + estudo.filaEstudo.get(indiceTopicoMostrado).getCodigo());
+					}
 				}
 				else if (indiceTopicoMostrado == estudo.filaEstudo.size() - 1) {
 					for (Topico t : estudo.filaEstudo) {
@@ -145,22 +155,15 @@ public class TelaEstudo extends TelaPadrao {
 
 						System.out.println(controle.Main.login.getTopicosEstudados() + " topicos estudados");
 						System.out.println(t.getProficiencia() + " profciencia de " + t.getCodigo());
-						
-						//utilizar quando o banco for implementado
-						//topicoDAO.salvarProficiencia(t);
 					}
-					
-					
 					//   FAZER HOJE 04.06.2022
-					
-					
 					//utilizar quando o banco for implementado
-					//topicoDAO.salvarProficiencia(estudo.filaEstudo);
+					topicoDAO.salvarProficiencia(estudo.filaEstudo);
 					
 					
 					//TESTAR ISSO, ACHO Q NAO PRECISA
-					estudo.filaEstudo.clear();
-					telaEstudar2.painelCentro.removeAll();
+					//estudo.filaEstudo.clear();
+					//telaEstudar2.painelCentro.removeAll();
 					
 					clPrincipal.next(painelCentro);
 					System.out.println(estudo.filaEstudo.size() + "tamanho da fila de estudo");
@@ -168,28 +171,25 @@ public class TelaEstudo extends TelaPadrao {
 
 				else if (indiceTopicoMostrado < estudo.filaEstudo.size() - 1) {
 					indiceTopicoMostrado++;
-					cl2.show(telaEstudar2.painelCentro, "" + estudo.filaEstudo.get(indiceTopicoMostrado).getCodigo());
+					clTopicos.show(telaEstudar2.painelCentro, "" + estudo.filaEstudo.get(indiceTopicoMostrado).getCodigo());
 				}
 			}
 		});
 
-		TelaTopico.btVoltar.addActionListener(new ActionListener() {
+		btVoltar.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				CardLayout cl1 = (CardLayout) painelCentro.getLayout();
-				CardLayout cl2 = (CardLayout) telaEstudar2.painelCentro.getLayout();
 
 				if (indiceTopicoMostrado == 0) {
-					cl1.previous(painelCentro);
-					atualizarBotoes(1);
+					clPrincipal.previous(painelCentro);
 				} else if (indiceTopicoMostrado == estudo.filaEstudo.size() - 1) {
 
 					indiceTopicoMostrado--;
-					cl2.show(telaEstudar2.painelCentro, "" + estudo.filaEstudo.get(indiceTopicoMostrado).getCodigo());
+					clTopicos.show(telaEstudar2.painelCentro, "" + estudo.filaEstudo.get(indiceTopicoMostrado).getCodigo());
 				} else if (indiceTopicoMostrado < estudo.filaEstudo.size() - 1) {
 					indiceTopicoMostrado--;
-					cl2.show(telaEstudar2.painelCentro, "" + estudo.filaEstudo.get(indiceTopicoMostrado).getCodigo());
+					clTopicos.show(telaEstudar2.painelCentro, "" + estudo.filaEstudo.get(indiceTopicoMostrado).getCodigo());
 				}
 				System.out.println(indiceTopicoMostrado);
 				System.out.println(estudo.filaEstudo.size());
@@ -200,7 +200,6 @@ public class TelaEstudo extends TelaPadrao {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				PainelBotoes.btRevisar.setSelected(true);
-				atualizarBotoes(1);
 			}
 		});
 
@@ -212,30 +211,7 @@ public class TelaEstudo extends TelaPadrao {
 				CardLayout cardLayout = (CardLayout) FramePrincipal.painelPrincipal.getLayout();
 				cardLayout.show(FramePrincipal.painelPrincipal, "telaBemVindo");
 				PainelBotoes.bgPainel.clearSelection();
-				atualizarBotoes(1);
 			}
 		});
 	}
-
-	
-
-	/**
-	 * altera os botões de navegação entre telas.
-	 * 
-	 * @param tela - tela que vai ser mostrada, 1 para telaEstudar1 e assim e diante
-	 */
-	public void atualizarBotoes(int tela) {
-		buttonPanel.removeAll();
-		if (tela == 1) {
-			buttonPanel.add(btComecar);
-		} else if (tela == 2) {
-			buttonPanel.add(TelaTopico.btVoltar);
-			buttonPanel.add(TelaTopico.btProximo);
-		} else if (tela == 3) {
-			buttonPanel.add(btVoltarInicio);
-			buttonPanel.add(btRevisar);
-		}
-		buttonPanel.repaint();
-	}
-
 }

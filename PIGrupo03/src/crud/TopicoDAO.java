@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import controle.Main;
 import modelo.Login;
 import modelo.Topico;
 import services.BD;
@@ -89,8 +90,7 @@ public class TopicoDAO {
 						bd.rs.getInt(3),
 						bd.rs.getString(4),
 						bd.rs.getString(5),
-						bd.rs.getString(6),
-						bd.rs.getInt(7))
+						bd.rs.getString(6))
 				);
 			}
 		}
@@ -146,23 +146,24 @@ public class TopicoDAO {
 	 */
 	public void salvarProficiencia(ArrayList<Topico> topicos) {
 		bd.getConnection();
-		sql = "update proficiencia set proficiencia = ?, where cod_proficiencia = ?";
-		
-		
+		sql = "update proficiencia set proficiencia = ?  where cod_topico = ? and cod_usuario = ?";
 		
 		//IMPLEMENTAR PRA O USO DO ARRAY
-		
-		try {
-			bd.st = bd.con.prepareStatement(sql);
-			
-			bd.st.setInt(2, topico.getCodigoProficiencia());
-			bd.st.setInt(1, topico.getProficiencia());
+		for (Topico topico : topicos) {
+			try {
+				bd.st = bd.con.prepareStatement(sql);
 
-			bd.st.executeUpdate();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			System.out.println(e);
+				bd.st.setInt(1, topico.getProficiencia());
+				bd.st.setInt(2, topico.getCodigo());
+				bd.st.setInt(3, Main.login.getCodigo());
+
+				bd.st.executeUpdate();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				System.out.println(e);
+			}
 		}
+		bd.close();
 	}
 }

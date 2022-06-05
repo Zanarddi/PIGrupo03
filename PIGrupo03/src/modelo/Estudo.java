@@ -37,7 +37,7 @@ public class Estudo {
 	 */
 	public ArrayList<Topico> pesquisaEstudo() {
 		
-		String querySQL = "Select top " + (Main.login.getLimiteTopicosEstudo() - Main.login.getTopicosEstudados()) + " t.cod_topico, t.ordem_topico, p.proficiencia, t.titulo_topico, t.descricao_topico, te.nome_tema, p.cod_proficiencia\r\n"
+		String querySQL = "Select top " + (Main.login.getLimiteTopicosEstudo() - Main.login.getTopicosEstudados()) + " t.cod_topico, t.ordem_topico, p.proficiencia, t.titulo_topico, t.descricao_topico, te.nome_tema\r\n"
 				+ "From proficiencia p, tema te, topico t, usuario u\r\n"
 				+ "Where p.cod_topico = t.cod_topico \r\n"
 				+ "and t.cod_tema = te.cod_tema \r\n"
@@ -48,10 +48,10 @@ public class Estudo {
 		TopicoDAO topicoDAO = new TopicoDAO();
 		
 		//está apagado por enquanto, apenas para testes
-		//ArrayList<Topico> listaEstudo = topicoDAO.get(querySQL);
+		ArrayList<Topico> listaEstudo = topicoDAO.getEstudo(querySQL);
 		
 
-		
+		/*
 		ArrayList<Topico> listaEstudo = new ArrayList<Topico>();
 		Topico testeTopico = new Topico(1, 1, 1, "Isso é um título", "Isso é uma explicação1", "Isso é um tema1", 0);
 		listaEstudo.add(testeTopico);
@@ -59,7 +59,7 @@ public class Estudo {
 		listaEstudo.add(testeTopico);
 		testeTopico = new Topico(3, 1, 1, "Isso é um título3", "Isso é uma explicação3", "Isso é um tema3", 0);
 		listaEstudo.add(testeTopico);
-		
+		*/
 		return listaEstudo;
 	}
 }

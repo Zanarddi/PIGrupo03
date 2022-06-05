@@ -73,15 +73,12 @@ public class BotaoPadraoPainel extends JToggleButton {
 	 * @param bt - botão presente no painel de botões da lateral esquerda
 	 */
 	//
-	public static void resetaTela(BotaoPadraoPainel bt) {
+	public static void resetaTelaa(BotaoPadraoPainel bt) {
 		if (bt.painel.painelCentro.getLayout() instanceof CardLayout) {
 			CardLayout cardLayout = (CardLayout) bt.painel.painelCentro.getLayout();
 			cardLayout.first(bt.painel.painelCentro);
 			if (bt.equals(PainelBotoes.btEstudar)) {
-				TelaEstudo.indiceTopicoMostrado = 0;
-				PainelBotoes.btEstudar.painel.buttonPanel.repaint();
-				bt.painel.buttonPanel.removeAll();
-				bt.painel.buttonPanel.add(TelaEstudo.btComecar);
+				//TelaEstudo.indiceTopicoMostrado = 0;
 			}
 		}
 	}

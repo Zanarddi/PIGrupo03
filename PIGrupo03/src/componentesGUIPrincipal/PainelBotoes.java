@@ -27,14 +27,14 @@ public class PainelBotoes extends JPanel {
 
 	static ButtonGroup bgPainel = new ButtonGroup();
 
-	static BotaoPadraoPainel btEstudar = new BotaoPadraoPainel("Estudar", 22, new TelaEstudo());
+	static BotaoPadraoPainel btEstudar;
 	static BotaoPadraoPainel btRevisar;
 	static BotaoPadraoPainel btJogar;
 	static BotaoPadraoPainel btProgresso;
 	static BotaoPadraoPainel btConfiguracao;
 
 	PainelBotoes() {
-		//btEstudar = new BotaoPadraoPainel("Estudar", 22, new TelaEstudo());
+		btEstudar = new BotaoPadraoPainel("Estudar", 22, new TelaEstudo());
 		btRevisar = new BotaoPadraoPainel("Revisar", 22, new TelaRevisao());
 		btJogar = new BotaoPadraoPainel("Jogar", 22, new TelaJogo());
 		btProgresso = new BotaoPadraoPainel("Progresso", 22, new TelaProgresso());
@@ -54,14 +54,14 @@ public class PainelBotoes extends JPanel {
 				@Override
 				public void itemStateChanged(ItemEvent e) {
 					if (e.getStateChange() == ItemEvent.SELECTED) {
-						BotaoPadraoPainel.resetaTela(botao);
+						//BotaoPadraoPainel.resetaTela(botao);
 						CardLayout cardLayout = (CardLayout) FramePrincipal.painelPrincipal.getLayout();
 						cardLayout.show(FramePrincipal.painelPrincipal, botao.texto);
 						
 						
 
 					} else if (e.getStateChange() == ItemEvent.DESELECTED) {
-						BotaoPadraoPainel.resetaTela(botao);
+						//BotaoPadraoPainel.resetaTela(botao);
 					}
 
 				}
