@@ -125,8 +125,7 @@ public class TopicoDAO {
 						bd.rs.getInt(1),
 						bd.rs.getString(2),
 						bd.rs.getString(3),
-						bd.rs.getInt(4),
-						bd.rs.getInt(5))
+						bd.rs.getInt(4))
 				);
 			}
 		}

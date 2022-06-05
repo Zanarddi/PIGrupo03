@@ -27,7 +27,7 @@ public class Revisao {
 	 */
 	public ArrayList<Topico> pesquisaRevisao() {
 		
-		String querySQL = "Select top " + (Main.login.getLimiteTopicosRevisao() - Main.login.getTopicosRevisados()) + " t.cod_topico, t.titulo_topico, t.descricao_topico, p.cod_proficiencia, p.proficiencia \r\n"
+		String querySQL = "Select top " + (Main.login.getLimiteTopicosRevisao() - Main.login.getTopicosRevisados()) + " t.cod_topico, t.titulo_topico, t.descricao_topico, p.proficiencia \r\n"
 				+ "From proficiencia p, topico t, usuario u\r\n"
 				+ "Where p.cod_topico = t.cod_topico \r\n"
 				+ "and p.cod_usuario = u.cod_usuario \r\n"

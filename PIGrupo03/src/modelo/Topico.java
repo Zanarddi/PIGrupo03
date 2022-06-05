@@ -49,7 +49,7 @@ public class Topico {
 	}
 	
 	//criação de tópicos para revisão
-	public Topico(int codigo,  String titulo, String explicacao, int codigoProficiencia, int proficiencia) {
+	public Topico(int codigo,  String titulo, String explicacao, int proficiencia) {
 		this.codigo = codigo;
 		this.proficiencia = proficiencia;
 		this.titulo = titulo;

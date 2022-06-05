@@ -9,9 +9,12 @@ import javax.swing.Box;
 import javax.swing.border.EmptyBorder;
 
 import controle.Main;
+import modelo.Revisao;
 
 public class TelaRevisao extends TelaPadrao {
 
+	Revisao revisao;
+	
 	public static TelaPadrao telaRevisao1;
 	public static TelaPadrao telaRevisao2;
 	public static TelaPadrao telaRevisao3;
