@@ -6,7 +6,13 @@ import java.awt.Font;
 import javax.swing.JRadioButton;
 
 import componentesGUILogin.Config;
-
+/**
+ * RadioButton padrão, utilizado para o controle de respostas na revisão
+ * Conta com um texto e um tipo, que determina se a resposta é correta ou errada
+ * 
+ * @author Gustavo Zanardi
+ *
+ */
 public class RadioButtonPadrao extends JRadioButton{
 
 	String texto;

@@ -13,7 +13,11 @@ import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 
 import componentesGUILogin.Config;
-
+/**
+ * Frame auxiliar para a troca de senha
+ * @author Gustavo Zanardi
+ *
+ */
 public class FrameTrocaSenha extends JFrame {
 
 	BotaoPadrao btConfirmar;

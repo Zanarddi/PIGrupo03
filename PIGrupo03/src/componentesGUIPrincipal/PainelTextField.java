@@ -1,14 +1,11 @@
 package componentesGUIPrincipal;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Font;
 
 import javax.swing.BorderFactory;
-import javax.swing.Box;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
@@ -50,10 +47,7 @@ public class PainelTextField extends JPanel {
 		textField.setBorder(BorderFactory.createEmptyBorder(0, 20, 5, 20));
 		textField.setHorizontalAlignment(SwingConstants.LEFT);
 
-		
 		add(label, BorderLayout.WEST);
 		add(textField, BorderLayout.EAST);
-
 	}
-
 }

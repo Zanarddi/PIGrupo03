@@ -57,13 +57,9 @@ public class PainelBotoes extends JPanel {
 						//BotaoPadraoPainel.resetaTela(botao);
 						CardLayout cardLayout = (CardLayout) FramePrincipal.painelPrincipal.getLayout();
 						cardLayout.show(FramePrincipal.painelPrincipal, botao.texto);
-						
-						
-
 					} else if (e.getStateChange() == ItemEvent.DESELECTED) {
 						//BotaoPadraoPainel.resetaTela(botao);
 					}
-
 				}
 			});
 		}
@@ -76,12 +72,11 @@ public class PainelBotoes extends JPanel {
 	private void setBotoes() {
 		// verifica se o usuario é adm ou não
 		if (Main.login.getTipo() == 1) {
-
+			//Precisa criar e inserir as telas de ADM
 		} else if (Main.login.getTipo() == 0){
 			// adiciona os botões no buttongroup e no array de botoes
 			adicionarBotoesBG(bgPainel, botoes, btEstudar, btRevisar, btJogar, btProgresso, btConfiguracao);
 		}
-
 		// adiciona os botoes no painel
 		for (BotaoPadraoPainel botao : botoes) {
 			add(Box.createVerticalStrut(5));

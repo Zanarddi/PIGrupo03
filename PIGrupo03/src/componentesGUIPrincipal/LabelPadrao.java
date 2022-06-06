@@ -20,14 +20,11 @@ public class LabelPadrao extends JLabel{
 	 * @param cor - cor do texto
 	 */
 	public LabelPadrao (String texto, int tamanho, Color cor) {
-		
 		//htm para quebrar o texto
 		setText("<html>"+ texto +"</html>");
-		
 		setFont(new Font(componentesGUILogin.Config.FONTE, 0, tamanho));
 		setForeground(cor);
 	}
-	
 	/**
 	 * cria uma label com cor padrão (preto).
 	 * @param texto - string com o texto da label

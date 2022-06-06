@@ -22,10 +22,8 @@ public class BotaoPadraoPainel extends JToggleButton {
 
 	// Inset para mudar margem dos botões, usado para ajustar tamanho dos textos
 	static final Insets MARGEM_BOTAO = new Insets(2, 0, 2, 0);
-
 	String texto;
 	int tamFonte;
-
 	public TelaPadrao painel;
 
 	/**
@@ -72,7 +70,6 @@ public class BotaoPadraoPainel extends JToggleButton {
 	 * 
 	 * @param bt - botão presente no painel de botões da lateral esquerda
 	 */
-	//
 	public static void resetaTelaa(BotaoPadraoPainel bt) {
 		if (bt.painel.painelCentro.getLayout() instanceof CardLayout) {
 			CardLayout cardLayout = (CardLayout) bt.painel.painelCentro.getLayout();

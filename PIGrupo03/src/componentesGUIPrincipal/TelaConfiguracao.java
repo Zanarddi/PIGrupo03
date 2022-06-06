@@ -6,13 +6,17 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.Box;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import controle.Main;
 import controle.Validacao;
 import crud.LoginDAO;
 
+/**
+ * Tela onde o usuário pode configurar seus limites de estudo/revisão, e encerrar sua sessão
+ * @author Gustavo Zanardi
+ *
+ */
 public class TelaConfiguracao extends TelaPadrao {
 
 	BotaoPadrao btVoltar, btTrocarSenha, btEncerrarSessao, btSalvar;
@@ -20,7 +24,6 @@ public class TelaConfiguracao extends TelaPadrao {
 	FrameTrocaSenha frameTrocaSenha;
 
 	public TelaConfiguracao() {
-
 		setComponents();
 		setListeners();
 	}
@@ -28,7 +31,6 @@ public class TelaConfiguracao extends TelaPadrao {
 	private void setListeners() {
 
 		btVoltar.addActionListener(new ActionListener() {
-
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				CardLayout cardLayout = (CardLayout) FramePrincipal.painelPrincipal.getLayout();
@@ -36,15 +38,15 @@ public class TelaConfiguracao extends TelaPadrao {
 				PainelBotoes.bgPainel.clearSelection();
 			}
 		});
+		
 		btEncerrarSessao.addActionListener(new ActionListener() {
-
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				Main.iniciarFrameLogin();
 			}
 		});
+		
 		btSalvar.addActionListener(new ActionListener() {
-
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				String limRevisao = tfLimiteRevisao.textField.getText();
@@ -54,11 +56,12 @@ public class TelaConfiguracao extends TelaPadrao {
 					if (Integer.parseInt(limEstudo) >= 0 && Integer.parseInt(limRevisao) >= 0) {
 						Main.login.setLimiteTopicosEstudo(Integer.parseInt(limEstudo));
 						Main.login.setLimiteTopicosRevisao(Integer.parseInt(limRevisao));
-						System.out.println(Main.login.getLimiteTopicosEstudo());
-						System.out.println(Main.login.getLimiteTopicosRevisao());
 						LoginDAO loginDAO = new LoginDAO();
 
 						JOptionPane.showMessageDialog(null, loginDAO.salvar(Main.login));
+					}
+					else {
+						JOptionPane.showMessageDialog(null, "Insira valores válidos!");
 					}
 				} else {
 					JOptionPane.showMessageDialog(null, "Insira valores válidos!");

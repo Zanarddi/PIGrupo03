@@ -121,8 +121,9 @@ public class TelaEstudo extends TelaPadrao {
 						clPrincipal.last(painelCentro);
 					}
 					else {
-					indiceTopicoMostrado = 1;
+					indiceTopicoMostrado = 0;
 					clPrincipal.next(painelCentro);	
+					clTopicos.first(telaEstudar2.painelCentro);
 					}
 				}
 				if (Main.login.getLimiteTopicosEstudo() <= Main.login.getTopicosEstudados()) {
@@ -142,19 +143,17 @@ public class TelaEstudo extends TelaPadrao {
 				if (indiceTopicoMostrado == 0) {
 					if (estudo.filaEstudo.isEmpty()) {
 						clPrincipal.next(painelCentro);
-						
 					} else {
-						
+						indiceTopicoMostrado++;
 						clTopicos.show(telaEstudar2.painelCentro,
 								"" + estudo.filaEstudo.get(indiceTopicoMostrado).getCodigo());
-						indiceTopicoMostrado++;
 						System.out.println("test");
 						System.out.println(indiceTopicoMostrado);
 						System.out.println(estudo.filaEstudo.size());
 						
 					}
 				}
-				else if (indiceTopicoMostrado == estudo.filaEstudo.size()) {
+				else if (indiceTopicoMostrado == estudo.filaEstudo.size()-1) {
 					for (Topico t : estudo.filaEstudo) {
 						t.setProficiencia(1);
 						controle.Main.login.setTopicosEstudados(controle.Main.login.getTopicosEstudados() + 1);
@@ -169,7 +168,7 @@ public class TelaEstudo extends TelaPadrao {
 					System.out.println(estudo.filaEstudo.size() + "tamanho da fila de estudo");
 				}
 
-				else if (indiceTopicoMostrado < estudo.filaEstudo.size()) {
+				else if (indiceTopicoMostrado < estudo.filaEstudo.size()-1) {
 					indiceTopicoMostrado++;
 					clTopicos.show(telaEstudar2.painelCentro, "" + estudo.filaEstudo.get(indiceTopicoMostrado).getCodigo());
 				}
@@ -181,13 +180,13 @@ public class TelaEstudo extends TelaPadrao {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				if (indiceTopicoMostrado == 1) {
+				if (indiceTopicoMostrado == 0) {
 					clPrincipal.previous(painelCentro);
-				} else if (indiceTopicoMostrado == estudo.filaEstudo.size()) {
+				} else if (indiceTopicoMostrado == estudo.filaEstudo.size()-1) {
 
 					indiceTopicoMostrado--;
 					clTopicos.show(telaEstudar2.painelCentro, "" + estudo.filaEstudo.get(indiceTopicoMostrado).getCodigo());
-				} else if (indiceTopicoMostrado < estudo.filaEstudo.size()) {
+				} else if (indiceTopicoMostrado < estudo.filaEstudo.size()-1) {
 					indiceTopicoMostrado--;
 					clTopicos.show(telaEstudar2.painelCentro, "" + estudo.filaEstudo.get(indiceTopicoMostrado).getCodigo());
 				}

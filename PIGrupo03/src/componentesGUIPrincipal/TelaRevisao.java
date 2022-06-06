@@ -114,7 +114,7 @@ public class TelaRevisao extends TelaPadrao {
 						clPrincipal.last(painelCentro);
 					}
 					else {
-					indicePerguntaMostrada = 1;
+					indicePerguntaMostrada = 0;
 					clPrincipal.next(painelCentro);	
 					}
 				}
@@ -129,9 +129,21 @@ public class TelaRevisao extends TelaPadrao {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				clPrincipal.previous(painelCentro);
+				if (indicePerguntaMostrada == 0) {
+					clPrincipal.previous(painelCentro);
+				} else if (indicePerguntaMostrada == revisao.filaRevisao.size()-1) {
 
+					indicePerguntaMostrada--;
+					clPerguntas.show(telaRevisao2.painelCentro, "" + revisao.filaRevisao.get(indicePerguntaMostrada).getCodigo());
+				} else if (indicePerguntaMostrada < revisao.filaRevisao.size()-1) {
+					indicePerguntaMostrada--;
+					clPerguntas.show(telaRevisao2.painelCentro, "" + revisao.filaRevisao.get(indicePerguntaMostrada).getCodigo());
+				}
+				System.out.println(indicePerguntaMostrada);
+				System.out.println(revisao.filaRevisao.size());
 			}
+
+			
 		});
 
 		btProximo.addActionListener(new ActionListener() {
@@ -145,15 +157,14 @@ public class TelaRevisao extends TelaPadrao {
 					if (revisao.filaRevisao.isEmpty()) {
 						clPrincipal.next(painelCentro);
 					} else {
-
+						indicePerguntaMostrada++;
 						clPerguntas.show(telaRevisao2.painelCentro,
 								"" + revisao.filaRevisao.get(indicePerguntaMostrada).getCodigo());
-						indicePerguntaMostrada++;
 						System.out.println(indicePerguntaMostrada);
 						System.out.println(revisao.filaRevisao.size());
 
 					}
-				} else if (indicePerguntaMostrada == revisao.filaRevisao.size()) {
+				} else if (indicePerguntaMostrada == revisao.filaRevisao.size()-1) {
 					for (Topico t : revisao.filaRevisao) {
 						// verifica se o usuário acertou ou não a pergunta
 						for (RadioButtonPadrao bt : t.getTelaPergunta().grupoRespostas) {
@@ -181,7 +192,7 @@ public class TelaRevisao extends TelaPadrao {
 					clPrincipal.next(painelCentro);
 					System.out.println(revisao.filaRevisao.size() + "tamanho da fila de revisao");
 				}
-				else if (indicePerguntaMostrada < revisao.filaRevisao.size()) {
+				else if (indicePerguntaMostrada < revisao.filaRevisao.size()-1) {
 					indicePerguntaMostrada++;
 					clPerguntas.show(telaRevisao2.painelCentro, "" + revisao.filaRevisao.get(indicePerguntaMostrada).getCodigo());
 				}		

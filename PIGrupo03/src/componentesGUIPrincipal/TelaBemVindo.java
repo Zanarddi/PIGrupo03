@@ -39,7 +39,6 @@ public class TelaBemVindo extends TelaPadrao {
 			}
 		});
 		btRevisar.addActionListener(new ActionListener() {
-			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				PainelBotoes.btRevisar.setSelected(true);
@@ -52,28 +51,19 @@ public class TelaBemVindo extends TelaPadrao {
 	 */
 	private void setComponents() {
 
-		painelCentro.add(Box.createVerticalStrut(40));
-		
-		lbBemVindo = new LabelPadrao("Bem vindo de volta " + controle.Main.login.getUsuario(), 48,
-				componentesGUILogin.Config.COR_FONTE_BOTAO);
-		painelCentro.add(lbBemVindo);
-
-		painelCentro.add(Box.createVerticalStrut(40));
-		
-		lbEstudo = new LabelPadrao(
-				"Você tem " + controle.Main.login.getLimiteTopicosEstudo() + " novos tópicos para estudar", 36);
-		painelCentro.add(lbEstudo);
-
-		painelCentro.add(Box.createVerticalStrut(40));
-		
-		lbRevisao = new LabelPadrao("Você tem " + controle.Main.login.getLimiteTopicosRevisao() + " novas revisões",
-				36);
-		painelCentro.add(lbRevisao);
-
+		lbBemVindo = new LabelPadrao("Bem vindo de volta " + controle.Main.login.getUsuario(), 48, componentesGUILogin.Config.COR_FONTE_BOTAO);
+		lbEstudo = new LabelPadrao("Você tem " + controle.Main.login.getLimiteTopicosEstudo() + " novos tópicos para estudar", 36);
+		lbRevisao = new LabelPadrao("Você tem " + controle.Main.login.getLimiteTopicosRevisao() + " novas revisões", 36);
 		btEstudar = new BotaoPadrao("Estudar", 0, 0, 150, 50, 24);
-		buttonPanel.add(btEstudar);
-
 		btRevisar = new BotaoPadrao("Revisar", 0, 0, 150, 50, 24);
+		
+		painelCentro.add(Box.createVerticalStrut(40));
+		painelCentro.add(lbBemVindo);
+		painelCentro.add(Box.createVerticalStrut(40));
+		painelCentro.add(lbEstudo);
+		painelCentro.add(Box.createVerticalStrut(40));
+		painelCentro.add(lbRevisao);
+		buttonPanel.add(btEstudar);
 		buttonPanel.add(btRevisar);
 	}
 }
