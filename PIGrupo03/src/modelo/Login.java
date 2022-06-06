@@ -13,8 +13,8 @@ public class Login {
 	private String usuario, senha, email;
 
 	private int limiteTopicosEstudo = 10;
-	private int limiteTopicosRevisao = 10;
-	private int highscore;
+	private int limiteTopicosRevisao = 15;
+	private int highscore = 0;
 	private int tipo = 0;
 	private int codigo;
 
@@ -30,12 +30,18 @@ public class Login {
 			int limiteTopicosRevisao, int highscore, int tipo) {
 		this.usuario = usuario;
 		this.senha = senha;
-		this.setEmail(email);
+		this.email = email;
 		this.limiteTopicosEstudo = limiteTopicosEstudo;
 		this.limiteTopicosRevisao = limiteTopicosRevisao;
-		this.setHighscore(highscore);
-		this.setTipo(tipo);
-		this.setCodigo(codigo);
+		this.highscore = highscore;
+		this.tipo = tipo;
+		this.codigo = codigo;
+	}
+
+	public Login(String usuario, String email, String senha) {
+		this.usuario = usuario;
+		this.senha = senha;
+		this.email = email;
 	}
 
 	public String toString() {

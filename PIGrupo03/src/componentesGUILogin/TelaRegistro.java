@@ -1,10 +1,16 @@
 package componentesGUILogin;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.*;
+
+import controle.Validacao;
+import crud.LoginDAO;
+import modelo.Login;
 
 /**
  * Tela utilizada para o registro de novos usuários.
@@ -26,13 +32,33 @@ public class TelaRegistro extends TelaLoginPadrao {
 
 	JTextField tfEmail = new JTextField();
 	JTextField tfUsuario = new JTextField();
-	JTextField tfSenha = new JTextField();
-	JTextField tfRepSenha = new JTextField();
+	JPasswordField tfSenha = new JPasswordField();
+	JPasswordField tfRepSenha = new JPasswordField();
 
 	public TelaRegistro() {
 		super(Config.DIMENSAO_REGISTRAR);
 		setComponents();
+		setListeners();
+		
+	}
 
+	private void setListeners() {
+		
+		btRegistrar.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(Validacao.validaCamposRegistro(tfEmail.getText(), tfUsuario.getText(), tfSenha.getText(), tfRepSenha.getText())) {
+					System.out.println("teste");
+					Login l = new Login(tfUsuario.getText(), tfEmail.getText(), tfSenha.getText());
+					LoginDAO loginDAO = new LoginDAO();
+					JOptionPane.showMessageDialog(null, loginDAO.salvar(l));
+				}
+			}
+		});
+		
+		
+		
 		lbLogin2.addMouseListener(new MouseListener() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -57,7 +83,7 @@ public class TelaRegistro extends TelaLoginPadrao {
 			}
 		});
 	}
-
+	
 	private void setComponents() {
 		painelComponentes.setLayout(new BoxLayout(painelComponentes, BoxLayout.Y_AXIS));
 
