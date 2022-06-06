@@ -5,11 +5,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
 
 import javax.swing.*;
 
 import controle.Validacao;
 import crud.LoginDAO;
+import crud.TopicoDAO;
 import modelo.Login;
 
 /**
@@ -42,18 +44,30 @@ public class TelaRegistro extends TelaLoginPadrao {
 		
 	}
 
+	private void criarRegistro(){
+		if(Validacao.validaCamposRegistro(tfEmail.getText(), tfUsuario.getText(), tfSenha.getText(), tfRepSenha.getText())) {
+			Login l = new Login(tfUsuario.getText(), tfEmail.getText(), tfSenha.getText());
+			
+			LoginDAO loginDAO = new LoginDAO();
+			TopicoDAO topicoDAO = new TopicoDAO();
+			ArrayList<Integer> topicos = new ArrayList<Integer>();
+			
+			JOptionPane.showMessageDialog(null, loginDAO.registrarUsuario(l));
+			
+			topicos = topicoDAO.listarTopicos();
+			l = crud.LoginDAO.validarLogin(l.getUsuario(), l.getSenha());
+			topicoDAO.inserirProficiencia(topicos, l.getCodigo());
+			
+		}
+	}
+	
 	private void setListeners() {
 		
 		btRegistrar.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if(Validacao.validaCamposRegistro(tfEmail.getText(), tfUsuario.getText(), tfSenha.getText(), tfRepSenha.getText())) {
-					System.out.println("teste");
-					Login l = new Login(tfUsuario.getText(), tfEmail.getText(), tfSenha.getText());
-					LoginDAO loginDAO = new LoginDAO();
-					JOptionPane.showMessageDialog(null, loginDAO.salvar(l));
-				}
+				criarRegistro();
 			}
 		});
 		

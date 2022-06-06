@@ -142,6 +142,35 @@ public class TopicoDAO {
 	}
 	
 	/**
+	 * cria novas linhas de proficiencia para novos usuarios
+	 * @param topicos
+	 */
+	public void inserirProficiencia(ArrayList<Integer> topicos, int codigoUsuario) {
+		bd.getConnection();
+		sql = "insert into proficiencia (cod_topico,cod_usuario) values (?,?)";
+		
+		
+		for (Integer topico : topicos) {
+			try {
+				bd.st = bd.con.prepareStatement(sql);
+
+				System.out.println(topico.intValue());
+				System.out.println(codigoUsuario);
+				
+				bd.st.setInt(1, topico.intValue());
+				bd.st.setInt(2, codigoUsuario);
+
+				bd.st.executeUpdate();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				System.out.println(e);
+			}
+		}
+		bd.close();
+	}
+	
+	/**
 	 * Atualiza a proficiencia de um topico no banco de dados
 	 * @param topico
 	 */
@@ -168,6 +197,11 @@ public class TopicoDAO {
 		bd.close();
 	}
 	
+	/**
+	 * conta quantos topicos existem com n proficiencia para determinado usuário
+	 * @param sql
+	 * @return
+	 */
 	public int contarTopicos(String sql) {
 		int contagem = 0;
 		bd.getConnection();
@@ -185,5 +219,28 @@ public class TopicoDAO {
 			bd.close();
 		}
 		return contagem;
+	}
+	
+	/**
+	 * lista o codigo dos topicos no banco
+	 * utilizado no registro de novos usuarios
+	 * @return
+	 */
+	public ArrayList<Integer> listarTopicos() {
+		ArrayList<Integer> lista = new ArrayList<Integer>();
+		sql = "select cod_topico from topico";
+		bd.getConnection();
+		try {
+			bd.st = bd.con.prepareStatement(sql);
+			bd.rs = bd.st.executeQuery();
+			while (bd.rs.next()) {
+				lista.add(bd.rs.getInt(1));
+			}
+		} catch (SQLException erro) {
+			System.out.println(erro);
+		} finally {
+			bd.close();
+		}
+		return lista;
 	}
 }

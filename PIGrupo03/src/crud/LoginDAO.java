@@ -41,8 +41,29 @@ public class LoginDAO {
 		}
 		return men;
 	}
-	
 
+	public String registrarUsuario(Login l) {
+		sql = "insert into usuario (nome_usuario, senha_usuario, email_usuario, tipo_usuario, limite_estudo, limite_revisao, highscore_usuario) values (?,?,?,?,?,?,?)";
+		bd.getConnection();
+		try {
+			bd.st = bd.con.prepareStatement(sql);
+			bd.st.setString(1, l.getUsuario());
+			bd.st.setString(2, l.getSenha());
+			bd.st.setString(3, l.getEmail());
+			bd.st.setInt(4, l.getTipo());
+			bd.st.setInt(5, l.getLimiteTopicosEstudo());
+			bd.st.setInt(6, l.getLimiteTopicosRevisao());
+			bd.st.setInt(7, l.getHighscore());
+			bd.st.executeUpdate();
+			men = "Usuário inserido com sucesso!";
+		} catch (SQLException e) {
+			men = "Usuário já existe";
+		} finally {
+			bd.close();
+		}
+		return men;
+	}
+	
 	/**
 	 * método que tenta inserir um novo usuario no banco de dados, caso ele nao consiga inserir, ele edita o topico com o codigo inserido
 	 * @param l
@@ -77,7 +98,7 @@ public class LoginDAO {
 				bd.st.executeUpdate();
 				men = "Usuario atualizado com sucesso";
 			} catch (SQLException e) {
-				men = "Falha " + erro;
+				men = "Falha " + e;
 			}
 		} finally {
 			bd.close();
