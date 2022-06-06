@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import controle.CalculoProficiencia;
 import controle.Main;
 import modelo.Login;
 import modelo.Topico;
@@ -111,6 +112,7 @@ public class TopicoDAO {
 	 * @return - array de tópicos
 	 */
 	public ArrayList<Topico> getRevisao(String sql){
+		
 		ArrayList<Topico> lista = new ArrayList<Topico>();
 		bd.getConnection();
 		try {
@@ -145,16 +147,16 @@ public class TopicoDAO {
 	 */
 	public void salvarProficiencia(ArrayList<Topico> topicos) {
 		bd.getConnection();
-		sql = "update proficiencia set proficiencia = ?  where cod_topico = ? and cod_usuario = ?";
+		sql = "update proficiencia set proficiencia = ?, proxima_revisao = getdate() + ?  where cod_topico = ? and cod_usuario = ?";
 		
-		//IMPLEMENTAR PRA O USO DO ARRAY
 		for (Topico topico : topicos) {
 			try {
 				bd.st = bd.con.prepareStatement(sql);
 
 				bd.st.setInt(1, topico.getProficiencia());
-				bd.st.setInt(2, topico.getCodigo());
-				bd.st.setInt(3, Main.login.getCodigo());
+				bd.st.setInt(2, CalculoProficiencia.calcularProficiencia(topico));
+				bd.st.setInt(3, topico.getCodigo());
+				bd.st.setInt(4, Main.login.getCodigo());
 
 				bd.st.executeUpdate();
 			} catch (SQLException e) {
@@ -164,5 +166,24 @@ public class TopicoDAO {
 			}
 		}
 		bd.close();
+	}
+	
+	public int contarTopicos(String sql) {
+		int contagem = 0;
+		bd.getConnection();
+		try {
+			bd.st = bd.con.prepareStatement(sql);
+			bd.rs = bd.st.executeQuery();
+			while(bd.rs.next()) {
+				contagem = bd.rs.getInt(1);
+			}
+		}
+		catch(SQLException erro) {
+			System.out.println(erro);
+		}
+		finally {
+			bd.close();
+		}
+		return contagem;
 	}
 }

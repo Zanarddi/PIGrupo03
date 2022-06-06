@@ -48,14 +48,20 @@ public class Topico {
 		this.tema = tema;
 	}
 	
-	//criação de tópicos para revisão
+	/**
+	 * cria um tópico para uma fila de revisão, esse construtuor já cria as perguntas junto.
+	 * 
+	 * @param codigo
+	 * @param titulo
+	 * @param explicacao
+	 * @param proficiencia
+	 */
 	public Topico(int codigo,  String titulo, String explicacao, int proficiencia) {
 		this.codigo = codigo;
 		this.proficiencia = proficiencia;
 		this.titulo = titulo;
 		this.explicacao = explicacao;
-		
-		buscaPergunta();
+		perguntas = buscaPergunta();
 	}
 
 
@@ -80,9 +86,9 @@ public class Topico {
 		
 		PerguntaDAO perguntaDAO = new PerguntaDAO();
 		String sqlQuery = "Select p.cod_pergunta, p.descricao_pergunta \r\n"
-				+ "From topico t, pergunta p u\r\n"
+				+ "From topico t, pergunta p \r\n"
 				+ "Where p.cod_topico = t.cod_topico \r\n"
-				+ "Where t.cod_topico = " + this.codigo;
+				+ "and t.cod_topico = " + this.codigo;
 		
 		return perguntaDAO.get(sqlQuery);
 	}

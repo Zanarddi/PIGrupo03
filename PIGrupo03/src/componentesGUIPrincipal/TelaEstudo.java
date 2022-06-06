@@ -74,7 +74,7 @@ public class TelaEstudo extends TelaPadrao {
 		telaEstudar2.buttonPanel.add(btVoltar);
 		btProximo = new BotaoPadrao("Próximo", 0, 0, 150, 50, 24);
 		telaEstudar2.buttonPanel.add(btProximo);
-		telaEstudar2.painelCentro.setBorder(new EmptyBorder(0, 0, 0, 0));
+		telaEstudar2.painelCentro.setBorder(new EmptyBorder(30, 30, 0, 30));
 		telaEstudar2.painelCentro.setLayout(new CardLayout());
 		
 		// componentes da tela de estudo 3
@@ -121,7 +121,7 @@ public class TelaEstudo extends TelaPadrao {
 						clPrincipal.last(painelCentro);
 					}
 					else {
-					indiceTopicoMostrado = 0;
+					indiceTopicoMostrado = 1;
 					clPrincipal.next(painelCentro);	
 					}
 				}
@@ -142,13 +142,19 @@ public class TelaEstudo extends TelaPadrao {
 				if (indiceTopicoMostrado == 0) {
 					if (estudo.filaEstudo.isEmpty()) {
 						clPrincipal.next(painelCentro);
+						
 					} else {
-						indiceTopicoMostrado++;
+						
 						clTopicos.show(telaEstudar2.painelCentro,
 								"" + estudo.filaEstudo.get(indiceTopicoMostrado).getCodigo());
+						indiceTopicoMostrado++;
+						System.out.println("test");
+						System.out.println(indiceTopicoMostrado);
+						System.out.println(estudo.filaEstudo.size());
+						
 					}
 				}
-				else if (indiceTopicoMostrado == estudo.filaEstudo.size() - 1) {
+				else if (indiceTopicoMostrado == estudo.filaEstudo.size()) {
 					for (Topico t : estudo.filaEstudo) {
 						t.setProficiencia(1);
 						controle.Main.login.setTopicosEstudados(controle.Main.login.getTopicosEstudados() + 1);
@@ -156,20 +162,14 @@ public class TelaEstudo extends TelaPadrao {
 						System.out.println(controle.Main.login.getTopicosEstudados() + " topicos estudados");
 						System.out.println(t.getProficiencia() + " profciencia de " + t.getCodigo());
 					}
-					//   FAZER HOJE 04.06.2022
-					//utilizar quando o banco for implementado
+					
 					topicoDAO.salvarProficiencia(estudo.filaEstudo);
-					
-					
-					//TESTAR ISSO, ACHO Q NAO PRECISA
-					//estudo.filaEstudo.clear();
-					//telaEstudar2.painelCentro.removeAll();
 					
 					clPrincipal.next(painelCentro);
 					System.out.println(estudo.filaEstudo.size() + "tamanho da fila de estudo");
 				}
 
-				else if (indiceTopicoMostrado < estudo.filaEstudo.size() - 1) {
+				else if (indiceTopicoMostrado < estudo.filaEstudo.size()) {
 					indiceTopicoMostrado++;
 					clTopicos.show(telaEstudar2.painelCentro, "" + estudo.filaEstudo.get(indiceTopicoMostrado).getCodigo());
 				}
@@ -181,13 +181,13 @@ public class TelaEstudo extends TelaPadrao {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				if (indiceTopicoMostrado == 0) {
+				if (indiceTopicoMostrado == 1) {
 					clPrincipal.previous(painelCentro);
-				} else if (indiceTopicoMostrado == estudo.filaEstudo.size() - 1) {
+				} else if (indiceTopicoMostrado == estudo.filaEstudo.size()) {
 
 					indiceTopicoMostrado--;
 					clTopicos.show(telaEstudar2.painelCentro, "" + estudo.filaEstudo.get(indiceTopicoMostrado).getCodigo());
-				} else if (indiceTopicoMostrado < estudo.filaEstudo.size() - 1) {
+				} else if (indiceTopicoMostrado < estudo.filaEstudo.size()) {
 					indiceTopicoMostrado--;
 					clTopicos.show(telaEstudar2.painelCentro, "" + estudo.filaEstudo.get(indiceTopicoMostrado).getCodigo());
 				}

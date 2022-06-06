@@ -38,7 +38,6 @@ public class RespostaDAO {
 			}
 		}
 		catch(SQLException erro) {
-			lista = null;
 			System.out.println(erro);
 		}
 		finally {

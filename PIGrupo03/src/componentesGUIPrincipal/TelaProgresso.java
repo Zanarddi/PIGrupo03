@@ -1,8 +1,13 @@
 package componentesGUIPrincipal;
 
+import java.util.ArrayList;
+
 import javax.swing.Box;
 
 import componentesGUILogin.Config;
+import controle.Main;
+import crud.TopicoDAO;
+import modelo.Topico;
 
 public class TelaProgresso extends TelaPadrao {
 
@@ -10,9 +15,15 @@ public class TelaProgresso extends TelaPadrao {
 	public TelaProgresso() {
 		
 		desconhecido = new PainelTextField("Tópicos desconhecidos:", 190);
+		desconhecido.textField.setEditable(false);
 		iniciante = new PainelTextField("Tópicos lvl. iniciante:", 190);
+		iniciante.textField.setEditable(false);
 		medio = new PainelTextField("Tópicos lvl. médio:", 190);
+		medio.textField.setEditable(false);
 		expert = new PainelTextField("Tópicos lvl. expert:", 190);
+		expert.textField.setEditable(false);
+		
+		contarTopicos();
 		
 		painelCentro.add(Box.createVerticalStrut(40));
 		painelCentro.add(new LabelPadrao("Veja seu progresso", 48));
@@ -24,6 +35,19 @@ public class TelaProgresso extends TelaPadrao {
 		painelCentro.add(medio);
 		painelCentro.add(Box.createVerticalStrut(20));
 		painelCentro.add(expert);
-		
+	}
+	
+	private void contarTopicos() {
+		TopicoDAO topicoDAO = new TopicoDAO();
+		int codigo = Main.login.getCodigo();
+		String sql = "select count(*) from proficiencia where proficiencia in (0) and cod_usuario = "+codigo;
+		desconhecido.textField.setText("" + topicoDAO.contarTopicos(sql));
+		sql = "select count(*) from proficiencia where proficiencia in (1,2,3) and cod_usuario ="+codigo;
+		iniciante.textField.setText("" + topicoDAO.contarTopicos(sql));
+		sql = "select count(*) from proficiencia where proficiencia in (4,5,6) and cod_usuario ="+codigo;
+		medio.textField.setText("" + topicoDAO.contarTopicos(sql));
+		sql = "select count(*) from proficiencia where proficiencia in (7,8,9) and cod_usuario ="+codigo;
+		expert.textField.setText("" + topicoDAO.contarTopicos(sql));
+
 	}
 }

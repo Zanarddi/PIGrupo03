@@ -7,7 +7,7 @@ import crud.TopicoDAO;
 
 public class Revisao {
 	
-	ArrayList<Topico> filaRevisao;
+	public ArrayList<Topico> filaRevisao;
 	
 	public Revisao() {
 		atualizarFilaRevisao();
@@ -18,6 +18,9 @@ public class Revisao {
 	 */
 	public void atualizarFilaRevisao() {
 		filaRevisao = pesquisaRevisao();
+		for(Topico topico: filaRevisao) {
+			topico.criarTelaPergunta();		
+		}
 	}
 	
 	/**
@@ -27,11 +30,13 @@ public class Revisao {
 	 */
 	public ArrayList<Topico> pesquisaRevisao() {
 		
+		
 		String querySQL = "Select top " + (Main.login.getLimiteTopicosRevisao() - Main.login.getTopicosRevisados()) + " t.cod_topico, t.titulo_topico, t.descricao_topico, p.proficiencia \r\n"
-				+ "From proficiencia p, topico t, usuario u\r\n"
+				+ "From proficiencia p, topico t, usuario u \r\n"
 				+ "Where p.cod_topico = t.cod_topico \r\n"
 				+ "and p.cod_usuario = u.cod_usuario \r\n"
 				+ "and p.proficiencia <> 0 \r\n"
+				+ "and p.proficiencia <> 9 \r\n"
 				+ "and p.cod_usuario = " + Main.login.getCodigo() + " \r\n"
 				+ "and proxima_revisao < getdate() ";	
 		

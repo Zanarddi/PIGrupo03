@@ -6,10 +6,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.Box;
+import javax.swing.JOptionPane;
 import javax.swing.border.EmptyBorder;
 
+import controle.CalculoProficiencia;
 import controle.Main;
+import crud.TopicoDAO;
+import modelo.Estudo;
 import modelo.Revisao;
+import modelo.Topico;
 
 public class TelaRevisao extends TelaPadrao {
 
@@ -24,6 +29,8 @@ public class TelaRevisao extends TelaPadrao {
 	BotaoPadrao btVoltar;
 	BotaoPadrao btJogar;
 	BotaoPadrao btVoltarInicio;
+	
+	int indicePerguntaMostrada;
 
 	public TelaRevisao() {
 
@@ -60,7 +67,6 @@ public class TelaRevisao extends TelaPadrao {
 		telaRevisao2.buttonPanel.add(btProximo);
 		telaRevisao2.painelCentro.setBorder(new EmptyBorder(0, 0, 0, 0));
 		telaRevisao2.painelCentro.setLayout(new CardLayout());
-		telaRevisao2.painelCentro.add(new TelaPergunta(null));
 		
 		//componentes da tela de revisão 3
 		btJogar = new BotaoPadrao("Jogar", 0, 0, 150, 50, 24);
@@ -85,12 +91,37 @@ public class TelaRevisao extends TelaPadrao {
 	private void setListeners() {
 		
 		CardLayout clPrincipal = (CardLayout) painelCentro.getLayout();
-		CardLayout clTopicos = (CardLayout) telaRevisao2.painelCentro.getLayout();
+		CardLayout clPerguntas = (CardLayout) telaRevisao2.painelCentro.getLayout();
 
 		btComecar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				clPrincipal.next(painelCentro);
+
+				if (Main.login.getLimiteTopicosRevisao() > Main.login.getTopicosRevisados()) {	
+					
+					revisao = new Revisao();
+					
+					for (Topico topico : revisao.filaRevisao) {
+						// ao adicionar a tela ao cardlayout, o index é o codigo do tópico
+						telaRevisao2.painelCentro.add(topico.getTelaPergunta(), "" + topico.getCodigo());
+					}
+
+					// quando for feito o show, é preciso buscar o index a partir do tópico que está
+					// na fila de estudo, a sequencia que será mostrado é então ditada pela
+					// sequência do array fila estudo
+
+					if (revisao.filaRevisao.isEmpty()) {
+						clPrincipal.last(painelCentro);
+					}
+					else {
+					indicePerguntaMostrada = 1;
+					clPrincipal.next(painelCentro);	
+					}
+				}
+				if (Main.login.getLimiteTopicosRevisao() <= Main.login.getTopicosRevisados()) {
+					clPrincipal.last(painelCentro);
+				}
+
 			}
 		});
 
@@ -107,7 +138,53 @@ public class TelaRevisao extends TelaPadrao {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				clPrincipal.next(painelCentro);
+
+				TopicoDAO topicoDAO = new TopicoDAO();
+
+				if (indicePerguntaMostrada == 0) {
+					if (revisao.filaRevisao.isEmpty()) {
+						clPrincipal.next(painelCentro);
+					} else {
+
+						clPerguntas.show(telaRevisao2.painelCentro,
+								"" + revisao.filaRevisao.get(indicePerguntaMostrada).getCodigo());
+						indicePerguntaMostrada++;
+						System.out.println(indicePerguntaMostrada);
+						System.out.println(revisao.filaRevisao.size());
+
+					}
+				} else if (indicePerguntaMostrada == revisao.filaRevisao.size()) {
+					for (Topico t : revisao.filaRevisao) {
+						// verifica se o usuário acertou ou não a pergunta
+						for (RadioButtonPadrao bt : t.getTelaPergunta().grupoRespostas) {
+							if (bt.isSelected()) {
+								if (bt.tipo == 1) {
+									t.setProficiencia(t.getProficiencia() + 1);
+									JOptionPane.showMessageDialog(null, "Certo");
+								} else if (bt.tipo == 0) {
+									if (t.getProficiencia() > 1) {
+										t.setProficiencia(t.getProficiencia() - 1);
+									}
+									JOptionPane.showMessageDialog(null, "Errado");
+								}
+							}
+						}
+
+						controle.Main.login.setTopicosEstudados(controle.Main.login.getTopicosEstudados() + 1);
+
+						System.out.println(controle.Main.login.getTopicosEstudados() + " topicos estudados");
+						System.out.println(t.getProficiencia() + " profciencia de " + t.getCodigo());
+					}
+
+					topicoDAO.salvarProficiencia(revisao.filaRevisao);
+					
+					clPrincipal.next(painelCentro);
+					System.out.println(revisao.filaRevisao.size() + "tamanho da fila de revisao");
+				}
+				else if (indicePerguntaMostrada < revisao.filaRevisao.size()) {
+					indicePerguntaMostrada++;
+					clPerguntas.show(telaRevisao2.painelCentro, "" + revisao.filaRevisao.get(indicePerguntaMostrada).getCodigo());
+				}		
 			}
 		});
 		

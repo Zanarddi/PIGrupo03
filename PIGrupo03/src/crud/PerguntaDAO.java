@@ -33,7 +33,6 @@ public class PerguntaDAO {
 				lista.add(new Pergunta(bd.rs.getInt(1), bd.rs.getString(2)));
 			}
 		} catch (SQLException erro) {
-			lista = null;
 			System.out.println(erro);
 		} finally {
 			bd.close();

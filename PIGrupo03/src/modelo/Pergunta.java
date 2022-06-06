@@ -13,7 +13,9 @@ import crud.RespostaDAO;
 public class Pergunta {
 
 	private int codigo;
+	
 	private String descricao;
+	
 	private ArrayList<Resposta> respostas;
 	
 	
@@ -22,15 +24,16 @@ public class Pergunta {
 		this.codigo = codigo;
 		this.descricao = descricao;
 		respostas = buscaResposta();
-	}
+		
+		}
 
 	private ArrayList<Resposta> buscaResposta() {
 		
 		RespostaDAO respostaDAO = new RespostaDAO();
 		String sqlQuery = "Select r.cod_resposta, r.descricao_resposta, r.tipo_resposta \r\n"
-				+ "From resposta r, pergunta p u\r\n"
+				+ "From resposta r, pergunta p \r\n"
 				+ "Where p.cod_pergunta = r.cod_pergunta \r\n"
-				+ "Where p.cod_pergunta = " + this.codigo;
+				+ "and p.cod_pergunta = " + this.codigo;
 		
 		return respostaDAO.get(sqlQuery);
 	}
@@ -58,7 +61,4 @@ public class Pergunta {
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
-
-	
-
 }
