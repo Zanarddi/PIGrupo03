@@ -12,6 +12,8 @@ import crud.RespostaDAO;
  */
 public class Pergunta {
 
+	private int codigoTopico;
+	
 	private int codigo;
 	
 	private String descricao;
@@ -60,5 +62,13 @@ public class Pergunta {
 
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
+	}
+
+	public int getCodigoTopico() {
+		return codigoTopico;
+	}
+
+	public void setCodigoTopico(int codigoTopico) {
+		this.codigoTopico = codigoTopico;
 	}
 }

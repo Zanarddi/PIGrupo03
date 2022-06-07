@@ -3,6 +3,7 @@ package crud;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import modelo.Pergunta;
 import modelo.Resposta;
 import modelo.Topico;
 import services.BD;
@@ -31,7 +32,7 @@ public class RespostaDAO {
 			while(bd.rs.next()) {
 				//implementar, colocando os campos corretos.
 				lista.add(new Resposta(
-						bd.rs.getString(1),
+						bd.rs.getInt(1),
 						bd.rs.getString(2),
 						bd.rs.getInt(3))
 				);
@@ -44,5 +45,60 @@ public class RespostaDAO {
 			bd.close();
 		}
 		return lista;
+	}
+	
+	public String excluir(int codigo) {
+		sql = "delete resposta where cod_resposta = ?";
+		bd.getConnection();
+		try {
+			bd.st = bd.con.prepareStatement(sql);
+			bd.st.setInt(1, codigo);
+			if (bd.st.executeUpdate() == 1)
+				men = "Resposta excluída com sucesso!";
+			else
+				men = "Resposta não foi encontrada!";
+		} catch (SQLException erro) {
+			men = "Falha na exclusão " + erro;
+		} finally {
+			bd.close();
+		}
+		return men;
+	}
+	
+	public String salvar(Resposta r) {
+		sql = "update resposta set descricao_resposta = ?, tipo_resposta = ?, cod_pergunta = ? where cod_resposta = ?";
+		bd.getConnection();
+		try {
+			bd.st = bd.con.prepareStatement(sql);
+			bd.st.setInt(4, r.getCodigo());
+			bd.st.setString(1, r.getDescricao());
+			bd.st.setInt(2, r.getTipo());
+			bd.st.setInt(3, r.getCodigoPergunta());
+			bd.st.executeUpdate();
+			men = "Resposta atualizada com sucesso";
+		} catch (SQLException erro) {
+			men = "" + erro;
+		} finally {
+			bd.close();
+		}
+		return men;
+	}
+	
+	public String criarNovo(String descricao, int tipo, int codigoPergunta) {
+		sql = "Insert into resposta(descricao_resposta, tipo_resposta, cod_pergunta) Values (?, ?, ?)";
+		bd.getConnection();
+		try {
+			bd.st = bd.con.prepareStatement(sql);
+			bd.st.setString(1, descricao);
+			bd.st.setInt(2, tipo);
+			bd.st.setInt(2, codigoPergunta);
+			bd.st.executeUpdate();
+			men = "Resposta inserida com sucesso!";
+		} catch (SQLException erro) {
+			men = "" + erro;
+		} finally {
+			bd.close();
+		}
+		return men;
 	}
 }

@@ -64,6 +64,21 @@ public class Topico {
 		perguntas = buscaPergunta();
 	}
 
+	/**
+	 * criação de topicos para consulta/update por parte do administrador
+	 * @param codigo
+	 * @param posicao
+	 * @param titulo
+	 * @param explicacao
+	 */
+	public Topico(int codigo,  int posicao, String titulo, String explicacao) {
+		this.codigo = codigo;
+		this.posicao = posicao;
+		this.titulo = titulo;
+		this.explicacao = explicacao;
+		perguntas = buscaPergunta();
+	}
+	
 
 	/**
 	 * Método que cria uma nova tela do tipo tópico.

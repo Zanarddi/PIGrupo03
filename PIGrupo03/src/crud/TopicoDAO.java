@@ -19,33 +19,63 @@ public class TopicoDAO {
 		bd = new BD();
 	}
 
-	public String salvar(Topico t) {
-		sql = "insert into topico (cod_topico, ordem_topico, titulo_topico, descricao_topico, cod_tema) values (?,?,?,?,?)";
+	
+	
+	public String criarNovo(String titulo, String descricao, int ordem) {
+		sql = "Insert into topico(titulo_topico, descricao_topico, ordem_topico) Values (?, ?, ?)";
 		bd.getConnection();
 		try {
 			bd.st = bd.con.prepareStatement(sql);
-			bd.st.setInt(1, t.getCodigo());
-			bd.st.setInt(2, t.getPosicao());
-			bd.st.setString(3, t.getTitulo());
-			bd.st.setString(4, t.getExplicacao());
-			bd.st.setInt(5, t.getCodigoTema());
+			bd.st.setString(1, titulo);
+			bd.st.setString(2, descricao);
+			bd.st.setInt(3, ordem);
 			bd.st.executeUpdate();
 			men = "Topico inserido com sucesso!";
 		} catch (SQLException erro) {
-			sql = "update topico set ordem_topico = ?, set titulo_topico = ?, set descricao_topico = ?, set cod_tema = ? where cod_topico = ?";
-			try {
-				bd.st = bd.con.prepareStatement(sql);
-				bd.st.setInt(5, t.getCodigo());
-				bd.st.setInt(1, t.getPosicao());
-				bd.st.setString(2, t.getTitulo());
-				bd.st.setString(3, t.getExplicacao());
-				bd.st.setInt(4, t.getCodigoTema());
-
-				bd.st.executeUpdate();
-				men = "Topico atualizado com sucesso";
-			} catch (SQLException e) {
-				men = "Falha " + erro;
+			men = "" + erro;
+		} finally {
+			bd.close();
+		}
+		return men;
+	}
+	
+	public ArrayList<Topico> get(String sql){
+		ArrayList<Topico> lista = new ArrayList<Topico>();
+		bd.getConnection();
+		try {
+			bd.st = bd.con.prepareStatement(sql);
+			bd.rs = bd.st.executeQuery();
+			while(bd.rs.next()) {
+				lista.add(new Topico(
+						bd.rs.getInt(1),
+						bd.rs.getInt(2),
+						bd.rs.getString(3),
+						bd.rs.getString(4))
+				);
 			}
+		}catch(SQLException erro) {
+			lista = null;
+			System.out.println(erro);
+		}
+		finally {
+			bd.close();
+		}
+		return lista;
+	}
+	
+	public String salvar(Topico t) {
+		sql = "update topico set ordem_topico = ?, titulo_topico = ?, descricao_topico = ? where cod_topico = ?";
+		bd.getConnection();
+		try {
+			bd.st = bd.con.prepareStatement(sql);
+			bd.st.setInt(4, t.getCodigo());
+			bd.st.setInt(1, t.getPosicao());
+			bd.st.setString(2, t.getTitulo());
+			bd.st.setString(3, t.getExplicacao());
+			bd.st.executeUpdate();
+			men = "Topico atualizado com sucesso";
+		} catch (SQLException erro) {
+			men = "" + erro;
 		} finally {
 			bd.close();
 		}

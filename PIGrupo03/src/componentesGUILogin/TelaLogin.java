@@ -86,8 +86,9 @@ public class TelaLogin extends TelaLoginPadrao {
 			 */
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				/*
+				
 				//apenas para teste
+				/*
 				Login l = crud.LoginDAO.validarLogin("zanardi", "1234");
 				if (l != null) {
 					controle.Main.login = l;
@@ -111,6 +112,8 @@ public class TelaLogin extends TelaLoginPadrao {
 					lbvalidaLogin.setForeground(Color.RED);
 					lbvalidaLogin.setText("Campos inválidos");
 				}
+				
+				
 			}
 		});
 	}
@@ -121,8 +124,8 @@ public class TelaLogin extends TelaLoginPadrao {
 	private void setComponents() {
 		painelComponentes.setLayout(new BoxLayout(painelComponentes, BoxLayout.Y_AXIS));
 
-lbLogin.setFont(new Font(Config.FONTE, 0, 24));
-		
+		lbLogin.setFont(new Font(Config.FONTE, 0, 24));
+
 		lbUsuario.setFont(new Font(Config.FONTE, 0, 12));
 
 		tfUsuario.setAlignmentX(Component.LEFT_ALIGNMENT); // corrige o alinhamento da caixa de texto

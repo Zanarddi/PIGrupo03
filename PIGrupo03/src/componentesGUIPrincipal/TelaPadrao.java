@@ -19,7 +19,7 @@ public class TelaPadrao extends JPanel {
 	JPanel buttonPanel; // painel inferior com botões de navegação
 	JPanel painelCentro; // painel principal das telas
 
-	TelaPadrao() {
+	public TelaPadrao() {
 		setBackground(componentesGUILogin.Config.COR_BACKGROUND);
 		this.setLayout(new BorderLayout());
 

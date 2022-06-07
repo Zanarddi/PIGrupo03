@@ -43,6 +43,7 @@ public class FramePrincipal extends JFrame {
 		add(painelPrincipal);
 
 		telaBemVindo = new TelaBemVindo();
+		if(l.getTipo() == 0)
 		painelPrincipal.add(telaBemVindo, "telaBemVindo");
 		
 		// adiciona os paineis correspondentes dos botoes ao cardlayout

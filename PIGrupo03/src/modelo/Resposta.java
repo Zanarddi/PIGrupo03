@@ -2,21 +2,23 @@ package modelo;
 
 public class Resposta {
 
-	private String codigo;
+	private int codigoPergunta;
+	
+	private int codigo;
 	private String descricao;
 	private int tipo;
 
-	public Resposta(String codigo, String descricao, int tipo) {
+	public Resposta(int codigo, String descricao, int tipo) {
 		this.codigo = codigo;
 		this.descricao = descricao;
 		this.tipo = tipo;
 	}
 	
-	public String getCodigo() {
+	public int getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(String codigo) {
+	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
 
@@ -34,5 +36,13 @@ public class Resposta {
 
 	public void setTipo(int tipo) {
 		this.tipo = tipo;
+	}
+
+	public int getCodigoPergunta() {
+		return codigoPergunta;
+	}
+
+	public void setCodigoPergunta(int codigoPergunta) {
+		this.codigoPergunta = codigoPergunta;
 	}
 }

@@ -32,6 +32,7 @@ public class PainelBotoes extends JPanel {
 	static BotaoPadraoPainel btJogar;
 	static BotaoPadraoPainel btProgresso;
 	static BotaoPadraoPainel btConfiguracao;
+	static BotaoPadraoPainel btMantemTopico;
 
 	PainelBotoes() {
 		btEstudar = new BotaoPadraoPainel("Estudar", 22, new TelaEstudo());
@@ -39,6 +40,8 @@ public class PainelBotoes extends JPanel {
 		btJogar = new BotaoPadraoPainel("Jogar", 22, new TelaJogo());
 		btProgresso = new BotaoPadraoPainel("Progresso", 22, new TelaProgresso());
 		btConfiguracao = new BotaoPadraoPainel("Configuração", 22, new TelaConfiguracao());
+		btMantemTopico = new BotaoPadraoPainel("Topicos", 22, new TelaMantemTopicos());
+		
 
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		setBackground(componentesGUILogin.Config.COR_BACKGROUND_ESCURA);
@@ -54,11 +57,9 @@ public class PainelBotoes extends JPanel {
 				@Override
 				public void itemStateChanged(ItemEvent e) {
 					if (e.getStateChange() == ItemEvent.SELECTED) {
-						//BotaoPadraoPainel.resetaTela(botao);
 						CardLayout cardLayout = (CardLayout) FramePrincipal.painelPrincipal.getLayout();
 						cardLayout.show(FramePrincipal.painelPrincipal, botao.texto);
 					} else if (e.getStateChange() == ItemEvent.DESELECTED) {
-						//BotaoPadraoPainel.resetaTela(botao);
 					}
 				}
 			});
@@ -72,7 +73,7 @@ public class PainelBotoes extends JPanel {
 	private void setBotoes() {
 		// verifica se o usuario é adm ou não
 		if (Main.login.getTipo() == 1) {
-			//Precisa criar e inserir as telas de ADM
+			adicionarBotoesBG(bgPainel, botoes, btMantemTopico);
 		} else if (Main.login.getTipo() == 0){
 			// adiciona os botões no buttongroup e no array de botoes
 			adicionarBotoesBG(bgPainel, botoes, btEstudar, btRevisar, btJogar, btProgresso, btConfiguracao);
