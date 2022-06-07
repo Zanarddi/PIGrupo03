@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 import controle.Main;
 import controle.Validacao;
 import crud.LoginDAO;
+import log.Log;
 
 /**
  * Tela onde o usuário pode configurar seus limites de estudo/revisão, e encerrar sua sessão
@@ -43,6 +44,8 @@ public class TelaConfiguracao extends TelaPadrao {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				Main.iniciarFrameLogin();
+				// ao fechar a janela, criar um log de fin de sessão
+		        Log.encerrarSessao(Main.login.getCodigo());
 			}
 		});
 		
@@ -59,6 +62,10 @@ public class TelaConfiguracao extends TelaPadrao {
 						LoginDAO loginDAO = new LoginDAO();
 
 						JOptionPane.showMessageDialog(null, loginDAO.salvar(Main.login));
+						
+						Log.alterarLimiteEstudo(Main.login.getCodigo(), limEstudo);
+						Log.alterarLimiteRevisao(Main.login.getCodigo(), limRevisao);
+						
 					}
 					else {
 						JOptionPane.showMessageDialog(null, "Insira valores válidos!");
@@ -86,6 +93,7 @@ public class TelaConfiguracao extends TelaPadrao {
 									Main.login.setSenha(frameTrocaSenha.pfNovaSenha1.getText());
 									LoginDAO loginDAO = new LoginDAO();
 									loginDAO.salvar(Main.login);
+									Log.trocarSenha(Main.login.getCodigo());
 									frameTrocaSenha.dispose();
 								}
 							} else {

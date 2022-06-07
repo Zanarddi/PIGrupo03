@@ -8,6 +8,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
+import controle.Main;
+import log.Log;
 import modelo.Login;
 
 /**
@@ -30,7 +32,19 @@ public class FramePrincipal extends JFrame {
 		setBounds(0, 0, 1016, 639); // valores não "fechados" pois a frame nao acomoda todo o painel
 		setLocationRelativeTo(null); // faz a frame inicar no centro da tela
 		setResizable(false);
-		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+		
+		// A operação default para fechar a frame não será dispose, e sim a especificada abaixo (criação do log)
+		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		this.addWindowListener(new java.awt.event.WindowAdapter() {
+		    @Override
+		    public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+		    	// ao fechar a janela, criar um log de fin de sessão
+		        Log.encerrarSessao(Main.login.getCodigo());
+		        System.exit(0);
+		    }
+		});
+		
+		
 
 		setLayout(new BorderLayout());
 

@@ -1,17 +1,27 @@
 package componentesGUILogin;
 
-import java.awt.*;
+import java.awt.CardLayout;
+import java.awt.Component;
+import java.awt.Cursor;
+import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
-import javax.swing.*;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 
 import controle.Validacao;
 import crud.LoginDAO;
 import crud.TopicoDAO;
+import log.Log;
 import modelo.Login;
 
 /**
@@ -53,11 +63,12 @@ public class TelaRegistro extends TelaLoginPadrao {
 			ArrayList<Integer> topicos = new ArrayList<Integer>();
 			
 			JOptionPane.showMessageDialog(null, loginDAO.registrarUsuario(l));
+			Log.registroUsuario(l);
 			
 			topicos = topicoDAO.listarTopicos();
 			l = crud.LoginDAO.validarLogin(l.getUsuario(), l.getSenha());
 			topicoDAO.inserirProficiencia(topicos, l.getCodigo());
-			
+			Log.criarProficiencia(l.getCodigo(), topicos);
 		}
 	}
 	

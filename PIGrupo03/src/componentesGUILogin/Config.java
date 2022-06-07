@@ -26,4 +26,6 @@ public class Config {
 	public static final Color COR_BACKGROUND = new Color(201, 216, 255);
 	public static final Color COR_BACKGROUND_ESCURA = new Color(95, 140, 254);
 	public static final Color COR_BOTAO_PRESSIONADO = new Color(16, 0, 117);
+
+	public static final String CAMINHO_LOG = "log.txt";
 }

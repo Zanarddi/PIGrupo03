@@ -14,6 +14,7 @@ import javax.swing.border.EmptyBorder;
 
 import controle.Main;
 import crud.TopicoDAO;
+import log.Log;
 import modelo.Estudo;
 import modelo.Topico;
 
@@ -163,6 +164,7 @@ public class TelaEstudo extends TelaPadrao {
 					}
 					
 					topicoDAO.salvarProficiencia(estudo.filaEstudo);
+					Log.finalizarEstudo(Main.login.getCodigo(), estudo.filaEstudo);
 					
 					clPrincipal.next(painelCentro);
 					System.out.println(estudo.filaEstudo.size() + "tamanho da fila de estudo");

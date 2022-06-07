@@ -6,6 +6,7 @@ import java.util.List;
 
 import controle.CalculoProficiencia;
 import controle.Main;
+import log.Log;
 import modelo.Login;
 import modelo.Topico;
 import services.BD;
@@ -82,14 +83,16 @@ public class TopicoDAO {
 		return men;
 	}
 
-	public String excluir(int codigo) {
+	public String excluir(Topico topico) {
 		sql = "delete topico where cod_topico = ?";
 		bd.getConnection();
 		try {
 			bd.st = bd.con.prepareStatement(sql);
-			bd.st.setInt(1, codigo);
-			if (bd.st.executeUpdate() == 1)
+			bd.st.setInt(1, topico.getCodigo());
+			if (bd.st.executeUpdate() == 1) {
 				men = "Topico excluído com sucesso!";
+				Log.manterTopico(topico, 0);
+			}
 			else
 				men = "Topico não foi encontrado!";
 		} catch (SQLException erro) {

@@ -151,7 +151,7 @@ public class TelaAdicionarTopico extends JPanel {
 					int dialogButton = JOptionPane.YES_NO_OPTION;
 				    JOptionPane.showConfirmDialog (null, "Você quer excluir o tópico e suas perguntas?","Aviso",dialogButton);
 				    if(dialogButton == JOptionPane.YES_OPTION) {
-				    	JOptionPane.showMessageDialog(null, topicoDAO.excluir(Integer.parseInt(tfCodigo.getText())));
+				    	JOptionPane.showMessageDialog(null, topicoDAO.excluir(topicos.get(table.getSelectedRow())));
 				    	atualizarTabela();
 					}
 				}

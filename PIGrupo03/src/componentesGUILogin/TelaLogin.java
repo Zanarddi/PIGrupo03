@@ -6,6 +6,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.*;
+
+import controle.Main;
+import log.Log;
 import modelo.Login;
 
 /**
@@ -102,6 +105,7 @@ public class TelaLogin extends TelaLoginPadrao {
 					if (l != null) {
 						controle.Main.login = l;
 						controle.Main.iniciarFramePrincipal();
+						Log.novoLogin(Main.login.getCodigo());
 					} else {
 						//label muda para uma mensagem de aviso em caso de login inválido
 						lbvalidaLogin.setForeground(Color.RED);

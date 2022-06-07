@@ -12,6 +12,7 @@ import javax.swing.border.EmptyBorder;
 import controle.CalculoProficiencia;
 import controle.Main;
 import crud.TopicoDAO;
+import log.Log;
 import modelo.Estudo;
 import modelo.Revisao;
 import modelo.Topico;
@@ -171,26 +172,22 @@ public class TelaRevisao extends TelaPadrao {
 							if (bt.isSelected()) {
 								if (bt.tipo == 1) {
 									t.setProficiencia(t.getProficiencia() + 1);
-									JOptionPane.showMessageDialog(null, "Certo");
 								} else if (bt.tipo == 0) {
 									if (t.getProficiencia() > 1) {
 										t.setProficiencia(t.getProficiencia() - 1);
 									}
-									JOptionPane.showMessageDialog(null, "Errado");
 								}
 							}
 						}
 
 						controle.Main.login.setTopicosEstudados(controle.Main.login.getTopicosEstudados() + 1);
-
-						System.out.println(controle.Main.login.getTopicosEstudados() + " topicos estudados");
-						System.out.println(t.getProficiencia() + " profciencia de " + t.getCodigo());
 					}
 
 					topicoDAO.salvarProficiencia(revisao.filaRevisao);
 					
+					Log.finalizarRevisao(Main.login.getCodigo(), revisao.filaRevisao);
+					
 					clPrincipal.next(painelCentro);
-					System.out.println(revisao.filaRevisao.size() + "tamanho da fila de revisao");
 				}
 				else if (indicePerguntaMostrada < revisao.filaRevisao.size()-1) {
 					indicePerguntaMostrada++;
