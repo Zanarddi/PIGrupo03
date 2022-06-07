@@ -103,78 +103,100 @@ public class Log {
 	}
 
 	/**
-	 * cria uma nova entrada no log indicando que foram criadas proficiencias para os
-	 * tópicos de um certo usuário
+	 * cria uma nova entrada no log indicando que foram criadas proficiencias para
+	 * os tópicos de um certo usuário
 	 * 
-	 * @param codigoUsuario - codigo do ususario para o qual foram criadas as proficiencias
-	 * @param topicos - array de números de tópicos que foram criados
+	 * @param codigoUsuario - codigo do ususario para o qual foram criadas as
+	 *                      proficiencias
+	 * @param topicos       - array de números de tópicos que foram criados
 	 */
 	public static void criarProficiencia(int codigoUsuario, ArrayList<Integer> topicos) {
-		String mensagem = " Foram criados [" + topicos.size() + "] novas proficiências para o usuário [" + codigoUsuario + "]";
+		String mensagem = " Foram criados [" + topicos.size() + "] novas proficiências para o usuário [" + codigoUsuario
+				+ "]";
 		append(mensagem);
 	}
 
 	/**
-	 * cria uma nova entrada no log indicando um determinado usuário finalizou o estudo de n tópicos
+	 * cria uma nova entrada no log indicando um determinado usuário finalizou o
+	 * estudo de n tópicos
 	 * 
 	 * @param codigoUsuario - usuário que finalizou a sessão de estudos
-	 * @param filaEstudo - array de tópicos que foram estudados
+	 * @param filaEstudo    - array de tópicos que foram estudados
 	 */
 	public static void finalizarEstudo(int codigoUsuario, ArrayList<Topico> filaEstudo) {
-		String mensagem = " Usuário [" + codigoUsuario + "] finalizou uma sessão de estudo de [" + filaEstudo.size() + "] tópicos novos.";
-		append(mensagem);
-	}
-	
-	/**
-	 * cria uma nova entrada no log indicando um determinado usuário finalizou a revisão de n tópicos
-	 * 
-	 * @param codigoUsuario - usuário que finalizou a sessão de revisão
-	 * @param filaEstudo - array de tópicos que foram revisados
-	 */
-	public static void finalizarRevisao(int codigoUsuario, ArrayList<Topico> filaRevisao) {
-		String mensagem = " Usuário [" + codigoUsuario + "] finalizou uma sessão de revisão de [" + filaRevisao.size() + "] tópicos.";
+		String mensagem = " Usuário [" + codigoUsuario + "] finalizou uma sessão de estudo de [" + filaEstudo.size()
+				+ "] tópicos novos.";
 		append(mensagem);
 	}
 
 	/**
-	 * cria uma nova entrada no log indicando um determinado usuário alterou sua senha
+	 * cria uma nova entrada no log indicando um determinado usuário finalizou a
+	 * revisão de n tópicos
+	 * 
+	 * @param codigoUsuario - usuário que finalizou a sessão de revisão
+	 * @param filaEstudo    - array de tópicos que foram revisados
+	 */
+	public static void finalizarRevisao(int codigoUsuario, ArrayList<Topico> filaRevisao) {
+		String mensagem = " Usuário [" + codigoUsuario + "] finalizou uma sessão de revisão de [" + filaRevisao.size()
+				+ "] tópicos.";
+		append(mensagem);
+	}
+
+	/**
+	 * cria uma nova entrada no log indicando um determinado usuário alterou sua
+	 * senha
+	 * 
 	 * @param codigoUsuario - codigo do usuario
 	 */
 	public static void trocarSenha(int codigoUsuario) {
 		String mensagem = " Usuário [" + codigoUsuario + "] alterou sua própria senha.";
 		append(mensagem);
 	}
-	
+
 	/**
+	 * Cria um registro de log, podendo receber diferentes tipos de objeto ou ações
 	 * 
-	 * @param codigoTopico
-	 * @param acao
+	 * @param objetoMantido - Pergunta, Resposta ou Tópico que está sendo
+	 *                      resgistrado o log
+	 * @param acao          - 0 para deletar, 1 para inserir e 2 para editar
 	 */
-	public static void manterTopico(Object objetoMantido, int acao) {
-		int codObjeto;
+	public static void manterObjeto(Object objetoMantido, int acao) {
 		String tipo = "";
-		String acaoTomada = "";
-		
+
+		String mensagem = " Administrador [" + Main.login.getCodigo() + "] ";
+		String mensagem2 = "";
+
+		if (acao == 0) {
+			mensagem = mensagem + "deletou ";
+		} else if (acao == 1) {
+			mensagem = mensagem + "criou ";
+		} else if (acao == 2) {
+			mensagem = mensagem + "editou ";
+		}
+
 		if (objetoMantido instanceof Topico) {
-			codObjeto = ((Topico) objetoMantido).getCodigo();
-			tipo = "tópico";
+			if(acao == 1) {
+				mensagem2 = "um tópico.";
+			}
+			else {
+				mensagem2 = "o tópico [" + ((Topico) objetoMantido).getCodigo() + "].";
+			}
 		} else if (objetoMantido instanceof Pergunta) {
-			codObjeto = ((Pergunta) objetoMantido).getCodigo();
-			tipo = "pergunta";
+			if(acao == 1) {
+				mensagem2 = "uma pergunta.";
+			}
+			else {
+				mensagem2 = "a pergunta [" + ((Pergunta) objetoMantido).getCodigo() + "].";
+			}
 		} else if (objetoMantido instanceof Resposta) {
-			codObjeto = ((Resposta) objetoMantido).getCodigo();
-			tipo = "resposta";
+			if(acao == 1) {
+				mensagem2 = "uma resposta.";
+			}
+			else {
+				mensagem2 = "a resposta [" + ((Resposta) objetoMantido).getCodigo() + "].";
+			}
 		}
-		
-		if(acao == 0) {
-			acaoTomada = "deletou";
-		} else if(acao == 1) {
-			acaoTomada = "criou";
-		} else if(acao == 1) {
-			acaoTomada = "editou";
-		}
-		String mensagem = " Administrador [" + Main.login.getCodigo() + "] " + acaoTomada + " sua própria senha.";
-		append(mensagem);
+
+		append(mensagem + mensagem2);
 	}
 }
-

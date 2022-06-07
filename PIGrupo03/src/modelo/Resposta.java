@@ -14,6 +14,10 @@ public class Resposta {
 		this.tipo = tipo;
 	}
 	
+	public Resposta() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getCodigo() {
 		return codigo;
 	}

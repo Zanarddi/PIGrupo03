@@ -3,6 +3,7 @@ package crud;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import log.Log;
 import modelo.Pergunta;
 import modelo.Resposta;
 import modelo.Topico;
@@ -41,14 +42,16 @@ public class PerguntaDAO {
 		return lista;
 	}
 
-	public String excluir(int codigo) {
+	public String excluir(Pergunta pergunta) {
 		sql = "delete pergunta where cod_pergunta = ?";
 		bd.getConnection();
 		try {
 			bd.st = bd.con.prepareStatement(sql);
-			bd.st.setInt(1, codigo);
-			if (bd.st.executeUpdate() == 1)
+			bd.st.setInt(1, pergunta.getCodigo());
+			if (bd.st.executeUpdate() == 1) {
 				men = "Pergunta excluída com sucesso!";
+				Log.manterObjeto(pergunta, 0);
+			}
 			else
 				men = "Pergunta não foi encontrada!";
 		} catch (SQLException erro) {
@@ -69,6 +72,7 @@ public class PerguntaDAO {
 			bd.st.setInt(2, p.getCodigoTopico());
 			bd.st.executeUpdate();
 			men = "Pergunta atualizada com sucesso";
+			Log.manterObjeto(p, 2);
 		} catch (SQLException erro) {
 			men = "" + erro;
 		} finally {
@@ -86,6 +90,7 @@ public class PerguntaDAO {
 			bd.st.setInt(2, codigoTopico);
 			bd.st.executeUpdate();
 			men = "Pergunta inserida com sucesso!";
+			Log.manterObjeto(new Pergunta(), 1);
 		} catch (SQLException erro) {
 			men = "" + erro;
 		} finally {

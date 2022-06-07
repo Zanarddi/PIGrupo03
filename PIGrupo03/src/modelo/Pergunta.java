@@ -29,6 +29,10 @@ public class Pergunta {
 		
 		}
 
+	public Pergunta() {
+		// TODO Auto-generated constructor stub
+	}
+
 	private ArrayList<Resposta> buscaResposta() {
 		
 		RespostaDAO respostaDAO = new RespostaDAO();

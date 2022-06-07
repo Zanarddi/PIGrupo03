@@ -32,6 +32,7 @@ public class TopicoDAO {
 			bd.st.setInt(3, ordem);
 			bd.st.executeUpdate();
 			men = "Topico inserido com sucesso!";
+			Log.manterObjeto(new Topico(0), 1);
 		} catch (SQLException erro) {
 			men = "" + erro;
 		} finally {
@@ -75,6 +76,7 @@ public class TopicoDAO {
 			bd.st.setString(3, t.getExplicacao());
 			bd.st.executeUpdate();
 			men = "Topico atualizado com sucesso";
+			Log.manterObjeto(t, 2);
 		} catch (SQLException erro) {
 			men = "" + erro;
 		} finally {
@@ -91,7 +93,7 @@ public class TopicoDAO {
 			bd.st.setInt(1, topico.getCodigo());
 			if (bd.st.executeUpdate() == 1) {
 				men = "Topico excluído com sucesso!";
-				Log.manterTopico(topico, 0);
+				Log.manterObjeto(topico, 0);
 			}
 			else
 				men = "Topico não foi encontrado!";

@@ -143,7 +143,7 @@ public class TelaAdicionarPergunta extends JPanel {
 					int dialogButton = JOptionPane.YES_NO_OPTION;
 				    JOptionPane.showConfirmDialog (null, "Você quer excluir a pergunta e suas respostas?","Aviso",dialogButton);
 				    if(dialogButton == JOptionPane.YES_OPTION) {
-				    	JOptionPane.showMessageDialog(null, perguntaDAO.excluir(Integer.parseInt(tfCodigoPergunta.getText())));
+				    	JOptionPane.showMessageDialog(null, perguntaDAO.excluir(perguntas.get(table.getSelectedRow())));
 				    	atualizarTabela();
 					}
 				}

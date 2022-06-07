@@ -152,7 +152,7 @@ JFrame frameEdicaoResposta;
 					int dialogButton = JOptionPane.YES_NO_OPTION;
 				    JOptionPane.showConfirmDialog (null, "Você quer excluir a resposta?","Aviso",dialogButton);
 				    if(dialogButton == JOptionPane.YES_OPTION) {
-				    	JOptionPane.showMessageDialog(null, respostaDAO.excluir(Integer.parseInt(tfCodigoResposta.getText())));
+				    	JOptionPane.showMessageDialog(null, respostaDAO.excluir(respostas.get(table.getSelectedRow())));
 				    	atualizarTabela();
 					}
 				}

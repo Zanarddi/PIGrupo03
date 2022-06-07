@@ -3,6 +3,7 @@ package crud;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import log.Log;
 import modelo.Pergunta;
 import modelo.Resposta;
 import modelo.Topico;
@@ -47,15 +48,16 @@ public class RespostaDAO {
 		return lista;
 	}
 	
-	public String excluir(int codigo) {
+	public String excluir(Resposta resposta) {
 		sql = "delete resposta where cod_resposta = ?";
 		bd.getConnection();
 		try {
 			bd.st = bd.con.prepareStatement(sql);
-			bd.st.setInt(1, codigo);
-			if (bd.st.executeUpdate() == 1)
+			bd.st.setInt(1, resposta.getCodigo());
+			if (bd.st.executeUpdate() == 1) {
 				men = "Resposta excluída com sucesso!";
-			else
+				Log.manterObjeto(resposta, 0);
+			} else
 				men = "Resposta não foi encontrada!";
 		} catch (SQLException erro) {
 			men = "Falha na exclusão " + erro;
@@ -76,6 +78,7 @@ public class RespostaDAO {
 			bd.st.setInt(3, r.getCodigoPergunta());
 			bd.st.executeUpdate();
 			men = "Resposta atualizada com sucesso";
+			Log.manterObjeto(r, 2);
 		} catch (SQLException erro) {
 			men = "" + erro;
 		} finally {
@@ -94,6 +97,7 @@ public class RespostaDAO {
 			bd.st.setInt(3, codigoPergunta);
 			bd.st.executeUpdate();
 			men = "Resposta inserida com sucesso!";
+			Log.manterObjeto(new Resposta(), 1);
 		} catch (SQLException erro) {
 			men = "" + erro;
 		} finally {
