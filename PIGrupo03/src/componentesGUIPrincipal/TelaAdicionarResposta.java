@@ -171,9 +171,11 @@ JFrame frameEdicaoResposta;
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (!tfCodigoResposta.getText().isBlank() || !tfDescricao.getText().isBlank() || !tfTipo.getText().isBlank()) {
-					if (!tfCodigoResposta.getText().isEmpty() || !tfDescricao.getText().isEmpty()|| !tfTipo.getText().isEmpty()) {
-						if (controle.Validacao.verificaInt(tfCodigoResposta.getText())) {
+				if (!tfDescricao.getText().isBlank() || !tfTipo.getText().isBlank()) {
+					System.out.println("tamo aqui");
+					if (!tfDescricao.getText().isEmpty()|| !tfTipo.getText().isEmpty()) {
+						System.out.println("tamo aqui");
+						if (controle.Validacao.verificaInt(tfCodigoPergunta.getText())) {
 							if (table.getSelectedRow() != -1) {
 								respostas.get(table.getSelectedRow()).setTipo(Integer.parseInt(tfTipo.getText()));
 								respostas.get(table.getSelectedRow()).setDescricao(tfDescricao.getText());
@@ -181,7 +183,8 @@ JFrame frameEdicaoResposta;
 								JOptionPane.showMessageDialog(null, respostaDAO.salvar(respostas.get(table.getSelectedRow())));
 							}
 							else {
-								JOptionPane.showMessageDialog(null, respostaDAO.criarNovo(tfDescricao.getText(), Integer.parseInt(tfTipo.getText()), Integer.parseInt(tfCodigoPergunta.getText())));
+								System.out.println("estamos aqui");
+								JOptionPane.showMessageDialog(null, respostaDAO.criarNovo(tfDescricao.getText(), Integer.parseInt(tfTipo.getText()), codigoPergunta));
 							}
 							limparCampos();
 							atualizarTabela();

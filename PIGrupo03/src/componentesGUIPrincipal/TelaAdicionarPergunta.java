@@ -65,7 +65,7 @@ public class TelaAdicionarPergunta extends JPanel {
 		JLabel lbOrdemTopico = new JLabel("Codigo do t\u00F3pico");
 		JLabel lbDescricaoPergunta = new JLabel("Descri\u00E7\u00E3o");
 		
-		JButton btEditarPerguntas = new JButton("Editar Perguntas");
+		JButton btEditarRespostas = new JButton("Editar Respostas");
 		JButton btSelecionar = new JButton("Selecionar");
 		JButton btSalvar = new JButton("Salvar");
 		JButton btDeletar = new JButton("Deletar");
@@ -90,13 +90,13 @@ public class TelaAdicionarPergunta extends JPanel {
 		tfCodigoTopico.setBounds(134, 77, 36, 20);
 		add(tfCodigoTopico);
 		
-		lbDescricaoPergunta.setBounds(10, 101, 46, 14);
+		lbDescricaoPergunta.setBounds(10, 101, 68, 14);
 		add(lbDescricaoPergunta);
 		
 		btSelecionar.setBounds(343, 261, 98, 29);
 		add(btSelecionar);
 
-		tfDescricao.setBounds(76, 104, 689, 118);
+		tfDescricao.setBounds(88, 104, 677, 118);
 		add(tfDescricao);
 		
 		scrollPane.setBounds(10, 301, 755, 211);
@@ -117,8 +117,8 @@ public class TelaAdicionarPergunta extends JPanel {
 		lbCabecalho.setFont(new Font("ROBOTO", 1, 30));
 		add(lbCabecalho);
 		
-		btEditarPerguntas.setBounds(10, 261, 140, 29);
-		add(btEditarPerguntas);
+		btEditarRespostas.setBounds(10, 261, 140, 29);
+		add(btEditarRespostas);
 
 		model.addColumn("cod_pergunta");
 		model.addColumn("descricao_pergunta");
@@ -181,7 +181,7 @@ public class TelaAdicionarPergunta extends JPanel {
 			}
 		});
 
-		btEditarPerguntas.addActionListener(new ActionListener() {
+		btEditarRespostas.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {

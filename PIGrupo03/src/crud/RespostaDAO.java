@@ -91,7 +91,7 @@ public class RespostaDAO {
 			bd.st = bd.con.prepareStatement(sql);
 			bd.st.setString(1, descricao);
 			bd.st.setInt(2, tipo);
-			bd.st.setInt(2, codigoPergunta);
+			bd.st.setInt(3, codigoPergunta);
 			bd.st.executeUpdate();
 			men = "Resposta inserida com sucesso!";
 		} catch (SQLException erro) {
@@ -100,5 +100,6 @@ public class RespostaDAO {
 			bd.close();
 		}
 		return men;
+		
 	}
 }
