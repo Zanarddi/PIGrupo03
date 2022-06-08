@@ -10,6 +10,12 @@ import controle.Main;
 import modelo.Login;
 import services.BD;
 
+/**
+ * Classe que manipula dados referentes ao login no banco de dados
+ * 
+ * @author Gustavo Zanardi
+ *
+ */
 public class LoginDAO {
 
 	private String sql, men;
@@ -42,6 +48,11 @@ public class LoginDAO {
 		return men;
 	}
 
+	/**
+	 * Cria um novo usuário no banco de dados
+	 * @param l - objeto login a ser criado
+	 * @return - mensagem com retorno da operação
+	 */
 	public String registrarUsuario(Login l) {
 		sql = "insert into usuario (nome_usuario, senha_usuario, email_usuario, tipo_usuario, limite_estudo, limite_revisao, highscore_usuario) values (?,?,?,?,?,?,?)";
 		bd.getConnection();
@@ -106,6 +117,11 @@ public class LoginDAO {
 		return men;
 	}
 	
+	/**
+	 * Cria uma lista de usuários buscados no banco 
+	 * @param sql - query usada pelo sql server
+	 * @return - lista com os usuários encontrados
+	 */
 	public List<Login> get(String sql){
 		List<Login> lista = new ArrayList<Login>();
 		bd.getConnection();
@@ -134,12 +150,14 @@ public class LoginDAO {
 		}
 		return lista;
 	}
-	
+
 	/**
 	 * método que valida o login, buscando valores no banco de dados.
+	 * 
 	 * @param usuario - string do username
-	 * @param senha - senha do usuário
-	 * @return - um objeto do tipo login. caso o retorno seja null, as credenciais não são válidas.
+	 * @param senha   - senha do usuário
+	 * @return - um objeto do tipo login. caso o retorno seja null, as credenciais
+	 *         não são válidas.
 	 */
 	public static Login validarLogin(String usuario, String senha) {
 		List<Login> login;

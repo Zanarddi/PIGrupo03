@@ -3,7 +3,6 @@ package componentesGUIPrincipal;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
-import java.awt.Font;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -11,12 +10,17 @@ import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.ButtonGroup;
 import javax.swing.JPanel;
-import javax.swing.JRadioButton;
 import javax.swing.border.EmptyBorder;
 
 import modelo.Pergunta;
 import modelo.Resposta;
 
+/**
+ * Tela onde é mostrada uma pergunta e suas respostas
+ * 
+ * @author Gustavo Zanardi
+ *
+ */
 public class TelaPergunta extends TelaPadrao {
 
 	JPanel painelPreto;
@@ -29,17 +33,19 @@ public class TelaPergunta extends TelaPadrao {
 	ButtonGroup bg;
 
 	public TelaPergunta(Pergunta p) {
-		
 		grupoRespostas = new ArrayList<RadioButtonPadrao>();
 		respostasCorretas = new ArrayList<Resposta>();
 		respostasErradas = new ArrayList<Resposta>();
 		bg = new ButtonGroup();
 		
 		separarRespostas(p);
-		setComponents(p);
-		
+		setComponents(p);	
 	}
 
+	/**
+	 * Separa as respostas entre corretas e erradas
+	 * @param p - pergunta cujas respostas serão separadas
+	 */
 	private void separarRespostas(Pergunta p) {
 		for (Resposta r : p.getRespostas()) {
 			if (r.getTipo() == 1) {
@@ -52,6 +58,11 @@ public class TelaPergunta extends TelaPadrao {
 		}
 	}
 
+	/**
+	 * inicia, configura e adiciona componentes na tela
+	 * 
+	 * @param p - pergunta das respostas
+	 */
 	private void setComponents(Pergunta p) {
 		
 		buttonPanel.setVisible(false);
@@ -84,6 +95,5 @@ public class TelaPergunta extends TelaPadrao {
 			painelCentro.add(bt);
 			bg.add(bt);
 		}
-		
 	}
 }

@@ -4,6 +4,12 @@ import componentesGUILogin.FrameInicial;
 import componentesGUIPrincipal.FramePrincipal;
 import modelo.Login;
 
+/**
+ * Classe Main, onde é iniciado o programa
+ * 
+ * @author Gustavo Zanardi
+ *
+ */
 public class Main {
 
 	// duas principais frames do projeto

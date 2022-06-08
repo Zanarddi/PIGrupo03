@@ -37,5 +37,4 @@ public class TelaPadrao extends JPanel {
 		painelCentro.setBorder(new EmptyBorder(0, 50, 0, 0));
 		this.add(painelCentro, BorderLayout.CENTER);
 	}
-
 }

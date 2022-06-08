@@ -9,6 +9,12 @@ import modelo.Resposta;
 import modelo.Topico;
 import services.BD;
 
+/**
+ * Classe que manipula dados referentes a respostas no banco de dados
+ * 
+ * @author Gustavo Zanardi
+ *
+ */
 public class RespostaDAO {
 
 	private String sql, men;
@@ -48,6 +54,12 @@ public class RespostaDAO {
 		return lista;
 	}
 	
+	/**
+	 * Exclui uma resposta no banco de dados
+	 * 
+	 * @param resposta - a ser excluída
+	 * @return - de confirmação
+	 */
 	public String excluir(Resposta resposta) {
 		sql = "delete resposta where cod_resposta = ?";
 		bd.getConnection();
@@ -67,6 +79,12 @@ public class RespostaDAO {
 		return men;
 	}
 	
+	/**
+	 * Atualiza os dados de uma resposta no banco de dados
+	 * 
+	 * @param r - resposta a ser atualizada
+	 * @return - confirmação da operação
+	 */
 	public String salvar(Resposta r) {
 		sql = "update resposta set descricao_resposta = ?, tipo_resposta = ?, cod_pergunta = ? where cod_resposta = ?";
 		bd.getConnection();
@@ -87,6 +105,14 @@ public class RespostaDAO {
 		return men;
 	}
 	
+	/**
+	 * cria uma nova resposta no banco de dados
+	 * 
+	 * @param descricao - da resposta
+	 * @param tipo - da resposta, 1 para certo, e 0 para errado
+	 * @param codigoPergunta - da resposta
+	 * @return - confirmação da operação
+	 */
 	public String criarNovo(String descricao, int tipo, int codigoPergunta) {
 		sql = "Insert into resposta(descricao_resposta, tipo_resposta, cod_pergunta) Values (?, ?, ?)";
 		bd.getConnection();
@@ -104,6 +130,5 @@ public class RespostaDAO {
 			bd.close();
 		}
 		return men;
-		
 	}
 }

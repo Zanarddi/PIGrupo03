@@ -19,40 +19,49 @@ import javax.swing.table.DefaultTableModel;
 
 import componentesGUILogin.Config;
 import crud.PerguntaDAO;
+import crud.RespostaDAO;
 import modelo.Pergunta;
+import modelo.Resposta;
 
-public class TelaAdicionarPergunta extends JPanel {
+/**
+ * Painel onde é são adicionadas, editadas ou deletadas, as respostas do banco de dados
+ * 
+ * @author Gustavo Zanardi
+ *
+ */
+public class TelaManterResposta extends JPanel{
 
-	JFrame frameEdicaoResposta;
+JFrame frameEdicaoResposta;
 	
-	int codigoTopico;
+	int codigoPergunta;
 	
-	PerguntaDAO perguntaDAO;
+	RespostaDAO respostaDAO;
 
-	ArrayList<Pergunta> perguntas;
+	ArrayList<Resposta> respostas;
 
 	DefaultTableModel model;
 	
 	private JTable table;
 	private JTextField tfCodigoPergunta;
-	private JTextField tfCodigoTopico;
+	private JTextField tfCodigoResposta;
 	JTextArea tfDescricao;
+	private JTextField tfTipo;
 	/**
 	 * Create the panel.
 	 */
-	public TelaAdicionarPergunta(int codigoTopico) {
+	public TelaManterResposta(int codigoPergunta) {
 
 		
 		
 		setLayout(null);
 		setBackground(Config.COR_BACKGROUND);
 
-		perguntas = new ArrayList<Pergunta>();
-		perguntaDAO = new PerguntaDAO();
+		respostas = new ArrayList<Resposta>();
+		respostaDAO = new RespostaDAO();
 		
 		tfCodigoPergunta = new JTextField();
-		tfCodigoTopico = new JTextField();
-		tfCodigoTopico.setEditable(false);
+		tfCodigoResposta = new JTextField();
+		tfCodigoResposta.setEditable(false);
 		
 		tfDescricao = new JTextArea();
 		
@@ -61,67 +70,72 @@ public class TelaAdicionarPergunta extends JPanel {
 		table = new JTable();
 		
 		JLabel lbCodigoPergunta = new JLabel("C\u00F3digo da Pergunta");
-		JLabel lbCabecalho = new JLabel("Gerenciamento de Perguntas");
-		JLabel lbOrdemTopico = new JLabel("Codigo do t\u00F3pico");
+		JLabel lbCabecalho = new JLabel("Gerenciamento de Respostas");
+		JLabel lbOrdemTopico = new JLabel("Codigo da Resposta");
 		JLabel lbDescricaoPergunta = new JLabel("Descri\u00E7\u00E3o");
-		
-		JButton btEditarRespostas = new JButton("Editar Respostas");
 		JButton btSelecionar = new JButton("Selecionar");
 		JButton btSalvar = new JButton("Salvar");
 		JButton btDeletar = new JButton("Deletar");
 		JButton btNovo = new JButton("Novo");
 		model = (DefaultTableModel) table.getModel();
 		
-		this.codigoTopico = codigoTopico;
-		tfCodigoTopico.setText("" + codigoTopico);
+		this.codigoPergunta = codigoPergunta;
+		tfCodigoPergunta.setText("" + codigoPergunta);
 		
 		lbCodigoPergunta.setBounds(10, 49, 114, 14);
 		add(lbCodigoPergunta);
 
 		tfCodigoPergunta.setEditable(false);
-		tfCodigoPergunta.setBounds(134, 46, 36, 20);
+		tfCodigoPergunta.setBounds(146, 46, 36, 20);
 		add(tfCodigoPergunta);
 		tfCodigoPergunta.setColumns(10);
 
-		lbOrdemTopico.setBounds(10, 76, 94, 14);
+		lbOrdemTopico.setBounds(10, 76, 126, 14);
 		add(lbOrdemTopico);
 		
-		tfCodigoTopico.setColumns(10);
-		tfCodigoTopico.setBounds(134, 77, 36, 20);
-		add(tfCodigoTopico);
+		tfCodigoResposta.setColumns(10);
+		tfCodigoResposta.setBounds(146, 73, 36, 20);
+		add(tfCodigoResposta);
 		
-		lbDescricaoPergunta.setBounds(10, 101, 68, 14);
+		lbDescricaoPergunta.setBounds(10, 165, 46, 14);
 		add(lbDescricaoPergunta);
 		
-		btSelecionar.setBounds(343, 261, 98, 29);
+		btSelecionar.setBounds(343, 289, 98, 29);
 		add(btSelecionar);
 
-		tfDescricao.setBounds(88, 104, 677, 118);
+		tfDescricao.setBounds(76, 160, 689, 118);
 		add(tfDescricao);
 		
-		scrollPane.setBounds(10, 301, 755, 211);
+		scrollPane.setBounds(10, 329, 755, 183);
 		add(scrollPane);
 		
 		scrollPane.setViewportView(table);
 		
-		btSalvar.setBounds(451, 261, 98, 29);
+		btSalvar.setBounds(451, 289, 98, 29);
 		add(btSalvar);
 		
-		btDeletar.setBounds(559, 261, 98, 29);
+		btDeletar.setBounds(559, 289, 98, 29);
 		add(btDeletar);
 		
-		btNovo.setBounds(667, 261, 98, 29);
+		btNovo.setBounds(667, 289, 98, 29);
 		add(btNovo);
 		
 		lbCabecalho.setBounds(10, 0, 539, 38);
 		lbCabecalho.setFont(new Font("ROBOTO", 1, 30));
 		add(lbCabecalho);
 		
-		btEditarRespostas.setBounds(10, 261, 140, 29);
-		add(btEditarRespostas);
+		JLabel lblTipoResposta = new JLabel("Tipo de resposta");
+		lblTipoResposta.setBounds(10, 101, 114, 14);
+		add(lblTipoResposta);
+		
+		tfTipo = new JTextField();
+		tfTipo.setColumns(10);
+		tfTipo.setBounds(146, 98, 36, 20);
+		add(tfTipo);
 
-		model.addColumn("cod_pergunta");
-		model.addColumn("descricao_pergunta");
+		model.addColumn("cod_resposta");
+		model.addColumn("descricao_resposta");
+		model.addColumn("tipo_resposta");
 
 		atualizarTabela();
 
@@ -129,8 +143,9 @@ public class TelaAdicionarPergunta extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (table.getSelectedRow() != -1) {
-					tfCodigoPergunta.setText(String.valueOf(model.getValueAt(table.getSelectedRow(), 0)));
+					tfCodigoResposta.setText(String.valueOf(model.getValueAt(table.getSelectedRow(), 0)));
 					tfDescricao.setText(String.valueOf(model.getValueAt(table.getSelectedRow(), 1)));
+					tfTipo.setText(String.valueOf(model.getValueAt(table.getSelectedRow(), 2)));
 				}
 
 			}
@@ -141,9 +156,9 @@ public class TelaAdicionarPergunta extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				if (table.getSelectedRow() != -1) {
 					int dialogButton = JOptionPane.YES_NO_OPTION;
-				    JOptionPane.showConfirmDialog (null, "Você quer excluir a pergunta e suas respostas?","Aviso",dialogButton);
+				    JOptionPane.showConfirmDialog (null, "Você quer excluir a resposta?","Aviso",dialogButton);
 				    if(dialogButton == JOptionPane.YES_OPTION) {
-				    	JOptionPane.showMessageDialog(null, perguntaDAO.excluir(perguntas.get(table.getSelectedRow())));
+				    	JOptionPane.showMessageDialog(null, respostaDAO.excluir(respostas.get(table.getSelectedRow())));
 				    	atualizarTabela();
 					}
 				}
@@ -162,38 +177,24 @@ public class TelaAdicionarPergunta extends JPanel {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (!tfCodigoTopico.getText().isBlank() || !tfDescricao.getText().isBlank()) {
-					if (!tfCodigoTopico.getText().isEmpty() || !tfDescricao.getText().isEmpty()) {
-						if (controle.Validacao.verificaInt(tfCodigoTopico.getText())) {
+				if (!tfDescricao.getText().isBlank() || !tfTipo.getText().isBlank()) {
+					System.out.println("tamo aqui");
+					if (!tfDescricao.getText().isEmpty()|| !tfTipo.getText().isEmpty()) {
+						System.out.println("tamo aqui");
+						if (controle.Validacao.verificaInt(tfCodigoPergunta.getText())) {
 							if (table.getSelectedRow() != -1) {
-								perguntas.get(table.getSelectedRow()).setDescricao(tfDescricao.getText());;
-								perguntas.get(table.getSelectedRow()).setCodigoTopico(Integer.parseInt(tfCodigoTopico.getText()));
-								JOptionPane.showMessageDialog(null, perguntaDAO.salvar(perguntas.get(table.getSelectedRow())));
+								respostas.get(table.getSelectedRow()).setTipo(Integer.parseInt(tfTipo.getText()));
+								respostas.get(table.getSelectedRow()).setDescricao(tfDescricao.getText());
+								respostas.get(table.getSelectedRow()).setCodigoPergunta(Integer.parseInt(tfCodigoPergunta.getText()));
+								JOptionPane.showMessageDialog(null, respostaDAO.salvar(respostas.get(table.getSelectedRow())));
 							}
 							else {
-								JOptionPane.showMessageDialog(null, perguntaDAO.criarNovo(tfDescricao.getText(), Integer.parseInt(tfCodigoTopico.getText())));
+								System.out.println("estamos aqui");
+								JOptionPane.showMessageDialog(null, respostaDAO.criarNovo(tfDescricao.getText(), Integer.parseInt(tfTipo.getText()), codigoPergunta));
 							}
 							limparCampos();
 							atualizarTabela();
 						}
-					}
-				}
-			}
-		});
-
-		btEditarRespostas.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				if (!tfCodigoPergunta.getText().isBlank()) {
-					if (!tfCodigoPergunta.getText().isEmpty()) {
-						frameEdicaoResposta = new JFrame();
-						frameEdicaoResposta.setLocationRelativeTo(null);
-						frameEdicaoResposta.setVisible(true);
-						frameEdicaoResposta.getContentPane()
-								.add(new TelaAdicionarResposta(Integer.parseInt(tfCodigoPergunta.getText())));
-						frameEdicaoResposta.setSize(new Dimension(785, 560));
-						frameEdicaoResposta.setResizable(false);
 					}
 				}
 			}
@@ -211,12 +212,11 @@ public class TelaAdicionarPergunta extends JPanel {
 		    model.removeRow(i);
 		}
 		
-		perguntas = perguntaDAO.get(
-				"select cod_pergunta, descricao_pergunta from pergunta where cod_topico = " + codigoTopico);
-		System.out.println(perguntas.size());
+		respostas = respostaDAO.get(
+				"select cod_resposta, descricao_resposta, tipo_resposta from resposta where cod_pergunta = " + codigoPergunta);
 
-		for (Pergunta p : perguntas) {
-			model.addRow(new Object[] { p.getCodigo(), p.getDescricao() });
+		for (Resposta r : respostas) {
+			model.addRow(new Object[] { r.getCodigo(), r.getDescricao(), r.getTipo() });
 		}
 	}
 	
@@ -226,6 +226,9 @@ public class TelaAdicionarPergunta extends JPanel {
 	private void limparCampos() {
 
 		tfDescricao.setText("");
+		tfCodigoResposta.setText("");
+		tfTipo.setText("");
 		table.clearSelection();
 	}
+
 }

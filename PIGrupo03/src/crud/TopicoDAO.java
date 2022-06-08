@@ -11,6 +11,12 @@ import modelo.Login;
 import modelo.Topico;
 import services.BD;
 
+/**
+ * Classe que manipula dados referentes a tópicos no banco de dados
+ * 
+ * @author Gustavo Zanardi
+ *
+ */
 public class TopicoDAO {
 
 	private String sql, men;
@@ -20,8 +26,14 @@ public class TopicoDAO {
 		bd = new BD();
 	}
 
-	
-	
+	/**
+	 * cria um novo tópico no banco de dados
+	 * 
+	 * @param titulo - do tópico
+	 * @param descricao -do tópico
+	 * @param ordem - do tópico
+	 * @return - string de confirmação
+	 */
 	public String criarNovo(String titulo, String descricao, int ordem) {
 		sql = "Insert into topico(titulo_topico, descricao_topico, ordem_topico) Values (?, ?, ?)";
 		bd.getConnection();
@@ -40,7 +52,13 @@ public class TopicoDAO {
 		}
 		return men;
 	}
-	
+
+	/**
+	 * método que busca uma lista de tópicos no banco de dados
+	 * 
+	 * @param sql - query a ser executada pelo banco
+	 * @return - confirmação da operação
+	 */
 	public ArrayList<Topico> get(String sql){
 		ArrayList<Topico> lista = new ArrayList<Topico>();
 		bd.getConnection();
@@ -64,7 +82,13 @@ public class TopicoDAO {
 		}
 		return lista;
 	}
-	
+
+	/**
+	 * Atualiza os dados de um tópico no banco de dados
+	 * 
+	 * @param t - tópico a ser atualizado
+	 * @return - confirmação da operação
+	 */
 	public String salvar(Topico t) {
 		sql = "update topico set ordem_topico = ?, titulo_topico = ?, descricao_topico = ? where cod_topico = ?";
 		bd.getConnection();
@@ -85,6 +109,12 @@ public class TopicoDAO {
 		return men;
 	}
 
+	/**
+	 * Exclui um tópico no banco de dados
+	 * 
+	 * @param topico - a ser excluído
+	 * @return - confirmação da operação
+	 */
 	public String excluir(Topico topico) {
 		sql = "delete topico where cod_topico = ?";
 		bd.getConnection();
@@ -104,7 +134,6 @@ public class TopicoDAO {
 		}
 		return men;
 	}
-	
 	
 	/**
 	 * faz a busca de tópicos no banco com parâmetros específicos para uma fila de estudo
@@ -183,7 +212,6 @@ public class TopicoDAO {
 	public void inserirProficiencia(ArrayList<Integer> topicos, int codigoUsuario) {
 		bd.getConnection();
 		sql = "insert into proficiencia (cod_topico,cod_usuario) values (?,?)";
-		
 		
 		for (Integer topico : topicos) {
 			try {

@@ -82,23 +82,14 @@ public class TelaLogin extends TelaLoginPadrao {
 			public void mouseExited(MouseEvent e) {
 			}
 		});
+		/**
+		 * ao clicar no botão de logar, verifica se os campos estão preenchidos, caso
+		 * não estejam, emite um aviso em forma de label para o usuario
+		 */
 		btLogin.addActionListener(new ActionListener() {
-			/**
-			 * ao clicar no botão de logar, verifica se os campos estão preenchidos, caso
-			 * não estejam, emite um aviso em forma de label para o usuario
-			 */
+			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
-				//apenas para teste
-				/*
-				Login l = crud.LoginDAO.validarLogin("zanardi", "1234");
-				if (l != null) {
-					controle.Main.login = l;
-					controle.Main.iniciarFramePrincipal();
-				}
-				*/
-				
 				if (validarCampos()) {
 					//valida as credenciais passadas pelo usuario
 					Login l = crud.LoginDAO.validarLogin(tfUsuario.getText(), tfSenha.getText());
@@ -116,8 +107,6 @@ public class TelaLogin extends TelaLoginPadrao {
 					lbvalidaLogin.setForeground(Color.RED);
 					lbvalidaLogin.setText("Campos inválidos");
 				}
-				
-				
 			}
 		});
 	}

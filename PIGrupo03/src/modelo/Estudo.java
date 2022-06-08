@@ -50,16 +50,6 @@ public class Estudo {
 		//está apagado por enquanto, apenas para testes
 		ArrayList<Topico> listaEstudo = topicoDAO.getEstudo(querySQL);
 		
-
-		/*
-		ArrayList<Topico> listaEstudo = new ArrayList<Topico>();
-		Topico testeTopico = new Topico(1, 1, 1, "Isso é um título", "Isso é uma explicação1", "Isso é um tema1", 0);
-		listaEstudo.add(testeTopico);
-		testeTopico = new Topico(2, 1, 1, "Isso é um título2", "Isso é uma explicação2", "Isso é um tema2", 0);
-		listaEstudo.add(testeTopico);
-		testeTopico = new Topico(3, 1, 1, "Isso é um título3", "Isso é uma explicação3", "Isso é um tema3", 0);
-		listaEstudo.add(testeTopico);
-		*/
 		return listaEstudo;
 	}
 }

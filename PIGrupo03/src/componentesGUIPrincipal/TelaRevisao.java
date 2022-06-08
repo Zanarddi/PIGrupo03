@@ -1,22 +1,25 @@
 package componentesGUIPrincipal;
 
 import java.awt.CardLayout;
-import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.Box;
-import javax.swing.JOptionPane;
 import javax.swing.border.EmptyBorder;
 
-import controle.CalculoProficiencia;
 import controle.Main;
 import crud.TopicoDAO;
 import log.Log;
-import modelo.Estudo;
 import modelo.Revisao;
 import modelo.Topico;
 
+/**
+ * Tela que permite a realização das revisões
+ * Apresenta ao usuário diversas perguntas com respostas de múltipla escolha
+ * 
+ * @author Gustavo Zanardi
+ *
+ */
 public class TelaRevisao extends TelaPadrao {
 
 	Revisao revisao;
@@ -43,6 +46,9 @@ public class TelaRevisao extends TelaPadrao {
 		setListeners();
 	}
 
+	/**
+	 * Inicia, configura e adiciona os componentes na tela
+	 */
 	private void setComponents() {
 
 		telaRevisao1 = new TelaPadrao();
@@ -89,11 +95,17 @@ public class TelaRevisao extends TelaPadrao {
 
 	}
 	
+	/**
+	 * Aciciona listeners aos botões da tela
+	 */
 	private void setListeners() {
 		
 		CardLayout clPrincipal = (CardLayout) painelCentro.getLayout();
 		CardLayout clPerguntas = (CardLayout) telaRevisao2.painelCentro.getLayout();
 
+		/**
+		 * Inicia uma sessão de revisão e distribui as perguntas na tela
+		 */
 		btComecar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -122,10 +134,12 @@ public class TelaRevisao extends TelaPadrao {
 				if (Main.login.getLimiteTopicosRevisao() <= Main.login.getTopicosRevisados()) {
 					clPrincipal.last(painelCentro);
 				}
-
 			}
 		});
 
+		/**
+		 * Listener do botão que navega entre as perguntas
+		 */
 		btVoltar.addActionListener(new ActionListener() {
 
 			@Override
@@ -147,6 +161,9 @@ public class TelaRevisao extends TelaPadrao {
 			
 		});
 
+		/**
+		 * Listener do botão que navega entre as perguntas
+		 */
 		btProximo.addActionListener(new ActionListener() {
 
 			@Override
@@ -161,9 +178,6 @@ public class TelaRevisao extends TelaPadrao {
 						indicePerguntaMostrada++;
 						clPerguntas.show(telaRevisao2.painelCentro,
 								"" + revisao.filaRevisao.get(indicePerguntaMostrada).getCodigo());
-						System.out.println(indicePerguntaMostrada);
-						System.out.println(revisao.filaRevisao.size());
-
 					}
 				} else if (indicePerguntaMostrada == revisao.filaRevisao.size()-1) {
 					for (Topico t : revisao.filaRevisao) {
@@ -179,14 +193,10 @@ public class TelaRevisao extends TelaPadrao {
 								}
 							}
 						}
-
 						controle.Main.login.setTopicosEstudados(controle.Main.login.getTopicosEstudados() + 1);
 					}
-
 					topicoDAO.salvarProficiencia(revisao.filaRevisao);
-					
 					Log.finalizarRevisao(Main.login.getCodigo(), revisao.filaRevisao);
-					
 					clPrincipal.next(painelCentro);
 				}
 				else if (indicePerguntaMostrada < revisao.filaRevisao.size()-1) {
@@ -196,6 +206,9 @@ public class TelaRevisao extends TelaPadrao {
 			}
 		});
 		
+		/**
+		 * Retorna para a tela de beoas vindas
+		 */
 		btVoltarInicio.addActionListener(new ActionListener() {
 
 			@Override
@@ -206,6 +219,9 @@ public class TelaRevisao extends TelaPadrao {
 				clPrincipal.first(painelCentro);
 			}
 		});
+		/**
+		 * Inicia a tela de jogar.
+		 */
 		btJogar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {

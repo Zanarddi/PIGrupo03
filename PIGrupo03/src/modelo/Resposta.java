@@ -1,5 +1,11 @@
 package modelo;
 
+/**
+ * Respostas para perguntas de tópicos, é utilizada nas sessões de estudo.
+ * 
+ * @author Gustavo Zanardi
+ *
+ */
 public class Resposta {
 
 	private int codigoPergunta;

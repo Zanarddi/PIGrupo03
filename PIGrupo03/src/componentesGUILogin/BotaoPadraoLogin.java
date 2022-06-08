@@ -14,6 +14,11 @@ import javax.swing.JButton;
  */
 public class BotaoPadraoLogin extends JButton {
 
+	/**
+	 *
+	 * @param titulo - Texto do botão
+	 * @param tamFonte - Fonte do texto do botão
+	 */
 	public BotaoPadraoLogin(String titulo, int tamFonte) {
 		setFont(new Font(Config.FONTE, Font.PLAIN, tamFonte));
 		setText(titulo);
@@ -21,6 +26,15 @@ public class BotaoPadraoLogin extends JButton {
 		setForeground(Config.COR_FONTE_BOTAO);
 	}
 
+	/**
+	 * 
+	 * @param texto - do login
+	 * @param x - posição x
+	 * @param y - posição y
+	 * @param altura - do botão
+	 * @param largura - do botão
+	 * @param tamFonte - do texto do botão
+	 */
 	public BotaoPadraoLogin(String texto, int x, int y, int altura, int largura, int tamFonte) {
 		setBounds(x, y, largura, altura);
 		setFont(new Font(Config.FONTE, Font.PLAIN, tamFonte));
@@ -29,6 +43,16 @@ public class BotaoPadraoLogin extends JButton {
 		setForeground(Config.COR_FONTE_BOTAO);
 	}
 
+	/**
+	 * 
+	 * @param texto - do login
+	 * @param x - posição x
+	 * @param y - posição y
+	 * @param altura - do botão
+	 * @param largura - do botão
+	 * @param tamFonte - do texto do botão
+	 * @param corFonte - do texto do botão
+	 */
 	public BotaoPadraoLogin(String texto, int x, int y, int altura, int largura, int tamFonte, Color cor, Color corFonte) {
 		setBounds(x, y, largura, altura);
 		setFont(new Font(Config.FONTE, Font.PLAIN, tamFonte));

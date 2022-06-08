@@ -5,8 +5,9 @@ import java.util.ArrayList;
 import crud.RespostaDAO;
 
 /**
- * Pergunta relacionada ao tópico.
- * é utilizada apenas na tela de revisão, e um cardlayout
+ * Pergunta relacionada ao tópico. é utilizada apenas na tela de revisão, em um
+ * cardlayout
+ * 
  * @author Gustavo Zanardi
  *
  */

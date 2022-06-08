@@ -37,6 +37,7 @@ public class FrameInicial extends JFrame {
 		telaRegistrar = new TelaRegistro();
 		telaRecSenha = new TelaRecSenha();
 
+		//adiciona as telas ao cardlayout, dando a elas nomes.
 		painelPai.add(telaLogin, "Login");
 		painelPai.add(telaRegistrar, "Registrar");
 		painelPai.add(telaRecSenha, "Recuperar");

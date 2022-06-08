@@ -1,11 +1,15 @@
 package controle;
 
-import java.util.regex.Pattern;
-
 import javax.swing.JOptionPane;
 
+/**
+ * Classe com métodos de validação de dados.
+ * 
+ * @author Gustavo Zanardi
+ *
+ */
 public class Validacao {
-	
+
 	/**
 	 * verifica se um valor é inteiro
 	 * @param n
@@ -38,6 +42,14 @@ public class Validacao {
 		return ret;
 	}
 	
+	/**
+	 * Faz a validação dos campos da tela de cadastro de novos usuários
+	 * @param email
+	 * @param usuario
+	 * @param senha
+	 * @param senhaRep
+	 * @return
+	 */
 	public static boolean validaCamposRegistro(String email, String usuario, String senha, String senhaRep) {
 		boolean ret = false;
 		if(email.isEmpty() || usuario.isEmpty() || senha.isEmpty() || senhaRep.isEmpty()) {

@@ -2,7 +2,6 @@ package componentesGUIPrincipal;
 
 import java.awt.CardLayout;
 import java.awt.Dimension;
-import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.util.ArrayList;
@@ -40,7 +39,7 @@ public class PainelBotoes extends JPanel {
 		btJogar = new BotaoPadraoPainel("Jogar", 22, new TelaJogo());
 		btProgresso = new BotaoPadraoPainel("Progresso", 22, new TelaProgresso());
 		btConfiguracao = new BotaoPadraoPainel("Configuração", 22, new TelaConfiguracao());
-		btMantemTopico = new BotaoPadraoPainel("Topicos", 22, new TelaMantemTopicos());
+		btMantemTopico = new BotaoPadraoPainel("Topicos", 22, new TelaGerenciarBanco());
 		
 
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
@@ -52,6 +51,10 @@ public class PainelBotoes extends JPanel {
 		botoes = new ArrayList<BotaoPadraoPainel>();
 		setBotoes();
 
+		/**
+		 * Adiciona os action listeners para os botões,
+		 * mostrando a tela correta quando são pressionados os botões
+		 */
 		for (BotaoPadraoPainel botao : botoes) {
 			botao.addItemListener(new ItemListener() {
 				@Override
@@ -93,7 +96,7 @@ public class PainelBotoes extends JPanel {
 	 * @param botoesPainel - array de botoes
 	 * @param botoes       - botoes a serem adicionados
 	 */
-	public static void adicionarBotoesBG(ButtonGroup bg, List<BotaoPadraoPainel> botoesPainel,
+	private void adicionarBotoesBG(ButtonGroup bg, List<BotaoPadraoPainel> botoesPainel,
 			BotaoPadraoPainel... botoes) {
 		for (BotaoPadraoPainel botao : botoes) {
 			bg.add(botao);

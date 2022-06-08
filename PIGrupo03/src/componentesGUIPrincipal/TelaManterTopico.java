@@ -5,6 +5,7 @@ import javax.swing.JTable;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.WindowConstants;
 
 import java.awt.Dimension;
 import java.awt.Font;
@@ -22,7 +23,13 @@ import crud.TopicoDAO;
 import modelo.Topico;
 import javax.swing.JScrollPane;
 
-public class TelaAdicionarTopico extends JPanel {
+/**
+ * Painel onde é são adicionados, editados ou deletados, os tópicos do banco de dados
+ * 
+ * @author Gustavo Zanardi
+ *
+ */
+public class TelaManterTopico extends JPanel {
 
 	JFrame frameEdicaoPergunta;
 	
@@ -40,7 +47,7 @@ public class TelaAdicionarTopico extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public TelaAdicionarTopico() {
+	public TelaManterTopico() {
 
 		setLayout(null);
 		setBackground(Config.COR_BACKGROUND);
@@ -199,11 +206,12 @@ public class TelaAdicionarTopico extends JPanel {
 				if(!tfCodigo.getText().isBlank()) {
 					if(!tfCodigo.getText().isEmpty()) {
 						frameEdicaoPergunta = new JFrame();
-						frameEdicaoPergunta.setLocationRelativeTo(null);
-						frameEdicaoPergunta.setVisible(true);
-						frameEdicaoPergunta.getContentPane().add(new TelaAdicionarPergunta(Integer.parseInt(tfCodigo.getText())));
+						frameEdicaoPergunta.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+						frameEdicaoPergunta.getContentPane().add(new TelaManterPergunta(Integer.parseInt(tfCodigo.getText())));
 						frameEdicaoPergunta.setSize(new Dimension(785, 560));
 						frameEdicaoPergunta.setResizable(false);
+						frameEdicaoPergunta.setLocationRelativeTo(null);
+						frameEdicaoPergunta.setVisible(true);
 					}
 					
 				}

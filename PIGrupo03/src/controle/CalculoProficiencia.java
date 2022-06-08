@@ -2,6 +2,12 @@ package controle;
 
 import modelo.Topico;
 
+/**
+ * Classe que calcula a proficiencia de um usuário em um determinado tópico
+ * 
+ * @author Gustavo Zanardi
+ *
+ */
 public class CalculoProficiencia {
 
 	public static int calcularProficiencia(Topico t) {
@@ -30,9 +36,4 @@ public class CalculoProficiencia {
 
 		return dias;
 	}
-
-	public static int reduzirProficiencia(Topico t) {
-		return 0;
-	}
-
 }

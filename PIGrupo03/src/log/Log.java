@@ -4,10 +4,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.logging.FileHandler;
-import java.util.logging.Logger;
-import java.util.logging.SimpleFormatter;
 
 import componentesGUILogin.Config;
 import controle.Main;
@@ -16,6 +12,12 @@ import modelo.Pergunta;
 import modelo.Resposta;
 import modelo.Topico;
 
+/**
+ * Classe que escreve novas linhas no log do sistema
+ * 
+ * @author Gustavo Zanardi
+ *
+ */
 public class Log {
 
 	static Calendar horarioAtual;
@@ -196,7 +198,6 @@ public class Log {
 				mensagem2 = "a resposta [" + ((Resposta) objetoMantido).getCodigo() + "].";
 			}
 		}
-
 		append(mensagem + mensagem2);
 	}
 }
