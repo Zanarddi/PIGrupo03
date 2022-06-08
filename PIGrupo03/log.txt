@@ -1,0 +1,52 @@
+[Tue Jun 07 15:01:21 BRT 2022]  Usuário [12] fez login.
+[Tue Jun 07 15:01:52 BRT 2022]  Usuário [2] fez login.
+[Tue Jun 07 15:09:54 BRT 2022]  Usuário [2] fez login.
+[Tue Jun 07 15:09:55 BRT 2022]  Usuário [2] encerrou a sessão.
+[Tue Jun 07 15:15:59 BRT 2022]  Usuário [12] fez login.
+[Tue Jun 07 15:16:49 BRT 2022]  Usuário [11] fez login.
+[Tue Jun 07 15:17:08 BRT 2022]  Usuário [11] alterou seu limite de estudo para [11].
+[Tue Jun 07 15:17:08 BRT 2022]  Usuário [11] alterou seu limite de revisões para [12].
+[Tue Jun 07 15:17:36 BRT 2022]  Usuário [11] encerrou a sessão.
+[Tue Jun 07 15:17:54 BRT 2022]  Usuário [11] fez login.
+[Tue Jun 07 15:18:00 BRT 2022]  Usuário [11] encerrou a sessão.
+[Tue Jun 07 15:18:46 BRT 2022]  Usuário [11] fez login.
+[Tue Jun 07 15:18:58 BRT 2022]  Usuário [11] encerrou a sessão.
+[Tue Jun 07 15:29:24 BRT 2022]  Usuário [0] registrado.
+[Tue Jun 07 15:29:24 BRT 2022]  foram criados [9] novas proficiências para o usuário [13]
+[Tue Jun 07 15:29:56 BRT 2022]  Usuário [11] fez login.
+[Tue Jun 07 15:35:49 BRT 2022]  Usuário [11] encerrou a sessão.
+[Tue Jun 07 15:36:00 BRT 2022]  Usuário [11] fez login.
+[Tue Jun 07 15:36:05 BRT 2022]  Usuário [11] finalizou uma sessão de estudo de [8] tópicos novos.
+[Tue Jun 07 15:36:07 BRT 2022]  Usuário [11] encerrou a sessão.
+[Tue Jun 07 15:44:10 BRT 2022]  Usuário [11] fez login.
+[Tue Jun 07 15:44:17 BRT 2022]  Usuário [11] alterou sua própria senha.
+[Tue Jun 07 16:01:46 BRT 2022]  Usuário [2] fez login.
+[Tue Jun 07 16:01:56 BRT 2022]  Usuário [2] encerrou a sessão.
+[Tue Jun 07 17:29:14 BRT 2022]  Usuário [2] fez login.
+[Tue Jun 07 17:29:31 BRT 2022]  Administrador [2] criou um tópico.
+[Tue Jun 07 17:29:49 BRT 2022]  Administrador [2] editou o tópico [21].
+[Tue Jun 07 17:30:09 BRT 2022]  Administrador [2] deletou o tópico [21].
+[Tue Jun 07 17:30:45 BRT 2022]  Administrador [2] criou uma pergunta.
+[Tue Jun 07 17:30:56 BRT 2022]  Administrador [2] editou a pergunta [15].
+[Tue Jun 07 17:31:03 BRT 2022]  Administrador [2] deletou a pergunta [15].
+[Tue Jun 07 17:31:26 BRT 2022]  Administrador [2] criou uma resposta.
+[Tue Jun 07 17:31:37 BRT 2022]  Administrador [2] editou a resposta [60].
+[Tue Jun 07 17:31:47 BRT 2022]  Administrador [2] deletou a resposta [60].
+[Tue Jun 07 17:35:28 BRT 2022]  Usuário [2] encerrou a sessão.
+[Wed Jun 08 16:12:23 BRT 2022]  Usuário [2] fez login.
+[Wed Jun 08 16:12:33 BRT 2022]  Usuário [2] encerrou a sessão.
+[Wed Jun 08 16:40:19 BRT 2022]  Usuário [0] registrado.
+[Wed Jun 08 16:40:19 BRT 2022]  Foram criados [8] novas proficiências para o usuário [15]
+[Wed Jun 08 16:40:25 BRT 2022]  Usuário [15] fez login.
+[Wed Jun 08 16:40:30 BRT 2022]  Usuário [15] encerrou a sessão.
+[Wed Jun 08 16:43:47 BRT 2022]  Usuário [15] fez login.
+[Wed Jun 08 16:43:57 BRT 2022]  Usuário [15] alterou sua própria senha.
+[Wed Jun 08 16:44:04 BRT 2022]  Usuário [15] encerrou a sessão.
+[Wed Jun 08 16:44:08 BRT 2022]  Usuário [15] fez login.
+[Wed Jun 08 16:44:10 BRT 2022]  Usuário [15] encerrou a sessão.
+[Wed Jun 08 16:47:54 BRT 2022]  Usuário [15] fez login.
+[Wed Jun 08 16:47:57 BRT 2022]  Usuário [15] encerrou a sessão.
+[Wed Jun 08 17:07:25 BRT 2022]  Usuário [15] fez login.
+[Wed Jun 08 17:07:29 BRT 2022]  Usuário [15] encerrou a sessão.
+[Wed Jun 08 17:08:17 BRT 2022]  Usuário [15] fez login.
+[Wed Jun 08 17:08:19 BRT 2022]  Usuário [15] encerrou a sessão.
