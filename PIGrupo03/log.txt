@@ -1,0 +1,3 @@
+[Wed Jun 08 01:37:18 BRT 2022]  Usu�rio [2] fez login.
+[Wed Jun 08 01:37:35 BRT 2022]  Administrador [2] criou um t�pico.
+[Wed Jun 08 01:37:40 BRT 2022]  Usu�rio [2] encerrou a sess�o.
