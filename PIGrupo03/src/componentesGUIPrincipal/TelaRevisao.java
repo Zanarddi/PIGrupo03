@@ -14,8 +14,8 @@ import modelo.Revisao;
 import modelo.Topico;
 
 /**
- * Tela que permite a realização das revisões
- * Apresenta ao usuário diversas perguntas com respostas de múltipla escolha
+ * Tela que permite a realizaï¿½ï¿½o das revisï¿½es
+ * Apresenta ao usuï¿½rio diversas perguntas com respostas de mï¿½ltipla escolha
  * 
  * @author Gustavo Zanardi
  *
@@ -62,34 +62,34 @@ public class TelaRevisao extends TelaPadrao {
 		telaRevisao3 = new TelaPadrao();
 
 		//componentes da tela de revisao 1
-		btComecar = new BotaoPadrao("Começar", 0, 0, 150, 50, 24);
+		btComecar = new BotaoPadrao("Comeï¿½ar", 0, 0, 150, 50, 24);
 		telaRevisao1.buttonPanel.add(btComecar);
 		telaRevisao1.painelCentro.add(Box.createVerticalStrut(28));
-		telaRevisao1.painelCentro.add(new LabelPadrao("Não desista!", 36));
+		telaRevisao1.painelCentro.add(new LabelPadrao("Nï¿½o desista!", 36));
 		telaRevisao1.painelCentro.add(Box.createVerticalStrut(100));
 		telaRevisao1.painelCentro.add(new LabelPadrao(
-				"Você tem " + (controle.Main.login.getLimiteTopicosRevisao() - Main.login.getTopicosRevisados())
-						+ " revisões pendentes!!", 40, componentesGUILogin.Config.COR_FONTE_BOTAO));
+				"Vocï¿½ tem " + (controle.Main.login.getLimiteTopicosRevisao() - Main.login.getTopicosRevisados())
+						+ " revisï¿½es pendentes!!", 40, componentesGUILogin.Config.COR_FONTE_BOTAO));
 		telaRevisao1.painelCentro.add(Box.createVerticalStrut(30));
 		telaRevisao1.painelCentro.add(new LabelPadrao("Hora de relembrar", 40, componentesGUILogin.Config.COR_FONTE_BOTAO));
 
-		//componentes da tela de revisão 2
+		//componentes da tela de revisï¿½o 2
 		btVoltar = new BotaoPadrao("Voltar", 0, 0, 150, 50, 24);
 		telaRevisao2.buttonPanel.add(btVoltar);
-		btProximo = new BotaoPadrao("Próximo", 0, 0, 150, 50, 24);
+		btProximo = new BotaoPadrao("Prï¿½ximo", 0, 0, 150, 50, 24);
 		telaRevisao2.buttonPanel.add(btProximo);
 		telaRevisao2.painelCentro.setBorder(new EmptyBorder(0, 0, 0, 0));
 		telaRevisao2.painelCentro.setLayout(new CardLayout());
 		
-		//componentes da tela de revisão 3
+		//componentes da tela de revisï¿½o 3
 		btJogar = new BotaoPadrao("Jogar", 0, 0, 150, 50, 24);
 		telaRevisao3.buttonPanel.add(btJogar);
 		btVoltarInicio = new BotaoPadrao("Voltar", 0, 0, 150, 50, 24);
 		telaRevisao3.buttonPanel.add(btVoltarInicio);
 		telaRevisao3.painelCentro.add(Box.createVerticalStrut(28));
-		telaRevisao3.painelCentro.add(new LabelPadrao("Parabéns!", 36));
+		telaRevisao3.painelCentro.add(new LabelPadrao("Parabï¿½ns!", 36));
 		telaRevisao3.painelCentro.add(Box.createVerticalStrut(100));
-		telaRevisao3.painelCentro.add(new LabelPadrao("Você atingiu o limite de revisões por hoje", 40,
+		telaRevisao3.painelCentro.add(new LabelPadrao("Vocï¿½ atingiu o limite de revisï¿½es por hoje", 40,
 				componentesGUILogin.Config.COR_FONTE_BOTAO));
 		telaRevisao3.painelCentro.add(Box.createVerticalStrut(130));
 		telaRevisao3.painelCentro.add(new LabelPadrao("Que tal jogar um jogo?", 40, componentesGUILogin.Config.COR_FONTE_BOTAO));
@@ -102,7 +102,7 @@ public class TelaRevisao extends TelaPadrao {
 	}
 	
 	/**
-	 * Aciciona listeners aos botões da tela
+	 * Aciciona listeners aos botï¿½es da tela
 	 */
 	private void setListeners() {
 		
@@ -110,7 +110,7 @@ public class TelaRevisao extends TelaPadrao {
 		CardLayout clPerguntas = (CardLayout) telaRevisao2.painelCentro.getLayout();
 
 		/**
-		 * Inicia uma sessão de revisão e distribui as perguntas na tela
+		 * Inicia uma sessï¿½o de revisï¿½o e distribui as perguntas na tela
 		 */
 		btComecar.addActionListener(new ActionListener() {
 			@Override
@@ -121,13 +121,13 @@ public class TelaRevisao extends TelaPadrao {
 					revisao = new Revisao();
 					
 					for (Topico topico : revisao.filaRevisao) {
-						// ao adicionar a tela ao cardlayout, o index é o codigo do tópico
+						// ao adicionar a tela ao cardlayout, o index ï¿½ o codigo do tï¿½pico
 						telaRevisao2.painelCentro.add(topico.getTelaPergunta(), "" + topico.getCodigo());
 					}
 
-					// quando for feito o show, é preciso buscar o index a partir do tópico que está
-					// na fila de estudo, a sequencia que será mostrado é então ditada pela
-					// sequência do array fila estudo
+					// quando for feito o show, ï¿½ preciso buscar o index a partir do tï¿½pico que estï¿½
+					// na fila de estudo, a sequencia que serï¿½ mostrado ï¿½ entï¿½o ditada pela
+					// sequï¿½ncia do array fila estudo
 
 					if (revisao.filaRevisao.isEmpty()) {
 						clPrincipal.last(painelCentro);
@@ -144,7 +144,7 @@ public class TelaRevisao extends TelaPadrao {
 		});
 
 		/**
-		 * Listener do botão que navega entre as perguntas
+		 * Listener do botï¿½o que navega entre as perguntas
 		 */
 		btVoltar.addActionListener(new ActionListener() {
 
@@ -168,7 +168,7 @@ public class TelaRevisao extends TelaPadrao {
 		});
 
 		/**
-		 * Listener do botão que navega entre as perguntas
+		 * Listener do botï¿½o que navega entre as perguntas
 		 */
 		btProximo.addActionListener(new ActionListener() {
 
@@ -177,17 +177,9 @@ public class TelaRevisao extends TelaPadrao {
 
 				TopicoDAO topicoDAO = new TopicoDAO();
 
-				if (indicePerguntaMostrada == 0) {
-					if (revisao.filaRevisao.isEmpty()) {
-						clPrincipal.next(painelCentro);
-					} else {
-						indicePerguntaMostrada++;
-						clPerguntas.show(telaRevisao2.painelCentro,
-								"" + revisao.filaRevisao.get(indicePerguntaMostrada).getCodigo());
-					}
-				} else if (indicePerguntaMostrada == revisao.filaRevisao.size()-1) {
+				if (indicePerguntaMostrada == revisao.filaRevisao.size() - 1) {
 					for (Topico t : revisao.filaRevisao) {
-						// verifica se o usuário acertou ou não a pergunta
+						// verifica se o usuï¿½rio acertou ou nï¿½o a pergunta
 						for (RadioButtonPadrao bt : t.getTelaPergunta().grupoRespostas) {
 							if (bt.isSelected()) {
 								if (bt.tipo == 1) {
@@ -204,11 +196,19 @@ public class TelaRevisao extends TelaPadrao {
 					topicoDAO.salvarProficiencia(revisao.filaRevisao);
 					Log.finalizarRevisao(Main.login.getCodigo(), revisao.filaRevisao);
 					clPrincipal.next(painelCentro);
-				}
-				else if (indicePerguntaMostrada < revisao.filaRevisao.size()-1) {
+				} else if (indicePerguntaMostrada == 0) {
+					if (revisao.filaRevisao.isEmpty()) {
+						clPrincipal.next(painelCentro);
+					} else {
+						indicePerguntaMostrada++;
+						clPerguntas.show(telaRevisao2.painelCentro,
+								"" + revisao.filaRevisao.get(indicePerguntaMostrada).getCodigo());
+					}
+				} else if (indicePerguntaMostrada < revisao.filaRevisao.size() - 1) {
 					indicePerguntaMostrada++;
-					clPerguntas.show(telaRevisao2.painelCentro, "" + revisao.filaRevisao.get(indicePerguntaMostrada).getCodigo());
-				}		
+					clPerguntas.show(telaRevisao2.painelCentro,
+							"" + revisao.filaRevisao.get(indicePerguntaMostrada).getCodigo());
+				}
 			}
 		});
 		

@@ -14,10 +14,10 @@ import modelo.Estudo;
 import modelo.Topico;
 
 /**
- * GUI por onde o usuário consegue estudar novos topicos
+ * GUI por onde o usuï¿½rio consegue estudar novos topicos
  * 
- * Conta com botões de navegação inferiores para alternar entre telas.
- * Essa tela faz o uso de CardLayout para mostrar os tópicos.
+ * Conta com botï¿½es de navegaï¿½ï¿½o inferiores para alternar entre telas.
+ * Essa tela faz o uso de CardLayout para mostrar os tï¿½picos.
  * 
  * @author Gustavo Zanardi
  *
@@ -65,19 +65,19 @@ public class TelaEstudo extends TelaPadrao {
 		
 		//componentes da tela de estudo 1
 		
-		btComecar = new BotaoPadrao("Começar", 0, 0, 150, 50, 24);
+		btComecar = new BotaoPadrao("Comeï¿½ar", 0, 0, 150, 50, 24);
 		telaEstudar1.buttonPanel.add(btComecar);
 		telaEstudar1.painelCentro.add(Box.createVerticalStrut(28));
 		telaEstudar1.painelCentro.add(new LabelPadrao("Bem vindo de volta", 36));
 		telaEstudar1.painelCentro.add(Box.createVerticalStrut(100));
 		telaEstudar1.painelCentro.add(new LabelPadrao(
-				"Preparamos " + (Main.login.getLimiteTopicosEstudo() - Main.login.getTopicosEstudados()) + " novos tópicos para serem estudados hoje", 40,
+				"Preparamos " + (Main.login.getLimiteTopicosEstudo() - Main.login.getTopicosEstudados()) + " novos tï¿½picos para serem estudados hoje", 40,
 				componentesGUILogin.Config.COR_FONTE_BOTAO));
 
 		// componentes da tela de estudo 2
 		btVoltar = new BotaoPadrao("Voltar", 0, 0, 150, 50, 24);
 		telaEstudar2.buttonPanel.add(btVoltar);
-		btProximo = new BotaoPadrao("Próximo", 0, 0, 150, 50, 24);
+		btProximo = new BotaoPadrao("Prï¿½ximo", 0, 0, 150, 50, 24);
 		telaEstudar2.buttonPanel.add(btProximo);
 		telaEstudar2.painelCentro.setBorder(new EmptyBorder(30, 30, 0, 30));
 		telaEstudar2.painelCentro.setLayout(new CardLayout());
@@ -88,11 +88,11 @@ public class TelaEstudo extends TelaPadrao {
 		btVoltarInicio = new BotaoPadrao("Voltar", 0, 0, 150, 50, 24);
 		telaEstudar3.buttonPanel.add(btVoltarInicio);
 		telaEstudar3.painelCentro.add(Box.createVerticalStrut(30));
-		telaEstudar3.painelCentro.add(new LabelPadrao("Parabéns!!", 36));
+		telaEstudar3.painelCentro.add(new LabelPadrao("Parabï¿½ns!!", 36));
 		telaEstudar3.painelCentro.add(Box.createVerticalStrut(100));
-		telaEstudar3.painelCentro.add(new LabelPadrao("Você atingiu o limite de novos tópicos estudados por hoje.", 40, componentesGUILogin.Config.COR_FONTE_BOTAO));
+		telaEstudar3.painelCentro.add(new LabelPadrao("Vocï¿½ atingiu o limite de novos tï¿½picos estudados por hoje.", 40, componentesGUILogin.Config.COR_FONTE_BOTAO));
 		telaEstudar3.painelCentro.add(Box.createVerticalStrut(90));
-		telaEstudar3.painelCentro.add(new LabelPadrao("Não se esqueca de fazer sua revisão.", 40, componentesGUILogin.Config.COR_FONTE_BOTAO));
+		telaEstudar3.painelCentro.add(new LabelPadrao("Nï¿½o se esqueca de fazer sua revisï¿½o.", 40, componentesGUILogin.Config.COR_FONTE_BOTAO));
 
 		//adiciona as telas no painel principal (cardLayout)
 		painelCentro.add(telaEstudar1, telaEstudar1.getName());
@@ -101,16 +101,16 @@ public class TelaEstudo extends TelaPadrao {
 	}
 	
 	/**
-	 * Cria os listeners para os botões das telas
+	 * Cria os listeners para os botï¿½es das telas
 	 */
 	private void setListeners() {
 		
-		// Variaveis de cardlayout para facilitar a manipulação dos mesmos
+		// Variaveis de cardlayout para facilitar a manipulaï¿½ï¿½o dos mesmos
 		CardLayout clPrincipal = (CardLayout) painelCentro.getLayout();				// Layout principal
-		CardLayout clTopicos = (CardLayout) telaEstudar2.painelCentro.getLayout();	// Layout onde são exibidos os tópicos
+		CardLayout clTopicos = (CardLayout) telaEstudar2.painelCentro.getLayout();	// Layout onde sï¿½o exibidos os tï¿½picos
 		
 		/**
-		 * Inicia uma sessão de estudos e distribui os tópicos na tela
+		 * Inicia uma sessï¿½o de estudos e distribui os tï¿½picos na tela
 		 */
 		btComecar.addActionListener(new ActionListener() {
 			@Override
@@ -118,18 +118,18 @@ public class TelaEstudo extends TelaPadrao {
 				if (Main.login.getLimiteTopicosEstudo() > Main.login.getTopicosEstudados()) {	
 					estudo = new Estudo();
 					for (Topico topico : estudo.filaEstudo) {
-						// ao adicionar a tela ao cardlayout, o index é o codigo do tópico
+						// ao adicionar a tela ao cardlayout, o index ï¿½ o codigo do tï¿½pico
 						// adiciona as telas no painel
 						telaEstudar2.painelCentro.add(topico.getTela(), "" + topico.getCodigo());
 					}
 
-					// quando for feito o show, é preciso buscar o index a partir do tópico que está
-					// na fila de estudo, a sequencia que será mostrado é então ditada pela
-					// sequência do array fila estudo
+					// quando for feito o show, ï¿½ preciso buscar o index a partir do tï¿½pico que estï¿½
+					// na fila de estudo, a sequencia que serï¿½ mostrado ï¿½ entï¿½o ditada pela
+					// sequï¿½ncia do array fila estudo
 					
 					
 					if (estudo.filaEstudo.isEmpty()) {
-						// "pula" a tela com os tópicos
+						// "pula" a tela com os tï¿½picos
 						clPrincipal.last(painelCentro);
 					}
 					else {
@@ -138,7 +138,7 @@ public class TelaEstudo extends TelaPadrao {
 					clTopicos.first(telaEstudar2.painelCentro);
 					}
 				}
-				//Situação onde o usuário já estudou mais do que o limite permite
+				//Situaï¿½ï¿½o onde o usuï¿½rio jï¿½ estudou mais do que o limite permite
 				if (Main.login.getLimiteTopicosEstudo() <= Main.login.getTopicosEstudados()) {
 					clPrincipal.last(painelCentro);
 				}
@@ -146,7 +146,7 @@ public class TelaEstudo extends TelaPadrao {
 		});
 
 		/**
-		 * Listener do botão que navega entre os tópicos
+		 * Listener do botï¿½o que navega entre os tï¿½picos
 		 */
 		btProximo.addActionListener(new ActionListener() {
 
@@ -155,7 +155,18 @@ public class TelaEstudo extends TelaPadrao {
 
 				TopicoDAO topicoDAO = new TopicoDAO();
 
-				if (indiceTopicoMostrado == 0) {
+				if (indiceTopicoMostrado == estudo.filaEstudo.size() - 1) {
+					for (Topico t : estudo.filaEstudo) {
+						t.setProficiencia(1);
+						controle.Main.login.setTopicosEstudados(controle.Main.login.getTopicosEstudados() + 1);
+					}
+					topicoDAO.salvarProficiencia(estudo.filaEstudo);
+
+					Log.finalizarEstudo(Main.login.getCodigo(), estudo.filaEstudo);
+
+					clPrincipal.next(painelCentro);
+					System.out.println(estudo.filaEstudo.size() + "tamanho da fila de estudo");
+				} else if (indiceTopicoMostrado == 0) {
 					if (estudo.filaEstudo.isEmpty()) {
 						clPrincipal.next(painelCentro);
 					} else {
@@ -163,28 +174,16 @@ public class TelaEstudo extends TelaPadrao {
 						clTopicos.show(telaEstudar2.painelCentro,
 								"" + estudo.filaEstudo.get(indiceTopicoMostrado).getCodigo());
 					}
-				}
-				else if (indiceTopicoMostrado == estudo.filaEstudo.size()-1) {
-					for (Topico t : estudo.filaEstudo) {
-						t.setProficiencia(1);
-						controle.Main.login.setTopicosEstudados(controle.Main.login.getTopicosEstudados() + 1);
-					}
-					topicoDAO.salvarProficiencia(estudo.filaEstudo);
-					
-					Log.finalizarEstudo(Main.login.getCodigo(), estudo.filaEstudo);
-					
-					clPrincipal.next(painelCentro);
-					System.out.println(estudo.filaEstudo.size() + "tamanho da fila de estudo");
-				}
-				else if (indiceTopicoMostrado < estudo.filaEstudo.size()-1) {
+				} else if (indiceTopicoMostrado < estudo.filaEstudo.size() - 1) {
 					indiceTopicoMostrado++;
-					clTopicos.show(telaEstudar2.painelCentro, "" + estudo.filaEstudo.get(indiceTopicoMostrado).getCodigo());
+					clTopicos.show(telaEstudar2.painelCentro,
+							"" + estudo.filaEstudo.get(indiceTopicoMostrado).getCodigo());
 				}
 			}
 		});
 
 		/**
-		 * Listener do botão que navega entre os tópicos
+		 * Listener do botï¿½o que navega entre os tï¿½picos
 		 */
 		btVoltar.addActionListener(new ActionListener() {
 
@@ -203,7 +202,7 @@ public class TelaEstudo extends TelaPadrao {
 			}
 		});
 		/**
-		 * Botão que leva para a tela de revisões
+		 * Botï¿½o que leva para a tela de revisï¿½es
 		 */
 		btRevisar.addActionListener(new ActionListener() {
 			@Override

@@ -12,7 +12,7 @@ import modelo.Topico;
 import services.BD;
 
 /**
- * Classe que manipula dados referentes a tópicos no banco de dados
+ * Classe que manipula dados referentes a tï¿½picos no banco de dados
  * 
  * @author Gustavo Zanardi
  *
@@ -27,44 +27,41 @@ public class TopicoDAO {
 	}
 	
 	/**
-	 * Faz uma buscas de novos tópicos que não foram cadastrados para o usuário na proficiência
+	 * Faz uma buscas de novos tï¿½picos que nï¿½o foram cadastrados para o usuï¿½rio na proficiï¿½ncia
 	 * 
-	 * 
-	 * TEM QUE RESOLVER AINDA
 	 */
 	public ArrayList<Integer> pesquisarNovosTopicos() {
 		ArrayList<Integer> lista = new ArrayList<Integer>();
-		sql = "SELECT cod_topico FROM topico T WHERE NOT EXISTS (SELECT 1 FROM proficiencia P WHERE P.cod_topico = T.cod_topico AND P.cod_usuario = ?)";
 		bd.getConnection();
+		sql = "SELECT cod_topico FROM topico T WHERE NOT EXISTS (SELECT 1 FROM proficiencia P WHERE P.cod_topico = T.cod_topico AND P.cod_usuario = 8)";
 		try {
 			bd.st = bd.con.prepareStatement(sql);
-			bd.st.setInt(1, Main.login.getCodigo());
-			bd.st.executeUpdate();
+			bd.rs = bd.st.executeQuery();
 			while(bd.rs.next()) {
 				lista.add(bd.rs.getInt(1));
 			}
-			men = "Topicos encontrados com sucesso";
-		} catch (SQLException erro) {
-			men = "" + erro;
-		} finally {
+		}
+		catch(SQLException erro) {
+			System.out.println(erro);
+		}
+		finally {
 			bd.close();
 		}
-		System.out.println(men);
 		return lista;
 	}
 	
 	
 
 	/**
-	 * cria um novo tópico no banco de dados
+	 * cria um novo tï¿½pico no banco de dados
 	 * 
-	 * @param titulo - do tópico
-	 * @param descricao -do tópico
-	 * @param ordem - do tópico
-	 * @return - string de confirmação
+	 * @param titulo - do tï¿½pico
+	 * @param descricao -do tï¿½pico
+	 * @param ordem - do tï¿½pico
+	 * @return - string de confirmaï¿½ï¿½o
 	 */
 	public String criarNovo(String titulo, String descricao, int ordem) {
-		sql = "Insert into topico(titulo_topico, descricao_topico, ordem_topico) Values (?, ?, ?)";
+		sql = "Insert into topico(titulo_topico, descricao_topico, ordem_topico, cod_tema) Values (?, ?, ?, 1)";
 		bd.getConnection();
 		try {
 			bd.st = bd.con.prepareStatement(sql);
@@ -83,10 +80,10 @@ public class TopicoDAO {
 	}
 
 	/**
-	 * método que busca uma lista de tópicos no banco de dados
+	 * mï¿½todo que busca uma lista de tï¿½picos no banco de dados
 	 * 
 	 * @param sql - query a ser executada pelo banco
-	 * @return - confirmação da operação
+	 * @return - confirmaï¿½ï¿½o da operaï¿½ï¿½o
 	 */
 	public ArrayList<Topico> get(String sql){
 		ArrayList<Topico> lista = new ArrayList<Topico>();
@@ -113,10 +110,10 @@ public class TopicoDAO {
 	}
 
 	/**
-	 * Atualiza os dados de um tópico no banco de dados
+	 * Atualiza os dados de um tï¿½pico no banco de dados
 	 * 
-	 * @param t - tópico a ser atualizado
-	 * @return - confirmação da operação
+	 * @param t - tï¿½pico a ser atualizado
+	 * @return - confirmaï¿½ï¿½o da operaï¿½ï¿½o
 	 */
 	public String salvar(Topico t) {
 		sql = "update topico set ordem_topico = ?, titulo_topico = ?, descricao_topico = ? where cod_topico = ?";
@@ -139,10 +136,10 @@ public class TopicoDAO {
 	}
 
 	/**
-	 * Exclui um tópico no banco de dados
+	 * Exclui um tï¿½pico no banco de dados
 	 * 
-	 * @param topico - a ser excluído
-	 * @return - confirmação da operação
+	 * @param topico - a ser excluï¿½do
+	 * @return - confirmaï¿½ï¿½o da operaï¿½ï¿½o
 	 */
 	public String excluir(Topico topico) {
 		sql = "delete topico where cod_topico = ?";
@@ -151,13 +148,13 @@ public class TopicoDAO {
 			bd.st = bd.con.prepareStatement(sql);
 			bd.st.setInt(1, topico.getCodigo());
 			if (bd.st.executeUpdate() == 1) {
-				men = "Topico excluído com sucesso!";
+				men = "Topico excluï¿½do com sucesso!";
 				Log.manterObjeto(topico, 0);
 			}
 			else
-				men = "Topico não foi encontrado!";
+				men = "Topico nï¿½o foi encontrado!";
 		} catch (SQLException erro) {
-			men = "Falha na exclusão " + erro;
+			men = "Falha na exclusï¿½o " + erro;
 		} finally {
 			bd.close();
 		}
@@ -165,10 +162,10 @@ public class TopicoDAO {
 	}
 	
 	/**
-	 * faz a busca de tópicos no banco com parâmetros específicos para uma fila de estudo
+	 * faz a busca de tï¿½picos no banco com parï¿½metros especï¿½ficos para uma fila de estudo
 	 * 
 	 * @param sql - query sql para busca
-	 * @return - array de tópicos
+	 * @return - array de tï¿½picos
 	 */
 	public ArrayList<Topico> getEstudo(String sql){
 		ArrayList<Topico> lista = new ArrayList<Topico>();
@@ -199,10 +196,10 @@ public class TopicoDAO {
 	}
 	
 	/**
-	 * faz a busca de tópicos no banco com parâmetros específicos para uma fila de revisão
+	 * faz a busca de tï¿½picos no banco com parï¿½metros especï¿½ficos para uma fila de revisï¿½o
 	 * 
 	 * @param sql - query sql para busca
-	 * @return - array de tópicos
+	 * @return - array de tï¿½picos
 	 */
 	public ArrayList<Topico> getRevisao(String sql){
 		
@@ -290,7 +287,7 @@ public class TopicoDAO {
 	}
 	
 	/**
-	 * conta quantos topicos existem com n proficiencia para determinado usuário
+	 * conta quantos topicos existem com n proficiencia para determinado usuï¿½rio
 	 * @param sql
 	 * @return
 	 */
