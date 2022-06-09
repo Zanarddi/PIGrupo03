@@ -62,6 +62,7 @@ public class PainelBotoes extends JPanel {
 					if (e.getStateChange() == ItemEvent.SELECTED) {
 						CardLayout cardLayout = (CardLayout) FramePrincipal.painelPrincipal.getLayout();
 						cardLayout.show(FramePrincipal.painelPrincipal, botao.texto);
+						botao.painel.reset();
 					} else if (e.getStateChange() == ItemEvent.DESELECTED) {
 					}
 				}

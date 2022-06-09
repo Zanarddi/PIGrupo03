@@ -22,11 +22,16 @@ public class TelaBemVindo extends TelaPadrao {
 	JButton btRevisar;
 
 	public TelaBemVindo() {
-		super();
+		reset();
+	}
+	
+	@Override
+	public void reset() {
+		super.reset();
 		setComponents();
 		setListeners();
 	}
-
+	
 	/**
 	 * adiciona os listeners para os botões da tela
 	 */

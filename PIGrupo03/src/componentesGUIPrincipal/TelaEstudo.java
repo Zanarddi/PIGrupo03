@@ -39,7 +39,13 @@ public class TelaEstudo extends TelaPadrao {
 	int indiceTopicoMostrado;
 
 	public TelaEstudo() {
+		reset();
+	}
 
+	@Override
+	public void reset(){
+		super.reset();
+		
 		painelCentro.setLayout(new CardLayout());
 		painelCentro.setBorder(new EmptyBorder(0, 0, 0, 0));
 		buttonPanel.setVisible(false);
@@ -47,7 +53,7 @@ public class TelaEstudo extends TelaPadrao {
 		setComponents();
 		setListeners();
 	}
-
+	
 	/**
 	 * inicia, configura e adiciona componentes na tela
 	 */
