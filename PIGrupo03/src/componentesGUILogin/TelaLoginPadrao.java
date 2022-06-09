@@ -42,6 +42,11 @@ public class TelaLoginPadrao extends JPanel {
 		painelEscuro.setVisible(true);
 	}
 
+	/**
+	 * configura o painel à esquerda da frame de login
+	 * 
+	 * @param dim
+	 */
 	private void setPanels(Dimension dim) {
 		painelEscuro.setBackground(Config.COR_BACKGROUND_ESCURA);
 		painelEscuro.setPreferredSize(new Dimension(500, 600));

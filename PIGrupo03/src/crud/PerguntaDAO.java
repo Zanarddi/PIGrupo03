@@ -5,10 +5,14 @@ import java.util.ArrayList;
 
 import log.Log;
 import modelo.Pergunta;
-import modelo.Resposta;
-import modelo.Topico;
 import services.BD;
 
+/**
+ * Classe que manipula dados referentes a perguntas no banco de dados
+ * 
+ * @author Gustavo Zanardi
+ *
+ */
 public class PerguntaDAO {
 
 	private String sql, men;
@@ -42,6 +46,12 @@ public class PerguntaDAO {
 		return lista;
 	}
 
+	/**
+	 * Exclui uma pergunta no banco de dados
+	 * 
+	 * @param pergunta - a ser excluída
+	 * @return - de confirmação
+	 */
 	public String excluir(Pergunta pergunta) {
 		sql = "delete pergunta where cod_pergunta = ?";
 		bd.getConnection();
@@ -62,6 +72,11 @@ public class PerguntaDAO {
 		return men;
 	}
 	
+	/**
+	 * Atualiza os dados de uma pergunta no banco de dados
+	 * @param p - pergunta a ser atualizada
+	 * @return - confirmação da operação
+	 */
 	public String salvar(Pergunta p) {
 		sql = "update pergunta set descricao_pergunta = ?, cod_topico = ? where cod_pergunta = ?";
 		bd.getConnection();
@@ -81,6 +96,13 @@ public class PerguntaDAO {
 		return men;
 	}
 	
+	/**
+	 * cria uma nova pergunta no banco de dados
+	 * 
+	 * @param descricao - pergunta
+	 * @param codigoTopico - da pergunta
+	 * @return - confirmação da operação
+	 */
 	public String criarNovo(String descricao, int codigoTopico) {
 		sql = "Insert into pergunta(descricao_pergunta, cod_topico) Values (?, ?)";
 		bd.getConnection();

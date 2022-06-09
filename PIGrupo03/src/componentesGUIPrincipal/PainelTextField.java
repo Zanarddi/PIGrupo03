@@ -25,6 +25,11 @@ public class PainelTextField extends JPanel {
 	JTextField textField;
 	JPanel painelCentro;
 	
+	/**
+	 * cria um par de label e textfield
+	 * @param texto - da label
+	 * @param larguraTF - largura do campo de texto
+	 */
 	public PainelTextField(String texto, int larguraTF) {
 		
 		setLayout(new BorderLayout());

@@ -8,6 +8,8 @@ import java.awt.event.MouseListener;
 import javax.swing.*;
 
 import controle.Main;
+import crud.LoginDAO;
+import crud.TopicoDAO;
 import log.Log;
 import modelo.Login;
 
@@ -82,29 +84,21 @@ public class TelaLogin extends TelaLoginPadrao {
 			public void mouseExited(MouseEvent e) {
 			}
 		});
+		/**
+		 * ao clicar no botão de logar, verifica se os campos estão preenchidos, caso
+		 * não estejam, emite um aviso em forma de label para o usuario
+		 */
 		btLogin.addActionListener(new ActionListener() {
-			/**
-			 * ao clicar no botão de logar, verifica se os campos estão preenchidos, caso
-			 * não estejam, emite um aviso em forma de label para o usuario
-			 */
+			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
-				//apenas para teste
-				/*
-				Login l = crud.LoginDAO.validarLogin("zanardi", "1234");
-				if (l != null) {
-					controle.Main.login = l;
-					controle.Main.iniciarFramePrincipal();
-				}
-				*/
-				
 				if (validarCampos()) {
 					//valida as credenciais passadas pelo usuario
 					Login l = crud.LoginDAO.validarLogin(tfUsuario.getText(), tfSenha.getText());
 					if (l != null) {
 						controle.Main.login = l;
 						controle.Main.iniciarFramePrincipal();
+						atualizarTopicos();
 						Log.novoLogin(Main.login.getCodigo());
 					} else {
 						//label muda para uma mensagem de aviso em caso de login inválido
@@ -116,8 +110,6 @@ public class TelaLogin extends TelaLoginPadrao {
 					lbvalidaLogin.setForeground(Color.RED);
 					lbvalidaLogin.setText("Campos inválidos");
 				}
-				
-				
 			}
 		});
 	}
@@ -196,5 +188,12 @@ public class TelaLogin extends TelaLoginPadrao {
 			ret = true;
 		}
 		return ret;
+	}
+	
+	private void atualizarTopicos() {
+		TopicoDAO topicoDAO = new TopicoDAO();
+		System.out.println(topicoDAO.pesquisarNovosTopicos().size());
+		System.out.println(Main.login.getCodigo());
+		topicoDAO.inserirProficiencia(topicoDAO.pesquisarNovosTopicos(), Main.login.getCodigo());		
 	}
 }

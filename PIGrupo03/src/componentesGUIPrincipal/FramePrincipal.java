@@ -2,11 +2,9 @@ package componentesGUIPrincipal;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
-import java.awt.Color;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.WindowConstants;
 
 import controle.Main;
 import log.Log;
@@ -43,23 +41,19 @@ public class FramePrincipal extends JFrame {
 		        System.exit(0);
 		    }
 		});
-		
-		
-
 		setLayout(new BorderLayout());
-
+		
 		painelBotoes = new PainelBotoes();
-		add(painelBotoes, BorderLayout.WEST);
-		painelBotoes.setVisible(true);
-
 		painelPrincipal = new JPanel();
-		painelPrincipal.setLayout(new CardLayout());
-		add(painelPrincipal);
-
 		telaBemVindo = new TelaBemVindo();
+		
+		painelBotoes.setVisible(true);
+		painelPrincipal.setLayout(new CardLayout());
+		
+		add(painelBotoes, BorderLayout.WEST);
+		add(painelPrincipal);
 		if(l.getTipo() == 0)
 		painelPrincipal.add(telaBemVindo, "telaBemVindo");
-		
 		// adiciona os paineis correspondentes dos botoes ao cardlayout
 		for (BotaoPadraoPainel botao : PainelBotoes.botoes) {
 			painelPrincipal.add(botao.painel, botao.texto);

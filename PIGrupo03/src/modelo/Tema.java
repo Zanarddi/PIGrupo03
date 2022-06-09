@@ -1,5 +1,11 @@
 package modelo;
 
+/**
+ * Refere-se aos temas dos tópicos
+ * 
+ * @author Gustavo Zanardi
+ *
+ */
 
 public class Tema {
 	

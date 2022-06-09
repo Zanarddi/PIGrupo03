@@ -5,6 +5,12 @@ import java.util.ArrayList;
 import controle.Main;
 import crud.TopicoDAO;
 
+/**
+ * Conjunto de perguntas feitas ao usuário para reajustar sua proficiência
+ * 
+ * @author Gustavo Zanardi
+ *
+ */
 public class Revisao {
 	
 	public ArrayList<Topico> filaRevisao;
@@ -29,7 +35,6 @@ public class Revisao {
 	 * @return Array de tópicos a serem estudados
 	 */
 	public ArrayList<Topico> pesquisaRevisao() {
-		
 		
 		String querySQL = "Select top " + (Main.login.getLimiteTopicosRevisao() - Main.login.getTopicosRevisados()) + " t.cod_topico, t.titulo_topico, t.descricao_topico, p.proficiencia \r\n"
 				+ "From proficiencia p, topico t, usuario u \r\n"

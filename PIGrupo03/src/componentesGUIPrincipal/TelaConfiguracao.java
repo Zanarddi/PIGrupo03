@@ -14,7 +14,9 @@ import crud.LoginDAO;
 import log.Log;
 
 /**
- * Tela onde o usuário pode configurar seus limites de estudo/revisão, e encerrar sua sessão
+ * Tela onde o usuário pode configurar seus limites de estudo/revisão, e
+ * encerrar sua sessão
+ * 
  * @author Gustavo Zanardi
  *
  */
@@ -25,12 +27,22 @@ public class TelaConfiguracao extends TelaPadrao {
 	FrameTrocaSenha frameTrocaSenha;
 
 	public TelaConfiguracao() {
+		reset();
+	}
+
+	@Override
+	public void reset() {
+		super.reset();
 		setComponents();
 		setListeners();
 	}
-
+	/**
+	 * Adiciona listeners aos botões da tela
+	 */
 	private void setListeners() {
-
+		/**
+		 * Retornar para a tela inicial
+		 */
 		btVoltar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -40,6 +52,9 @@ public class TelaConfiguracao extends TelaPadrao {
 			}
 		});
 		
+		/**
+		 * Encerrar a sessão e criar um log
+		 */
 		btEncerrarSessao.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -49,6 +64,9 @@ public class TelaConfiguracao extends TelaPadrao {
 			}
 		});
 		
+		/**
+		 * Salva as alterações feitas pelo usuário
+		 */
 		btSalvar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -75,6 +93,10 @@ public class TelaConfiguracao extends TelaPadrao {
 				}
 			}
 		});
+		
+		/**
+		 * Abre uma JFrame para a atualização de senha
+		 */
 		btTrocarSenha.addActionListener(new ActionListener() {
 
 			@Override
@@ -102,15 +124,15 @@ public class TelaConfiguracao extends TelaPadrao {
 						} else {
 							frameTrocaSenha.lbAviso.setText("Senha incorreta!");
 						}
-
 					}
 				});
-
 			}
 		});
-
 	}
 
+	/**
+	 * inicia e adiciona componentes na tela
+	 */
 	private void setComponents() {
 		btSalvar = new BotaoPadrao("Salvar", 0, 0, 130, 40, 24);
 		btVoltar = new BotaoPadrao("Voltar", 0, 0, 150, 50, 24);

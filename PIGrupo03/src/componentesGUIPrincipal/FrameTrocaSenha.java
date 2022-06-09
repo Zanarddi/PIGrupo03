@@ -6,7 +6,6 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 
 import javax.swing.Box;
-import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JPasswordField;
 import javax.swing.WindowConstants;
@@ -14,7 +13,8 @@ import javax.swing.border.EmptyBorder;
 
 import componentesGUILogin.Config;
 /**
- * Frame auxiliar para a troca de senha
+ * Frame onde o usuário consegue atualizar sua senha
+ * 
  * @author Gustavo Zanardi
  *
  */
@@ -67,6 +67,5 @@ public class FrameTrocaSenha extends JFrame {
 		this.getRootPane().add(btConfirmar, c);
 		
 		this.pack();
-
 	}
 }

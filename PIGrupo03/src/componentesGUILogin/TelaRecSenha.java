@@ -11,6 +11,8 @@ import javax.swing.*;
 /**
  * Tela para a recuperação de senha dos usuários.
  * 
+ * Não foi implementado.
+ * 
  * @author Gustavo Zanardi
  *
  */
@@ -28,7 +30,8 @@ public class TelaRecSenha extends TelaLoginPadrao {
 
 	JTextField tfEmail = new JTextField();
 
-	TelaRecSenha() {
+
+	public TelaRecSenha() {
 		super(Config.DIMENSAO_REC_SENHA);
 		setComponents();
 

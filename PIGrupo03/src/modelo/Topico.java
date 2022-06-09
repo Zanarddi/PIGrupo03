@@ -190,5 +190,4 @@ public class Topico {
 	public void setTelaPergunta(TelaPergunta telaPergunta) {
 		this.telaPergunta = telaPergunta;
 	}
-	
 }

@@ -51,29 +51,35 @@ public class TelaRegistro extends TelaLoginPadrao {
 		super(Config.DIMENSAO_REGISTRAR);
 		setComponents();
 		setListeners();
-		
+
 	}
 
-	private void criarRegistro(){
-		if(Validacao.validaCamposRegistro(tfEmail.getText(), tfUsuario.getText(), tfSenha.getText(), tfRepSenha.getText())) {
+	/**
+	 * Cria uma nova linha no banco de dados com as informações dadas pelo usuário
+	 */
+	private void criarRegistro() {
+		if (Validacao.validaCamposRegistro(tfEmail.getText(), tfUsuario.getText(), tfSenha.getText(),
+				tfRepSenha.getText())) {
 			Login l = new Login(tfUsuario.getText(), tfEmail.getText(), tfSenha.getText());
-			
+
 			LoginDAO loginDAO = new LoginDAO();
 			TopicoDAO topicoDAO = new TopicoDAO();
 			ArrayList<Integer> topicos = new ArrayList<Integer>();
-			
+
 			JOptionPane.showMessageDialog(null, loginDAO.registrarUsuario(l));
 			Log.registroUsuario(l);
-			
+
 			topicos = topicoDAO.listarTopicos();
 			l = crud.LoginDAO.validarLogin(l.getUsuario(), l.getSenha());
 			topicoDAO.inserirProficiencia(topicos, l.getCodigo());
 			Log.criarProficiencia(l.getCodigo(), topicos);
 		}
 	}
-	
+
+	/**
+	 * Cria os ActionListeners da tela
+	 */
 	private void setListeners() {
-		
 		btRegistrar.addActionListener(new ActionListener() {
 			
 			@Override
@@ -81,34 +87,31 @@ public class TelaRegistro extends TelaLoginPadrao {
 				criarRegistro();
 			}
 		});
-		
-		
-		
+
 		lbLogin2.addMouseListener(new MouseListener() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				CardLayout cardLayout = (CardLayout) FrameInicial.painelPai.getLayout();
 				cardLayout.show(FrameInicial.painelPai, "Login");
 			}
-
 			@Override
 			public void mouseReleased(MouseEvent e) {
 			}
-
 			@Override
 			public void mousePressed(MouseEvent e) {
 			}
-
 			@Override
 			public void mouseExited(MouseEvent e) {
 			}
-
 			@Override
 			public void mouseEntered(MouseEvent e) {
 			}
 		});
 	}
-	
+
+	/**
+	 * Cria e posiciona os componentes na tela
+	 */
 	private void setComponents() {
 		painelComponentes.setLayout(new BoxLayout(painelComponentes, BoxLayout.Y_AXIS));
 
@@ -183,5 +186,4 @@ public class TelaRegistro extends TelaLoginPadrao {
 
 		painelComponentes.add(Box.createVerticalGlue());
 	}
-
 }

@@ -1,19 +1,31 @@
 package componentesGUIPrincipal;
 
-import java.util.ArrayList;
-
 import javax.swing.Box;
 
-import componentesGUILogin.Config;
 import controle.Main;
 import crud.TopicoDAO;
-import modelo.Topico;
 
+/**
+ * Tela que mostra a contagem de tópicos do usuário por nível de proficiência
+ * 
+ * @author Gustavo Zanardi
+ *
+ */
 public class TelaProgresso extends TelaPadrao {
 
 	PainelTextField desconhecido, iniciante, medio, expert;
 	public TelaProgresso() {
+		reset();
+	}
+	
+	@Override
+	public void reset() {
+		super.reset();
 		
+		setComponents();
+	}
+	
+	private void setComponents(){
 		desconhecido = new PainelTextField("Tópicos desconhecidos:", 190);
 		desconhecido.textField.setEditable(false);
 		iniciante = new PainelTextField("Tópicos lvl. iniciante:", 190);
@@ -37,6 +49,9 @@ public class TelaProgresso extends TelaPadrao {
 		painelCentro.add(expert);
 	}
 	
+	/**
+	 * Envia query para o banco, retornando a contagem de tópicos de acordo com a proficiência do usuário
+	 */
 	private void contarTopicos() {
 		TopicoDAO topicoDAO = new TopicoDAO();
 		int codigo = Main.login.getCodigo();
@@ -48,6 +63,5 @@ public class TelaProgresso extends TelaPadrao {
 		medio.textField.setText("" + topicoDAO.contarTopicos(sql));
 		sql = "select count(*) from proficiencia where proficiencia in (7,8,9) and cod_usuario ="+codigo;
 		expert.textField.setText("" + topicoDAO.contarTopicos(sql));
-
 	}
 }
