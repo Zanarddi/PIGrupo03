@@ -46,7 +46,6 @@ public class Estudo {
 				+ "and p.proficiencia = 0";	
 		
 		TopicoDAO topicoDAO = new TopicoDAO();
-		
 		//está apagado por enquanto, apenas para testes
 		ArrayList<Topico> listaEstudo = topicoDAO.getEstudo(querySQL);
 		//VERIFICAR

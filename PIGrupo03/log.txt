@@ -110,3 +110,21 @@
 [Wed Jun 08 23:39:42 BRT 2022]  Usuário [21] encerrou a sessão.
 =======
 >>>>>>> branch 'master' of https://github.com/Zanarddi/PIGrupo03.git
+[Wed Jun 08 23:59:26 BRT 2022]  Usuário [2] fez login.
+[Wed Jun 08 23:59:40 BRT 2022]  Administrador [2] criou um tópico.
+[Thu Jun 09 00:00:36 BRT 2022]  Usuário [2] encerrou a sessão.
+[Thu Jun 09 00:15:23 BRT 2022]  Usuário [8] fez login.
+[Thu Jun 09 00:15:37 BRT 2022]  Usuário [8] encerrou a sessão.
+[Thu Jun 09 00:16:59 BRT 2022]  Usuário [8] fez login.
+[Thu Jun 09 00:18:44 BRT 2022]  Usuário [8] fez login.
+[Thu Jun 09 00:19:18 BRT 2022]  Usuário [8] fez login.
+[Thu Jun 09 00:19:22 BRT 2022]  Usuário [8] encerrou a sessão.
+[Thu Jun 09 00:20:26 BRT 2022]  Usuário [8] fez login.
+[Thu Jun 09 00:20:37 BRT 2022]  Usuário [8] encerrou a sessão.
+[Thu Jun 09 00:20:40 BRT 2022]  Usuário [8] encerrou a sessão.
+[Thu Jun 09 00:20:43 BRT 2022]  Usuário [8] encerrou a sessão.
+[Thu Jun 09 00:21:46 BRT 2022]  Usuário [8] fez login.
+[Thu Jun 09 00:22:23 BRT 2022]  Usuário [8] fez login.
+[Thu Jun 09 00:23:44 BRT 2022]  Usuário [8] fez login.
+[Thu Jun 09 00:24:24 BRT 2022]  Usuário [8] fez login.
+[Thu Jun 09 00:26:40 BRT 2022]  Usuário [8] fez login.

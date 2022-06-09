@@ -8,6 +8,8 @@ import java.awt.event.MouseListener;
 import javax.swing.*;
 
 import controle.Main;
+import crud.LoginDAO;
+import crud.TopicoDAO;
 import log.Log;
 import modelo.Login;
 
@@ -96,6 +98,7 @@ public class TelaLogin extends TelaLoginPadrao {
 					if (l != null) {
 						controle.Main.login = l;
 						controle.Main.iniciarFramePrincipal();
+						atualizarTopicos();
 						Log.novoLogin(Main.login.getCodigo());
 					} else {
 						//label muda para uma mensagem de aviso em caso de login inválido
@@ -185,5 +188,12 @@ public class TelaLogin extends TelaLoginPadrao {
 			ret = true;
 		}
 		return ret;
+	}
+	
+	private void atualizarTopicos() {
+		TopicoDAO topicoDAO = new TopicoDAO();
+		System.out.println(topicoDAO.pesquisarNovosTopicos().size());
+		System.out.println(Main.login.getCodigo());
+		topicoDAO.inserirProficiencia(topicoDAO.pesquisarNovosTopicos(), Main.login.getCodigo());		
 	}
 }

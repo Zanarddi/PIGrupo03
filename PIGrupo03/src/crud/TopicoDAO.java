@@ -25,6 +25,35 @@ public class TopicoDAO {
 	public TopicoDAO() {
 		bd = new BD();
 	}
+	
+	/**
+	 * Faz uma buscas de novos tópicos que não foram cadastrados para o usuário na proficiência
+	 * 
+	 * 
+	 * TEM QUE RESOLVER AINDA
+	 */
+	public ArrayList<Integer> pesquisarNovosTopicos() {
+		ArrayList<Integer> lista = new ArrayList<Integer>();
+		sql = "SELECT cod_topico FROM topico T WHERE NOT EXISTS (SELECT 1 FROM proficiencia P WHERE P.cod_topico = T.cod_topico AND P.cod_usuario = ?)";
+		bd.getConnection();
+		try {
+			bd.st = bd.con.prepareStatement(sql);
+			bd.st.setInt(1, Main.login.getCodigo());
+			bd.st.executeUpdate();
+			while(bd.rs.next()) {
+				lista.add(bd.rs.getInt(1));
+			}
+			men = "Topicos encontrados com sucesso";
+		} catch (SQLException erro) {
+			men = "" + erro;
+		} finally {
+			bd.close();
+		}
+		System.out.println(men);
+		return lista;
+	}
+	
+	
 
 	/**
 	 * cria um novo tópico no banco de dados
