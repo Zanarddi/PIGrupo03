@@ -27,10 +27,15 @@ public class TelaConfiguracao extends TelaPadrao {
 	FrameTrocaSenha frameTrocaSenha;
 
 	public TelaConfiguracao() {
+		reset();
+	}
+
+	@Override
+	public void reset() {
+		super.reset();
 		setComponents();
 		setListeners();
 	}
-
 	/**
 	 * Adiciona listeners aos botões da tela
 	 */

@@ -1,7 +1,7 @@
-/componentesGUIPrincipal/
-/crud/
-/modelo/
 /componentesGUILogin/
-/log/
+/componentesGUIPrincipal/
 /controle/
-/testes/
+/crud/
+/log/
+/modelo/
+/services/

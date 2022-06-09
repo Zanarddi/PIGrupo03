@@ -49,7 +49,7 @@ public class Estudo {
 		
 		//está apagado por enquanto, apenas para testes
 		ArrayList<Topico> listaEstudo = topicoDAO.getEstudo(querySQL);
-		
+		//VERIFICAR
 		return listaEstudo;
 	}
 }

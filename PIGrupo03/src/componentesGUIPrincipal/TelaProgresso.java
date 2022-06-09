@@ -15,7 +15,17 @@ public class TelaProgresso extends TelaPadrao {
 
 	PainelTextField desconhecido, iniciante, medio, expert;
 	public TelaProgresso() {
+		reset();
+	}
+	
+	@Override
+	public void reset() {
+		super.reset();
 		
+		setComponents();
+	}
+	
+	private void setComponents(){
 		desconhecido = new PainelTextField("Tópicos desconhecidos:", 190);
 		desconhecido.textField.setEditable(false);
 		iniciante = new PainelTextField("Tópicos lvl. iniciante:", 190);

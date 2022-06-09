@@ -37,7 +37,13 @@ public class TelaRevisao extends TelaPadrao {
 	int indicePerguntaMostrada;
 
 	public TelaRevisao() {
+		reset();
+	}
 
+	@Override
+	public void reset() {
+		super.reset();
+		
 		painelCentro.setLayout(new CardLayout());
 		painelCentro.setBorder(new EmptyBorder(0, 0, 0, 0));
 		buttonPanel.setVisible(false);

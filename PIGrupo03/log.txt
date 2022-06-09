@@ -50,3 +50,60 @@
 [Wed Jun 08 17:07:29 BRT 2022]  Usuário [15] encerrou a sessão.
 [Wed Jun 08 17:08:17 BRT 2022]  Usuário [15] fez login.
 [Wed Jun 08 17:08:19 BRT 2022]  Usuário [15] encerrou a sessão.
+[Wed Jun 08 19:13:41 BRT 2022]  Usuário [0] registrado.
+[Wed Jun 08 19:20:47 BRT 2022]  Usuário [0] registrado.
+[Wed Jun 08 19:20:47 BRT 2022]  Foram criados [0] novas proficiências para o usuário [3]
+[Wed Jun 08 19:20:55 BRT 2022]  Usuário [2] fez login.
+[Wed Jun 08 19:21:02 BRT 2022]  Usuário [2] encerrou a sessão.
+[Wed Jun 08 19:24:06 BRT 2022]  Usuário [0] registrado.
+[Wed Jun 08 19:24:06 BRT 2022]  Foram criados [0] novas proficiências para o usuário [4]
+[Wed Jun 08 19:24:15 BRT 2022]  Usuário [4] fez login.
+[Wed Jun 08 19:24:27 BRT 2022]  Usuário [4] encerrou a sessão.
+[Wed Jun 08 19:24:33 BRT 2022]  Usuário [2] fez login.
+[Wed Jun 08 19:24:56 BRT 2022]  Administrador [2] criou um tópico.
+[Wed Jun 08 19:25:11 BRT 2022]  Administrador [2] criou uma pergunta.
+[Wed Jun 08 19:25:19 BRT 2022]  Administrador [2] criou uma pergunta.
+[Wed Jun 08 19:25:37 BRT 2022]  Administrador [2] criou uma resposta.
+[Wed Jun 08 19:25:44 BRT 2022]  Administrador [2] criou uma resposta.
+[Wed Jun 08 19:25:51 BRT 2022]  Administrador [2] criou uma resposta.
+[Wed Jun 08 19:25:57 BRT 2022]  Administrador [2] criou uma resposta.
+[Wed Jun 08 19:26:04 BRT 2022]  Administrador [2] criou uma resposta.
+[Wed Jun 08 19:26:23 BRT 2022]  Usuário [2] encerrou a sessão.
+[Wed Jun 08 19:26:33 BRT 2022]  Usuário [4] fez login.
+[Wed Jun 08 19:26:40 BRT 2022]  Usuário [4] encerrou a sessão.
+[Wed Jun 08 19:27:03 BRT 2022]  Usuário [0] registrado.
+[Wed Jun 08 19:27:03 BRT 2022]  Foram criados [1] novas proficiências para o usuário [5]
+[Wed Jun 08 19:27:08 BRT 2022]  Usuário [5] fez login.
+[Wed Jun 08 19:27:13 BRT 2022]  Usuário [5] encerrou a sessão.
+[Wed Jun 08 19:38:57 BRT 2022]  Usuário [5] fez login.
+[Wed Jun 08 19:39:00 BRT 2022]  Usuário [5] encerrou a sessão.
+[Wed Jun 08 19:40:14 BRT 2022]  Usuário [5] fez login.
+[Wed Jun 08 19:40:19 BRT 2022]  Usuário [5] encerrou a sessão.
+[Wed Jun 08 19:42:03 BRT 2022]  Usuário [5] fez login.
+[Wed Jun 08 19:42:11 BRT 2022]  Usuário [5] encerrou a sessão.
+[Wed Jun 08 19:46:34 BRT 2022]  Usuário [5] fez login.
+[Wed Jun 08 19:46:54 BRT 2022]  Usuário [5] encerrou a sessão.
+[Wed Jun 08 19:55:12 BRT 2022]  Usuário [5] fez login.
+[Wed Jun 08 19:55:20 BRT 2022]  Usuário [5] encerrou a sessão.
+[Wed Jun 08 19:58:31 BRT 2022]  Usuário [5] fez login.
+[Wed Jun 08 19:58:44 BRT 2022]  Usuário [5] alterou seu limite de estudo para [11].
+[Wed Jun 08 19:58:44 BRT 2022]  Usuário [5] alterou seu limite de revisões para [12].
+[Wed Jun 08 19:58:49 BRT 2022]  Usuário [5] encerrou a sessão.
+[Wed Jun 08 22:11:03 BRT 2022]  Usuário [0] registrado.
+[Wed Jun 08 22:11:03 BRT 2022]  Foram criados [1] novas proficiências para o usuário [3]
+[Wed Jun 08 22:11:07 BRT 2022]  Usuário [0] registrado.
+[Wed Jun 08 22:11:07 BRT 2022]  Foram criados [1] novas proficiências para o usuário [8]
+[Wed Jun 08 22:11:13 BRT 2022]  Usuário [8] fez login.
+[Wed Jun 08 22:11:42 BRT 2022]  Usuário [8] alterou seu limite de estudo para [11].
+[Wed Jun 08 22:11:42 BRT 2022]  Usuário [8] alterou seu limite de revisões para [12].
+[Wed Jun 08 22:12:59 BRT 2022]  Usuário [8] encerrou a sessão.
+[Wed Jun 08 22:14:41 BRT 2022]  Usuário [8] fez login.
+[Wed Jun 08 23:35:45 BRT 2022]  Usuário [13] fez login.
+[Wed Jun 08 23:35:52 BRT 2022]  Usuário [13] alterou seu limite de estudo para [10].
+[Wed Jun 08 23:35:52 BRT 2022]  Usuário [13] alterou seu limite de revisões para [13].
+[Wed Jun 08 23:36:07 BRT 2022]  Usuário [13] encerrou a sessão.
+[Wed Jun 08 23:36:27 BRT 2022]  Usuário [0] registrado.
+[Wed Jun 08 23:36:27 BRT 2022]  Foram criados [8] novas proficiências para o usuário [21]
+[Wed Jun 08 23:36:38 BRT 2022]  Usuário [21] fez login.
+[Wed Jun 08 23:39:00 BRT 2022]  Usuário [21] finalizou uma sessão de estudo de [8] tópicos novos.
+[Wed Jun 08 23:39:42 BRT 2022]  Usuário [21] encerrou a sessão.
