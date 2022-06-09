@@ -89,3 +89,12 @@
 [Wed Jun 08 19:58:44 BRT 2022]  Usuário [5] alterou seu limite de estudo para [11].
 [Wed Jun 08 19:58:44 BRT 2022]  Usuário [5] alterou seu limite de revisões para [12].
 [Wed Jun 08 19:58:49 BRT 2022]  Usuário [5] encerrou a sessão.
+[Wed Jun 08 22:11:03 BRT 2022]  Usuário [0] registrado.
+[Wed Jun 08 22:11:03 BRT 2022]  Foram criados [1] novas proficiências para o usuário [3]
+[Wed Jun 08 22:11:07 BRT 2022]  Usuário [0] registrado.
+[Wed Jun 08 22:11:07 BRT 2022]  Foram criados [1] novas proficiências para o usuário [8]
+[Wed Jun 08 22:11:13 BRT 2022]  Usuário [8] fez login.
+[Wed Jun 08 22:11:42 BRT 2022]  Usuário [8] alterou seu limite de estudo para [11].
+[Wed Jun 08 22:11:42 BRT 2022]  Usuário [8] alterou seu limite de revisões para [12].
+[Wed Jun 08 22:12:59 BRT 2022]  Usuário [8] encerrou a sessão.
+[Wed Jun 08 22:14:41 BRT 2022]  Usuário [8] fez login.
