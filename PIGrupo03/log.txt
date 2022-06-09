@@ -98,6 +98,7 @@
 [Wed Jun 08 22:11:42 BRT 2022]  Usuário [8] alterou seu limite de revisões para [12].
 [Wed Jun 08 22:12:59 BRT 2022]  Usuário [8] encerrou a sessão.
 [Wed Jun 08 22:14:41 BRT 2022]  Usuário [8] fez login.
+<<<<<<< HEAD
 [Wed Jun 08 23:35:45 BRT 2022]  Usuário [13] fez login.
 [Wed Jun 08 23:35:52 BRT 2022]  Usuário [13] alterou seu limite de estudo para [10].
 [Wed Jun 08 23:35:52 BRT 2022]  Usuário [13] alterou seu limite de revisões para [13].
@@ -107,3 +108,5 @@
 [Wed Jun 08 23:36:38 BRT 2022]  Usuário [21] fez login.
 [Wed Jun 08 23:39:00 BRT 2022]  Usuário [21] finalizou uma sessão de estudo de [8] tópicos novos.
 [Wed Jun 08 23:39:42 BRT 2022]  Usuário [21] encerrou a sessão.
+=======
+>>>>>>> branch 'master' of https://github.com/Zanarddi/PIGrupo03.git
