@@ -11,7 +11,7 @@ import log.Log;
 import modelo.Login;
 
 /**
- * Frame principal do programa, onde s„o mostradas as diversas funcionalidades
+ * Frame principal do programa, onde s√£o mostradas as diversas funcionalidades
  * do sistema
  * 
  * @author Gustavo Zanardi
@@ -25,18 +25,18 @@ public class FramePrincipal extends JFrame {
 
 	public FramePrincipal(Login l) {
 
-		// configuraÁıes da JFrame
+		// configura√ß√µes da JFrame
 		setTitle("PI Grupo 03");
-		setBounds(0, 0, 1016, 639); // valores n„o "fechados" pois a frame nao acomoda todo o painel
+		setBounds(0, 0, 1016, 639); // valores n√£o "fechados" pois a frame nao acomoda todo o painel
 		setLocationRelativeTo(null); // faz a frame inicar no centro da tela
 		setResizable(false);
 		
-		// A operaÁ„o default para fechar a frame n„o ser· dispose, e sim a especificada abaixo (criaÁ„o do log)
+		// A opera√ß√£o default para fechar a frame n√£o ser√° dispose, e sim a especificada abaixo (cria√ß√£o do log)
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		this.addWindowListener(new java.awt.event.WindowAdapter() {
 		    @Override
 		    public void windowClosing(java.awt.event.WindowEvent windowEvent) {
-		    	// ao fechar a janela, criar um log de fin de sess„o
+		    	// ao fechar a janela, criar um log de fin de sess√£o
 		        Log.encerrarSessao(Main.login.getCodigo());
 		        System.exit(0);
 		    }

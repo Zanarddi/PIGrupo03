@@ -170,3 +170,5 @@
 [Thu Jun 09 01:36:47 BRT 2022]  Usu�rio [8] fez login.
 [Thu Jun 09 01:36:52 BRT 2022]  Usu�rio [8] finalizou uma sess�o de estudo de [2] t�picos novos.
 [Thu Jun 09 01:36:56 BRT 2022]  Usu�rio [8] encerrou a sess�o.
+[Fri Jun 10 00:19:09 BRT 2022]  Usu?rio [8] fez login.
+[Fri Jun 10 00:20:45 BRT 2022]  Usu?rio [8] encerrou a sess?o.
