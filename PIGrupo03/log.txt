@@ -172,3 +172,53 @@
 [Thu Jun 09 01:36:56 BRT 2022]  Usuï¿½rio [8] encerrou a sessï¿½o.
 [Fri Jun 10 00:19:09 BRT 2022]  Usu?rio [8] fez login.
 [Fri Jun 10 00:20:45 BRT 2022]  Usu?rio [8] encerrou a sess?o.
+[Fri Jun 10 22:48:47 BRT 2022]  Usuário [8] fez login.
+[Fri Jun 10 22:49:21 BRT 2022]  Usuário [8] encerrou a sessão.
+[Fri Jun 10 22:50:43 BRT 2022]  Usuário [8] fez login.
+[Fri Jun 10 22:50:57 BRT 2022]  Usuário [8] encerrou a sessão.
+[Fri Jun 10 22:52:15 BRT 2022]  Usuário [8] fez login.
+[Fri Jun 10 22:52:17 BRT 2022]  Usuário [8] encerrou a sessão.
+[Fri Jun 10 22:54:16 BRT 2022]  Usuário [8] fez login.
+[Fri Jun 10 22:54:22 BRT 2022]  Usuário [8] encerrou a sessão.
+[Fri Jun 10 22:58:34 BRT 2022]  Usuário [8] fez login.
+[Fri Jun 10 22:58:45 BRT 2022]  Usuário [8] encerrou a sessão.
+[Fri Jun 10 22:59:27 BRT 2022]  Usuário [8] fez login.
+[Fri Jun 10 22:59:51 BRT 2022]  Usuário [8] encerrou a sessão.
+[Fri Jun 10 23:00:46 BRT 2022]  Usuário [8] fez login.
+[Fri Jun 10 23:01:10 BRT 2022]  Usuário [8] finalizou uma sessão de estudo de [1] tópicos novos.
+[Fri Jun 10 23:07:19 BRT 2022]  Usuário [8] encerrou a sessão.
+[Fri Jun 10 23:07:35 BRT 2022]  Usuário [0] registrado.
+[Fri Jun 10 23:07:35 BRT 2022]  Foram criados [8] novas proficiências para o usuário [1]
+[Fri Jun 10 23:07:40 BRT 2022]  Usuário [1] fez login.
+[Fri Jun 10 23:08:05 BRT 2022]  Usuário [1] finalizou uma sessão de estudo de [8] tópicos novos.
+[Fri Jun 10 23:21:20 BRT 2022]  Usuário [1] encerrou a sessão.
+[Fri Jun 10 23:21:35 BRT 2022]  Usuário [0] registrado.
+[Fri Jun 10 23:21:35 BRT 2022]  Foram criados [0] novas proficiências para o usuário [1]
+[Fri Jun 10 23:21:57 BRT 2022]  Usuário [1] fez login.
+[Fri Jun 10 23:23:23 BRT 2022]  Administrador [1] criou um tópico.
+[Fri Jun 10 23:23:44 BRT 2022]  Administrador [1] criou uma pergunta.
+[Fri Jun 10 23:23:55 BRT 2022]  Administrador [1] criou uma resposta.
+[Fri Jun 10 23:24:00 BRT 2022]  Administrador [1] criou uma resposta.
+[Fri Jun 10 23:24:06 BRT 2022]  Administrador [1] criou uma resposta.
+[Fri Jun 10 23:24:17 BRT 2022]  Administrador [1] criou uma resposta.
+[Fri Jun 10 23:24:21 BRT 2022]  Administrador [1] criou uma resposta.
+[Fri Jun 10 23:24:24 BRT 2022]  Administrador [1] criou uma resposta.
+[Fri Jun 10 23:24:31 BRT 2022]  Usuário [1] encerrou a sessão.
+[Fri Jun 10 23:24:48 BRT 2022]  Usuário [0] registrado.
+[Fri Jun 10 23:24:48 BRT 2022]  Foram criados [1] novas proficiências para o usuário [2]
+[Fri Jun 10 23:24:52 BRT 2022]  Usuário [2] fez login.
+[Fri Jun 10 23:26:00 BRT 2022]  Usuário [2] finalizou uma sessão de estudo de [1] tópicos novos.
+[Fri Jun 10 23:30:52 BRT 2022]  Usuário [2] encerrou a sessão.
+[Fri Jun 10 23:31:00 BRT 2022]  Usuário [2] fez login.
+[Fri Jun 10 23:31:37 BRT 2022]  Usuário [2] finalizou uma sessão de revisão de [1] tópicos.
+[Fri Jun 10 23:31:57 BRT 2022]  Usuário [2] fez login.
+[Fri Jun 10 23:32:21 BRT 2022]  Usuário [2] encerrou a sessão.
+[Fri Jun 10 23:32:32 BRT 2022]  Usuário [2] fez login.
+[Fri Jun 10 23:32:33 BRT 2022]  Usuário [2] encerrou a sessão.
+[Fri Jun 10 23:32:49 BRT 2022]  Usuário [2] encerrou a sessão.
+[Fri Jun 10 23:32:54 BRT 2022]  Usuário [2] fez login.
+[Fri Jun 10 23:32:57 BRT 2022]  Usuário [2] encerrou a sessão.
+[Fri Jun 10 23:33:02 BRT 2022]  Usuário [1] fez login.
+[Fri Jun 10 23:34:30 BRT 2022]  Usuário [1] encerrou a sessão.
+[Fri Jun 10 23:34:46 BRT 2022]  Usuário [2] fez login.
+[Fri Jun 10 23:37:58 BRT 2022]  Usuário [2] encerrou a sessão.
