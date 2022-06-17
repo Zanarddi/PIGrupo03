@@ -33,7 +33,7 @@ public class TopicoDAO {
 	public ArrayList<Integer> pesquisarNovosTopicos() {
 		ArrayList<Integer> lista = new ArrayList<Integer>();
 		bd.getConnection();
-		sql = "SELECT cod_topico FROM topico T WHERE NOT EXISTS (SELECT 1 FROM proficiencia P WHERE P.cod_topico = T.cod_topico AND P.cod_usuario = 8)";
+		sql = "SELECT cod_topico FROM topico T WHERE NOT EXISTS (SELECT 1 FROM proficiencia P WHERE P.cod_topico = T.cod_topico AND P.cod_usuario = "+ Main.login.getCodigo() + ")";
 		try {
 			bd.st = bd.con.prepareStatement(sql);
 			bd.rs = bd.st.executeQuery();

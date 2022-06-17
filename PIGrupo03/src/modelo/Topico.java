@@ -105,7 +105,8 @@ public class Topico {
 				+ "Where p.cod_topico = t.cod_topico \r\n"
 				+ "and t.cod_topico = " + this.codigo;
 		
-		return perguntaDAO.get(sqlQuery);
+		ArrayList<Pergunta> perguntas = perguntaDAO.get(sqlQuery);
+		return perguntas;
 	}
 	
 

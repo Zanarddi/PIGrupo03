@@ -87,7 +87,12 @@ public class TelaPergunta extends TelaPadrao {
 		grupoRespostas.add(new RadioButtonPadrao(respostasCorretas.get(0).getDescricao(), respostasCorretas.get(0).getTipo()));
 		System.out.println(grupoRespostas.get(0).getText());
 		for (int i = 0; i < 3; i++) {
-			grupoRespostas.add(new RadioButtonPadrao(respostasErradas.get(i).getDescricao(), respostasErradas.get(i).getTipo()));
+			try {
+				grupoRespostas.add(new RadioButtonPadrao(respostasErradas.get(i).getDescricao(),
+						respostasErradas.get(i).getTipo()));
+			} catch (Exception e) {
+
+			}
 		}
 		Collections.shuffle(grupoRespostas);
 		

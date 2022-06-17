@@ -192,8 +192,6 @@ public class TelaLogin extends TelaLoginPadrao {
 	
 	private void atualizarTopicos() {
 		TopicoDAO topicoDAO = new TopicoDAO();
-		System.out.println(topicoDAO.pesquisarNovosTopicos().size());
-		System.out.println(Main.login.getCodigo());
 		topicoDAO.inserirProficiencia(topicoDAO.pesquisarNovosTopicos(), Main.login.getCodigo());		
 	}
 }
